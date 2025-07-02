@@ -1,8 +1,11 @@
 
 <template>
   <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/">Why Girl?</RouterLink>
+    <RouterLink to="/about">About Us</RouterLink>
+    <RouterLink to="/cambodia">Cambodia</RouterLink>
+    <RouterLink to="/news">News</RouterLink>
+    <RouterLink to="/donate">Donate</RouterLink>
   </nav>
 
   <RouterView />
