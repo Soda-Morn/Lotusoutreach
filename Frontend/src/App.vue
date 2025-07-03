@@ -1,8 +1,9 @@
 
 <template>
 <RouterView />
-  <div >
+  <div class="font-sans text-gray-800 min-h-screen">
     <Navbar />
+
     <Footer />
   </div>
 

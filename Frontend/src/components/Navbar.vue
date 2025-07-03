@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screengit">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow-md shadow-gray-300 z-50 p-4">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -31,16 +31,6 @@
         </ul>
       </div>
     </nav>
-
-    <!-- Main Content -->
-    <!-- <main class="flex-grow mt-24 p-6 max-w-7xl mx-auto w-full">
-      <h2 class="text-2xl font-bold mb-4">Welcome to Lotus Outreach</h2>
-      <p class="text-gray-700">
-        This is where your page content goes. Add your About, Cambodia, or News content here.
-      </p>
-    </main> -->
-
-
   </div>
 </template>
 

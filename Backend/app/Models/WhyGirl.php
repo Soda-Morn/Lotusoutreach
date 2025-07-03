@@ -9,15 +9,14 @@ class WhyGirl extends Model
 {
     use HasFactory;
     
-    protected $fillable = [
-        'page',
-        'title',
-        'content',
-        'image',
-        'page_content_id',
-    ];
     public function pageContent()
     {
         return $this->belongsTo(PageContent::class, 'page_content_id');
     }
+    function program()
+    {
+        return $this->hasMany(Program::class);
+    } 
+    protected $fillable = ['page', 'title', 'content', 'image_path'];
+
 }
