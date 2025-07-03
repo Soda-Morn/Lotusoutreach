@@ -4,11 +4,11 @@
     <h3 class="text-xl font-semibold mt-2">{{ title }}</h3>
     <p class="mt-2 text-white" v-if="!showMore">{{ content.substring(0, 100) + '...' }}</p> <!-- Show truncated content by default -->
     <p class="mt-2 text-white" v-if="showMore">{{ content }}</p> <!-- Show full content when expanded -->
-  <button
+<button
   v-if="buttonText"
   @click="toggleShowMore"
   :class="[
-    'mt-4 px-4 py-2 rounded-lg bg-white text-black hover:bg-blue-100 border border-blue-700 transition',
+    'mt-4 px-4 py-2 rounded-lg bg-white !text-black hover:bg-blue-100 border border-blue-700 transition',
     buttonClass
   ]"
 >

@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
     <!-- Banner Section -->
-    <div class="relative bg-gray-100 py-12">
+    <div class="relative bg-gray-100 h-screen"> <!-- Changed to h-screen for full viewport height -->
       <img src="https://business-cambodia.com/cms/assets/2f22a1db-85ee-42e9-8a8c-a0a134e1a82c" alt="Group Photo"
-        class="w-full h-64 object-cover">
+        class="w-full h-full object-cover"> <!-- Changed to h-full -->
       <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
         <div class="text-center text-white max-w-2xl px-4">
           <h2 class="text-4xl font-bold mb-4">Why Girls?</h2>

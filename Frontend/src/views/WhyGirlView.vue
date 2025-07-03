@@ -1,12 +1,11 @@
 <template>
   <div>
     <WhyGirl />
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8 px-4">
       <h2 class="text-2xl font-bold text-center mb-6">Our Focus Areas</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card title="Education and Training"
           content="Girls’ education is a transformative force. Educated women experience wide-ranging benefits. They have healthier children, are at less risk of experiencing domestic violence and marrying young, have fewer children, higher incomes, and more respect in making household decisions. These advantages combined can help tp lift households, communities, and nations out of poverty. Moreover, and at the cornerstone of our approach to social development, educated women are more likely to become active and influential members of their communities.
-
             The education of women is an international development priority. UNESCO estimates “130 million girls between the age of 6 and 17 are out of school and 15 million girls of primary-school age—half of them in sub-Saharan Africa— will never enter a classroom.”
             In the poverty-stricken areas of India and Cambodia where we work, women face significant barriers to education. Often they are up against having to travel long distances to school, restrictive gender narratives, violence, and trafficking and/or migration.
             We combine advocacy efforts with the provision of access to education, university level scholarships, and assistance to ensure young Indian and Cambodian women finish locally unprecedented levels of education and/or skill training. We provide seminars and mentoring that emphasize skills and development that prepare young women to be catalysts of profound shifts in their communities."
@@ -26,12 +25,11 @@
             Because trafficking is inextricably linked to poverty around the world, all of our programs are preventative in nature. In the areas of Cambodia where we work, young women without education migrate by the tens of thousands from the rural countryside to cities looking for work to help support their families. Without options, the conditions for exploitation are tenfold. In India, reducing the devastating impacts of malnutrition is a worldwide priority.
             Providing care in vulnerable communities transforms lives and our impact is multiplied through the capacity and vision of the young women and girls we support."
           buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
-        <Card title="Anti-trafficking, Health and Water Services"
-          content="Lotus Outreach anti-trafficking, health and water service programs are directly serving 17,000 women and children in 2019.
+        <Card title="Anti-trafficking, Health and Water Services" content="Lotus Outreach anti-trafficking, health and water service programs are directly serving 17,000 women and children in 2019.
             Education, literacy and advocacy play an important role in protecting girls from exploitation. As the voices of women strengthen, they are spurred to demand equality and look out for one another. In this way, education and training addresses exploitation before it can occur. For those who are survivors of violence, we have projects that provide trauma therapy, social services, and economic empowerment.
             Our work in anti-trafficking, health and water very directly improve wellbeing and educational outcomes. Our well program provides clean water and health education to communities in dire need while supporting school attendance for children who might otherwise be walking long distances for potable water while their parents earn wages. Instead, health and education are supported by the nearby wells we provide. Our rural health program is directly empowering local health workers to educate their communities.
-            We are proud to support the conditions for our beneficiaries to thrive."
-          buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
+            We are proud to support the conditions for our beneficiaries to thrive." buttonText="Learn more"
+          cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
       </div>
       <div class="mt-12 text-center">
         <h2 class="text-2xl font-bold mb-4">How do we empower women and children in crisis?</h2>
@@ -96,19 +94,48 @@
             Blossom Bus. All of our programs are replicable and scalable across the countries they operate in.</p>
         </div>
       </div>
-      <div class="mt-8 text-center">
-        <Card title="Clean Water for Communities"
-          content="Clean water is care for girls and their families. 60% of rural communities don’t have access to clean drinking water. Over 10 years we have provided clean water for 10,000 villagers."
-          image="https://via.placeholder.com/600x300?text=Clean+Water" />
-        <p class="mt-4 text-blue-600">Access to education for girls is the most powerful way to spark community
-          engagement and economic growth.</p>
-        <!-- New Clean Water for Communities Section -->
-        <!-- <Card
-          title="Clean Water for Communities"
-          content="Clean water is care for girls and their families. 60% of rural communities don’t have access to clean drinking water. Over 10 years we have provided clean water for 10,000 villagers."
-          image="https://via.placeholder.com/600x300?text=Clean+Water+for+Communities"
-        />
-        <p class="mt-4 text-blue-600">Access to education for girls is the most powerful way to spark community engagement and economic growth.</p> -->
+      <div class="mt-16 mb-12">
+        <!-- Water Initiative Section -->
+        <div class="flex flex-col md:flex-row gap-8 items-center bg-blue-50 rounded-xl p-6 md:p-8 shadow-lg">
+          <!-- Text Content -->
+          <div class="md:w-1/2 space-y-4 mb-28">
+            <h3 class="text-3xl font-bold text-blue-700 mb-2">
+              <span class="inline-block w-8 h-1 bg-blue-500 mb-2"></span>
+              Clean Water for Communities
+            </h3>
+            <div class="space-y-4">
+              <p class="text-gray-700 text-lg leading-relaxed">
+                Clean water is transformative care for girls and their families. Did you know?
+                <span class="font-semibold text-blue-600">60% of rural communities</span> lack access to clean drinking
+                water.
+              </p>
+              <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                <p class="text-gray-800">
+                  <span class="text-2xl font-bold text-blue-600">10,000+</span><br>
+                  villagers provided with clean water over the past decade
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="md:w-1/2">
+            <img src="https://lotusoutreach.org/wp-content/uploads/2018/12/people_at_public_water_pump.jpg"
+              alt="Community members at water pump"
+              class="w-full h-auto rounded-xl shadow-xl transform hover:scale-[1.02] transition duration-300">
+          </div>
+        </div>
+
+        <!-- Impact Statement -->
+        <div class="mt-7 rounded-2xl p-8 text-center text-pink-500 ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-4" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <p class="text-xl md:text-2xl font-medium leading-relaxed max-w-4xl mx-auto">
+            "Access to education for girls is the most powerful way to spark community engagement and economic growth."
+          </p>
+        </div>
       </div>
     </div>
   </div>
