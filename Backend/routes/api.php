@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\V1\PageContentController;
+use App\Http\Controllers\Api\V1\ProgramController;
+use App\Http\Controllers\Api\V1\WhyGirlController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// API Routes for PageContent
+Route::prefix('v1')->group(function () {
+    Route::apiResource('pagecontents', PageContentController::class);
+    Route::apiResource('whygirl', WhyGirlController::class);
+    Route::apiResource('program', ProgramController::class);
+
 });
