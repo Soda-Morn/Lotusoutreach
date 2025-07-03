@@ -1,12 +1,15 @@
 
 <template>
-  <nav>
-    <RouterLink to="/">Why Girl?</RouterLink>
-    <RouterLink to="/about">About Us</RouterLink>
-    <RouterLink to="/cambodia">Cambodia</RouterLink>
-    <RouterLink to="/news">News</RouterLink>
-    <RouterLink to="/donate">Donate</RouterLink>
-  </nav>
+<RouterView />
+  <div class="font-sans text-gray-800 bg-[#FFF8F0] min-h-screen">
+    <Navbar />
+    <RouterView />
+    <Footer />
+  </div>
 
-  <RouterView />
 </template>
+<script setup>
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
+import { RouterView } from 'vue-router';
+</script>
