@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class NewContent extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'page',
+        'title',
+        'content',
+        'image_path',
+        'page_content_id'
+    ];
+    public function pageContent()
+    {
+        return $this->belongsTo(PageContent::class, 'page_content_id');
+    }
 }
