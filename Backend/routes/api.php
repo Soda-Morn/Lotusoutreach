@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\DonationController;
 use App\Http\Controllers\Api\V1\AboutContentController;
 use App\Http\Controllers\Api\V1\CambodiaContentController;
+use App\Http\Controllers\Api\V1\CombodiaContentController;
 use App\Http\Controllers\Api\V1\NewContentController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\PartnerController;

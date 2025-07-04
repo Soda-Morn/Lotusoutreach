@@ -19,4 +19,8 @@ class AboutContent extends Model
     {
         return $this->belongsTo(PageContent::class, 'page_content_id');
     }
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }

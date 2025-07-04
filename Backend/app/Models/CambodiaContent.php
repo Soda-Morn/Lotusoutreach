@@ -46,4 +46,8 @@ class CambodiaContent extends Model
     {
         return $this->updated_at ? $this->updated_at->format('D, d M Y') : null;
     }
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
