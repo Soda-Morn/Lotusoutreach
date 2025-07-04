@@ -4,7 +4,7 @@
         <div class="relative h-screen flex items-center justify-center overflow-hidden">
             <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
                 alt="People helping each other" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-blue-600 opacity-60"></div>
+            <div class="absolute inset-0 bg-blue-900 opacity-60"></div>
             <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center px-4">
                     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Spread Love & Kindness</h1>
@@ -391,6 +391,9 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div>
+            <img src="@/img/paypal.png" alt="PayPal Logo" class="mx-auto mb-12 w-80 h-auto rounded-2xl shadow-lg">
         </div>
 
         <!-- Footer -->

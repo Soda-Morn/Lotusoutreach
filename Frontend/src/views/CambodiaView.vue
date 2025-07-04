@@ -9,7 +9,7 @@
           <img src="@/img/cam1.png" alt="Cambodia program 1" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
             <div class="text-center px-6 text-white max-w-4xl">
-              <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">CAMBODIA</h1>
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">EDUCATION IS HER POWER</h1>
               <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
               <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-100 mb-12">
                 Empowering girls through education and care programs
