@@ -77,7 +77,7 @@ class AboutContentController extends Controller
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-       $validated = $request->validate([
+       $validated = $request->validat([
     'page' => 'sometimes|required|string|max:255',
     'type' => 'sometimes|required|string|max:255',
     'title' => 'sometimes|required|string|max:255',
