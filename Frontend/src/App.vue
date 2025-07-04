@@ -1,9 +1,7 @@
-
 <template>
-<RouterView />
+  <RouterView />
   <div>
     <Navbar />
-
     <Footer />
   </div>
 
