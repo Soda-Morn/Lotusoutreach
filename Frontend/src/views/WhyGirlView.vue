@@ -36,67 +36,83 @@
             Our work in anti-trafficking, health and water very directly improve wellbeing and educational outcomes. Our well program provides clean water and health education to communities in dire need while supporting school attendance for children who might otherwise be walking long distances for potable water while their parents earn wages. Instead, health and education are supported by the nearby wells we provide. Our rural health program is directly empowering local health workers to educate their communities.We are proud to support the conditions for our beneficiaries to thrive."
           buttonText="Learn more" cardClass="bg-pink-600 text-white" buttonClass="bg-pink-600 text-white" />
       </div>
-      <div class="mt-12 text-center">
-        <h2 class="text-2xl font-bold mb-4">How do we empower women and children in crisis?</h2>
-        <div class="flex justify-center space-x-4 mb-4">
-          <button @click="activeSection = 'multi-dimensional'"
-            :class="{ 'bg-pink-600 text-white': activeSection === 'multi-dimensional', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'multi-dimensional' }"
-            class="px-4 py-2 rounded-lg shadow-md">Multi-dimensional</button>
-          <button @click="activeSection = 'local'"
-            :class="{ 'bg-pink-600 text-white': activeSection === 'local', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'local' }"
-            class="px-4 py-2 rounded-lg shadow-md">Local</button>
-          <button @click="activeSection = 'engaged'"
-            :class="{ 'bg-pink-600 text-white': activeSection === 'engaged', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'engaged' }"
-            class="px-4 py-2 rounded-lg shadow-md">Engaged</button>
-          <button @click="activeSection = 'innovative'"
-            :class="{ 'bg-pink-600 text-white': activeSection === 'innovative', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'innovative' }"
-            class="px-4 py-2 rounded-lg shadow-md">Innovative</button>
-        </div>
-        <div v-if="activeSection === 'multi-dimensional'" class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
-          <p class="text-gray-700">Successful programs embrace the complex nature of the development process, and
-            introduce holistic solutions where possible. Our scholarship programs do this, incorporating nutrition
-            support, personal and professional development, trafficking awareness, and gender-based advocacy. Families
-            living in poverty often rely on their girl children to help make ends meet so providing families with
-            nutritional support helps ensure families remain committed to their girls’ education. Our programs integrate
-            cross-cutting methods in areas we define as education, training, and care to support the development of
-            communities experiencing multiple dimensions of poverty and vulnerability.</p>
-        </div>
-        <div v-if="activeSection === 'local'" class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
-          <p class="text-gray-700">We are unique in that we have two local NGOs on the ground: one in India and the
-            other in Cambodia. Through 25 years of experience, we have prioritized cultural nuance as a core element of
-            program design. Values, priorities, and capabilities not only change from one country to another, but also
-            from one village to another. Our locally-based programs allow us to implement solutions that are highly
-            responsive to local conditions and the changing needs and priorities of our beneficiaries. Our programs
-            align with national level social development objectives in order to best partner with local governance and
-            communities. Program staff are native to the areas they work, which makes the work being done very personal
-            for them. We are able to operate highly cost-effective and adaptable programs in collaboration with
-            community support. This kind of local collaboration is essential to our approach to sustainable development.
-          </p>
-        </div>
-        <div v-if="activeSection === 'engaged'" class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
-          <p class="text-gray-700">When we say "change spreads fastest from the ground up" we mean that we believe
-            sustainable change occurs most effectively at the grassroots. The communities we work in are our partners in
-            advocacy and action. We rely on the mobilization of community networks through relationships built on trust
-            and understanding. Our scholarship and access to education programs necessitate the support of teachers and
-            community leaders, while we mobilize parents and school management committees to attend to the education of
-            their children. At our well sites, we establish community water committees to maintain the new resources and
-            model hygienic behaviors. In the rural health sector, we train government health workers in their
-            responsibilities and empower them to be advocates of community health. Our lasting networks have supported
-            our core programs for more than 10 years and exemplify the benefit of working together. Community members
-            and beneficiaries are our long-term partners in creating change that sticks.</p>
-        </div>
-        <div v-if="activeSection === 'innovative'" class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
-          <p class="text-gray-700">Ground up and participatory based community change is at the cutting edge of
-            sustainable development approaches. We engage directly with local and multidimensional conditions to spur
-            sustainable shifts. We start by working within existing infrastructures to deliver access to education and
-            health services, filling in gaps in the matrix of conditions to enable success and wellbeing for
-            beneficiaries living in poverty. A scholarship is of no benefit if girls cannot reach school, while if
-            families are hungry they may send girls to work instead of school. We provide transport where it can help
-            and rice support where it will maintain families’ commitments to their girls’ education. Our solutions align
-            with local governance objectives and adapt in conversation with communities. We started LEARN by assessing
-            school amenities. Then we initiated community mobilization around girls’ education, developed school
-            management committees and created quality education training for teachers, which eventually gave rise to the
-            Blossom Bus. All of our programs are replicable and scalable across the countries they operate in.</p>
+      <div class="mt-12 container mx-auto px-4 max-w-6xl">
+        <h2 class="text-2xl font-bold mb-8 text-center">How do we empower women and children in crisis?</h2>
+
+        <div class="flex flex-col lg:flex-row gap-8 items-stretch">
+          <!-- Image on left - matching card height -->
+          <div class="w-full lg:w-8/12 cursor-pointer" @click="handleImageClick">
+            <img
+              src="https://images.globalgiving.org/pfil/3885/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
+              alt="Empowering women and children"
+              class="rounded-lg shadow-lg w-full h-full object-cover transition-transform hover:scale-105"
+              style="min-height: 300px;">
+          </div>
+
+          <!-- Content on right -->
+          <div class="w-full lg:w-7/12 ">
+            <div class="flex flex-wrap justify-center gap-3 mb-6">
+              <button @click="activeSection = 'multi-dimensional'" :class="{
+                'bg-pink-600 text-white': activeSection === 'multi-dimensional',
+                'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'multi-dimensional'
+              }" class="px-4 py-2 rounded-lg shadow-md transition-colors text-sm sm:text-base">
+                Multi-dimensional
+              </button>
+              <button @click="activeSection = 'local'" :class="{
+                'bg-pink-600 text-white': activeSection === 'local',
+                'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'local'
+              }" class="px-4 py-2 rounded-lg shadow-md transition-colors text-sm sm:text-base">
+                Local
+              </button>
+              <button @click="activeSection = 'engaged'" :class="{
+                'bg-pink-600 text-white': activeSection === 'engaged',
+                'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'engaged'
+              }" class="px-4 py-2 rounded-lg shadow-md transition-colors text-sm sm:text-base">
+                Engaged
+              </button>
+              <button @click="activeSection = 'innovative'" :class="{
+                'bg-pink-600 text-white': activeSection === 'innovative',
+                'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'innovative'
+              }" class="px-4 py-2 rounded-lg shadow-md transition-colors text-sm sm:text-base">
+                Innovative
+              </button>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg h-[300px] overflow-y-auto">
+              <div v-if="activeSection === 'multi-dimensional'" class="text-gray-700 space-y-4">
+                <p>Successful programs embrace the complex nature of the development process, and introduce holistic
+                  solutions where possible. Our scholarship programs do this, incorporating nutrition support, personal
+                  and professional development, trafficking awareness, and gender-based advocacy.</p>
+                <p>Families living in poverty often rely on their girl children to help make ends meet so providing
+                  families with nutritional support helps ensure families remain committed to their girls' education.
+                </p>
+              </div>
+
+              <div v-if="activeSection === 'local'" class="text-gray-700 space-y-4">
+                <p>We are unique in that we have two local NGOs on the ground: one in India and the other in Cambodia.
+                  Through 25 years of experience, we have prioritized cultural nuance as a core element of program
+                  design.</p>
+                <p>Our locally-based programs allow us to implement solutions that are highly responsive to local
+                  conditions and the changing needs and priorities of our beneficiaries.</p>
+              </div>
+
+              <div v-if="activeSection === 'engaged'" class="text-gray-700 space-y-4">
+                <p>When we say "change spreads fastest from the ground up" we mean that we believe sustainable change
+                  occurs most effectively at the grassroots. The communities we work in are our partners in advocacy and
+                  action.</p>
+                <p>Our lasting networks have supported our core programs for more than 10 years and exemplify the
+                  benefit of working together.</p>
+              </div>
+
+              <div v-if="activeSection === 'innovative'" class="text-gray-700 space-y-4">
+                <p>Ground up and participatory based community change is at the cutting edge of sustainable development
+                  approaches. We engage directly with local and multidimensional conditions to spur sustainable shifts.
+                </p>
+                <p>We start by working within existing infrastructures to deliver access to education and health
+                  services, filling in gaps in the matrix of conditions to enable success and wellbeing.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="mt-16 mb-12">
