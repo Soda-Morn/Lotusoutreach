@@ -16,7 +16,7 @@
       </div>
     </div>
     <!-- Cards Section -->
-    <div class="container mx-auto py-8 px-4">
+    <div class="container mx-auto py-8 px-4 mt-20">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div
           class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-[1.02] hover:shadow-xl active:scale-[1.01] cursor-pointer group">
