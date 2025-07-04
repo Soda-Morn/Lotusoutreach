@@ -21,40 +21,41 @@ class NewContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-   public function store(Request $request)
-{
-    $validated = $request->validate([
-        'page' => 'required|string|max:255',
-        'type' => 'required|string|max:255',
-        'title' => 'required|string|max:255',
-        'content' => 'required|string',
-        'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:2048',
-        'image_path' => 'nullable|string|max:255',
-        'page_content_id' => 'required|integer', // Add this line
-        'publication_date' => 'nullable|date', // Optional publication date
-        'author' => 'nullable|string|max:255', // Optional author field
-    ]);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'page' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:2048',
+            'page_content_id' => 'required|integer|exists:page_contents,id',
+            'publication_date' => 'nullable|date',
+            'author' => 'nullable|string|max:255',
+        ]);
 
-    $imagePath = $validated['image_path'] ?? null;
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('images', 'public');
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+        }
+
+        $newContent = NewContent::create([
+            'page' => $validated['page'],
+            'type' => $validated['type'],
+            'title' => $validated['title'],
+            'content' => $validated['content'],
+            'image_path' => $imagePath,
+            'page_content_id' => $validated['page_content_id'],
+            'publication_date' => $validated['publication_date'] ?? null,
+            'author' => $validated['author'] ?? null,
+        ]);
+
+        return response()->json([
+            'message' => 'New content created successfully',
+            'data' => $newContent,
+            'image_url' => $imagePath ? asset('storage/' . $imagePath) : null,
+        ], 201);
     }
-
-    $newContent = NewContent::create([
-        'page' => $validated['page'],
-        'type' => $validated['type'],
-        'title' => $validated['title'],
-        'content' => $validated['content'],
-        'image_path' => $imagePath,
-        'page_content_id' => $validated['page_content_id'], // Add this line
-    ]);
-
-    return response()->json([
-        'message' => 'New content created successfully',
-        'data' => $newContent,
-        'image_url' => $imagePath ? asset('storage/' . $imagePath) : null,
-    ], 201);
-}
 
     /**
      * Display the specified resource.
@@ -87,19 +88,16 @@ class NewContentController extends Controller
             'title' => 'sometimes|required|string|max:255',
             'content' => 'sometimes|required|string',
             'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:2048',
-            'image_path' => 'nullable|string|max:255',
-            'page_content_id' => 'sometimes|required|integer', // Add this line
-            'publication_date' => 'nullable|date', // Optional publication date
-            'author' => 'nullable|string|max:255', // Optional author field
+            'page_content_id' => 'sometimes|required|integer|exists:page_contents,id',
+            'publication_date' => 'nullable|date',
+            'author' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
-            // Delete old image if exists
             if ($newContent->image_path) {
                 Storage::disk('public')->delete($newContent->image_path);
             }
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validated['image_path'] = $imagePath;
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
         }
 
         $newContent->update($validated);
@@ -111,10 +109,11 @@ class NewContentController extends Controller
         ]);
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
-  public function destroy(string $id)
+    public function destroy(string $id)
     {
         $newContent = NewContent::find($id);
 
