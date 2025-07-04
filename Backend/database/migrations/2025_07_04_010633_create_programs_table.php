@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('new_contents', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('page')->nullable();
             $table->string('title')->nullable();
-            $table->text('content')->nullable();
+            $table->text('description')->nullable();
             $table->string('image_path')->nullable();
-            $table->string('publication_date')->nullable();
-            $table->string('author')->nullable();
-            
-            $table->foreignId('page_content_id')
-                ->constrained('page_contents')
+
+            $table->foreignId('why_girls_id')
+                ->constrained('why_girls')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('new_contents');
+        Schema::dropIfExists('programs');
     }
 };

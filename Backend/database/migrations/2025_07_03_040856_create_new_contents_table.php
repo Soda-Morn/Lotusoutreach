@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('whygirl_contents', function (Blueprint $table) {
+        Schema::create('new_contents', function (Blueprint $table) {
             $table->id();
             $table->string('page')->nullable();
             $table->string('title')->nullable();
-            $table->text('content')->nullable();  
-            $table->string('image_path')->nullable();  
+            $table->text('content')->nullable();
+            $table->string('image_path')->nullable();
+            $table->string('publication_date')->nullable();
+            $table->string('author')->nullable();
 
             $table->foreignId('page_content_id')
                 ->constrained('page_contents')
@@ -25,11 +27,12 @@ return new class extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('mygirl_contents');
+        Schema::dropIfExists('new_contents');
     }
 };

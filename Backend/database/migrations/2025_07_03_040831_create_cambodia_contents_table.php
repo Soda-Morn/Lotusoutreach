@@ -11,25 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('about_contents', function (Blueprint $table) {
+        Schema::create('cambodia_contents', function (Blueprint $table) {
             $table->id();
             $table->string('page')->nullable();
             $table->string('title')->nullable();
             $table->text('content')->nullable();
             $table->string('image_path')->nullable();
-            
+
             $table->foreignId('page_content_id')
                 ->constrained('page_contents')
-                ->onDelete('cascade');  
+                ->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('about_contents');
+        Schema::dropIfExists('cambodia_contents');
     }
 };
