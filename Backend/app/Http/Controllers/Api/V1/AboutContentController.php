@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AboutContent\StoreAboutContentRequest;
+use App\Http\Requests\AboutContent\UpdateAboutContentRequest;
 use App\Models\AboutContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,16 +23,9 @@ class AboutContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAboutContentRequest $request)
     {
-        $validated = $request->validate([
-            'page' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'page_content_id' => 'required|integer|exists:page_contents,id',
-        ]);
+        $validated = $request->validated();
 
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -38,7 +33,7 @@ class AboutContentController extends Controller
         }
 
         $aboutContent = AboutContent::create([
-            'type' => $validated['type'],
+            'page' => $validated['page'], 
             'title' => $validated['title'],
             'content' => $validated['content'],
             'image_path' => $imagePath,
@@ -69,7 +64,7 @@ class AboutContentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateAboutContentRequest $request, string $id)
     {
         $aboutContent = AboutContent::find($id);
 
@@ -77,28 +72,21 @@ class AboutContentController extends Controller
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-       $validated = $request->validate([
-    'page' => 'sometimes|required|string|max:255',
-    'type' => 'sometimes|required|string|max:255',
-    'title' => 'sometimes|required|string|max:255',
-    'content' => 'sometimes|required|string',
-    'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-    'page_content_id' => 'sometimes|required|integer|exists:page_contents,id',
-]);
+        $validated = $request->validated();
 
-// Fill only provided fields (like now)
-$aboutContent->fill($validated);
+        // Fill only provided fields (like now)
+        $aboutContent->fill($validated);
 
-// Save new image if uploaded
-if ($request->hasFile('image')) {
-    if ($aboutContent->image_path) {
-        Storage::disk('public')->delete($aboutContent->image_path);
-    }
-    $imagePath = $request->file('image')->store('images', 'public');
-    $aboutContent->image_path = $imagePath;
-}
+        // Save new image if uploaded
+        if ($request->hasFile('image')) {
+            if ($aboutContent->image_path) {
+                Storage::disk('public')->delete($aboutContent->image_path);
+            }
+            $imagePath = $request->file('image')->store('images', 'public');
+            $aboutContent->image_path = $imagePath;
+        }
 
-$aboutContent->save();
+        $aboutContent->save();
         return response()->json([
             'message' => 'Item updated successfully',
             'data' => $aboutContent,

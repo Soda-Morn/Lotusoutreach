@@ -22,4 +22,8 @@ class NewContent extends Model
     {
         return $this->belongsTo(pageContent::class);
     }
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
