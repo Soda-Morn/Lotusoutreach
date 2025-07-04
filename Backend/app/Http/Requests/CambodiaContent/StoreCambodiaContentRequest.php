@@ -26,7 +26,6 @@ class StoreCambodiaContentRequest extends FormRequest
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:2048',
-            'image_path' => 'nullable|string|max:255',
             'page_content_id' => 'required|integer', // Add this line
            
         ];

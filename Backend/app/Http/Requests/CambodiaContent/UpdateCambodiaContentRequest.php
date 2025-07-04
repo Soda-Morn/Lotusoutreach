@@ -26,7 +26,6 @@ class UpdateCambodiaContentRequest extends FormRequest
             'title' => 'sometimes|required|string|max:255',
             'content' => 'sometimes|required|string',
             'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:2048',
-            'image_path' => 'nullable|string|max:255',
             'page_content_id' => 'sometimes|required|integer', // Add this line
         ];
     }

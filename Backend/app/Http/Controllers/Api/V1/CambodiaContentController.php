@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CambodiaContent\StoreCambodiaContentRequest;
 use App\Http\Requests\CambodiaContent\UpdateCambodiaContentRequest;
+use App\Http\Resources\CambodiaContentResource;
 use App\Models\CambodiaContent;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class CambodiaContentController extends Controller
         // Fetch all Cambodia content
         $cambodiaContents = CambodiaContent::all();
 
-        return response()->json( $cambodiaContents);
+        return response()->json([
+            'message' => 'ProgramDetail retrieved successfully',
+            'CambodiaContent' => CambodiaContentResource::collection($cambodiaContents)
+        ]);
     }
 
     /**
@@ -63,7 +67,10 @@ class CambodiaContentController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return response()->json($cambodiaContent);
+        return response()->json([
+            'message' => 'ProgramDetail retrieved successfully',
+            'CambodiaContent' => CambodiaContentResource::collection($cambodiaContent)
+        ]);
     }
 
     /**
@@ -95,7 +102,6 @@ class CambodiaContentController extends Controller
             'data' => $cambodiaContent,
             'image_url' => $cambodiaContent->image_path ? asset('storage/' . $cambodiaContent->image_path) : null,
         ]);
-
     }
 
     /**
