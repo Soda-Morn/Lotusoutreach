@@ -11,25 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('program_details', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->string('image_path')->nullable();
 
-            $table->foreignId('why_girls_id')
-                ->constrained('whygirl_contents')
+            $table->foreignId('program_id')
+                ->constrained('programs')
                 ->onDelete('cascade');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('program_details');
     }
 };

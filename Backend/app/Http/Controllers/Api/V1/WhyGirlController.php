@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WhyGirl\StoreWhyGirlRequest;
+use App\Http\Requests\WhyGirl\UpdateWhyGirlRequest;
+use App\Http\Resources\WhyGirlResource;
 use App\Models\WhyGirl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,21 +18,18 @@ class WhyGirlController extends Controller
     public function index()
     {
         $whyGirl = WhyGirl::all();
-        return response()->json($whyGirl);
+        return response()->json([
+            'message' => 'WhyGirl retrieved successfully',
+            'WhyGirl' => WhyGirlResource::collection($whyGirl)
+        ]);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreWhyGirlRequest $request)
     {
-        $validated = $request->validate([
-            'page' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -41,6 +41,7 @@ class WhyGirlController extends Controller
             'title' => $validated['title'],
             'content' => $validated['content'],
             'image_path' => $imagePath,
+            'page_content_id' => $validated['page_content_id'] ?? null,
         ]);
 
         return response()->json([
@@ -53,40 +54,38 @@ class WhyGirlController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-         $whyGirl = WhyGirl::find($id);
+        $whyGirl = WhyGirl::find($id);
 
         if (!$whyGirl) {
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return response()->json($whyGirl);
+        return response()->json([
+            'message' => 'WhyGirl retrieved successfully',
+            'WhyGirl' => WhyGirlResource::collection($whyGirl)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateWhyGirlRequest $request, $id)
     {
-         $whyGirl = WhyGirl::find($id);
+        $whyGirl = WhyGirl::find($id);
 
         if (!$whyGirl) {
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        $validated = $request->validate([
-            'page' => 'sometimes|required|string|max:255',
-            'title' => 'sometimes|required|string|max:255',
-            'content' => 'sometimes|required|string',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($whyGirl->image_path) {
                 Storage::disk('public')->delete($whyGirl->image_path);
             }
-            $whyGirl->image_path = $request->file('image')->store('images', 'public');
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
         }
 
         $whyGirl->update($validated);
@@ -101,7 +100,7 @@ class WhyGirlController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $whyGirl = WhyGirl::find($id);
 

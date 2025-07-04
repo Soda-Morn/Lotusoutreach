@@ -13,10 +13,13 @@ class NewContent extends Model
         'title',
         'content',
         'image_path',
-        'page_content_id'
+        'page_content_id',
+        'publication_date',
+        'author'
+        
     ];
     public function pageContent()
     {
-        return $this->belongsTo(PageContent::class, 'page_content_id');
+        return $this->belongsTo(pageContent::class);
     }
 }

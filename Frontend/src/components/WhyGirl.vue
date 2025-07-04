@@ -53,7 +53,7 @@
               src="https://media.licdn.com/dms/image/v2/C561BAQHovERV7NaR7g/company-background_10000/company-background_10000/0/1615466141859/lotusoutreachinternational_cover?e=2147483647&v=beta&t=E2rwHcaKf0iDwP57SpCCBdOm12F61_c_-Pd5g8VQ8kg"
               alt="Children in need" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110">
           </div>
-          <div class="p-6 hover:bg-pink-50 transition-colors duration-300">
+          <div class="p-6 hover:bg-pink-50 w-full h-full transition-colors duration-300">
             <h3 class="text-2xl font-bold text-center text-pink-500 mb-2 hover:text-pink-600 transition-colors">1
               billion</h3>
             <p class="text-center text-gray-600 font-semibold mb-4 hover:text-gray-800 transition-colors">children
