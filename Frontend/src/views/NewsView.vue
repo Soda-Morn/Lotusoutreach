@@ -1,20 +1,45 @@
 <template>
-    <div class="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
+    <div class="">
+        <div class="">
             <!-- Banner -->
-           <div class="relative rounded-xl overflow-hidden mb-12 shadow-lg"
-     style="height: 100vh; background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center; width: 100vw; margin-left: -50vw; left: 50%; transform: translateX(-50%); position: relative;">
-    <div class="absolute inset-0 bg-pink-600 bg-opacity-60 flex flex-col justify-center items-center text-white px-4 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold drop-shadow-lg">Lotus Outreach News</h1>
-        <p class="mt-4 text-xl max-w-2xl drop-shadow-md">
-            Updates on our programs and impact around the world
-        </p>
-    </div>
-</div>
+            <!-- Fullscreen Banner -->
+            <div class="relative  h-screen ">
+                <!-- Background Image -->
+                <img src="https://lotusoutreachaustralia.org.au/wp-content/uploads/2025/02/three-girls-banner-.jpg"
+                    alt="Lotus Outreach News" class="absolute inset-0 w-full h-full object-cover">
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-45">
+                    <div class="text-center text-white max-w-4xl px-6">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">Lotus Outreach News</h1>
+
+                        <div class="mb-8">
+                            <p class="text-xl md:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto drop-shadow-md">
+                                Latest updates on our programs and global impact
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-4">
+                                <router-link to="/news/latest"
+                                    class="px-6 py-3 bg-white text-pink-600 rounded-lg hover:bg-gray-100 font-semibold transition">
+                                    Read Latest Stories
+                                </router-link>
+                                <router-link to="/news/archive"
+                                    class="px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-pink-600 font-semibold transition">
+                                    News Archive
+                                </router-link>
+                            </div>
+                        </div>
+
+                        <div class="text-sm md:text-base opacity-90">
+                            Stay informed about our work empowering women and girls worldwide
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- News Grid -->
             <div class="space-y-8">
-                <transition-group name="fade" tag="div" class="space-y-8">
+                <transition-group name="fade" tag="div" class="space-y-8 mt-20">
                     <div v-for="(article, index) in articles" :key="index"
                         class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col md:flex-row"
                         @click="openModal(article)">
