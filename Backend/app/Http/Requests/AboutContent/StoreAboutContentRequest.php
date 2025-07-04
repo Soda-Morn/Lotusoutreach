@@ -11,7 +11,7 @@ class StoreAboutContentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true; // Change to true to allow this request
     }
 
     /**
