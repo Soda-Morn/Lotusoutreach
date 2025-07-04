@@ -12,7 +12,7 @@ class PageContent extends Model
         'type',
         'title',
         'content',
-        'image_path'
+        'image_path',
     ];
     protected $hidden = ['created_at', 'updated_at'];
     function whyGirl()

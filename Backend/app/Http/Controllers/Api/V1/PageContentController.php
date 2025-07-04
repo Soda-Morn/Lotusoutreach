@@ -12,8 +12,8 @@ class PageContentController extends Controller
     // GET /api/v1/page-contents
     public function index()
     {
-        $pageContents = PageContent::all();
-        return response()->json($pageContents);
+        $pageContent= PageContent::all();
+        return response()->json($pageContent);
     }
 
     // POST /api/v1/page-contents

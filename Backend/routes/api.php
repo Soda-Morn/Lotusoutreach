@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AboutContentController;
+use App\Http\Controllers\Api\V1\CambodiaContentController;
+use App\Http\Controllers\Api\V1\NewContentController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\ProgramController;
 use App\Http\Controllers\Api\V1\WhyGirlController;
@@ -26,5 +29,10 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('pagecontents', PageContentController::class);
     Route::apiResource('whygirl', WhyGirlController::class);
     Route::apiResource('program', ProgramController::class);
+    Route::apiResource('aboutcontents',AboutContentController::class);
+    Route::apiResource('cambodia-contents', CambodiaContentController::class);
+    Route::apiResource('newcontents', NewContentController::class);
+
 
 });
+
