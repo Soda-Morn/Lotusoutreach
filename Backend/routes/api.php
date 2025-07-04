@@ -37,7 +37,7 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('programdetail', ProgramDetailController::class);
     Route::apiResource('donation', DonationController::class);
     Route::apiResource('aboutcontents',AboutContentController::class);
-    Route::apiResource('cambodia-contents', CambodiaContentController::class);
+    Route::apiResource('cambodiacontents', CambodiaContentController::class);
     Route::apiResource('newcontents', NewContentController::class);
 
 

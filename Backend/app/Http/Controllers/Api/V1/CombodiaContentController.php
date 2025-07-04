@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CambodiaContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Resources\CambodiaContentResource;
 
 class CambodiaContentController extends Controller
 {
@@ -15,8 +15,8 @@ class CambodiaContentController extends Controller
      */
     public function index()
     {
-        $combodiacontents = CambodiaContent::all();
-        return response()->json($combodiacontents);
+        $contents = CambodiaContent::all();
+        return CambodiaContentResource::collection($contents);
     }
 
     /**
@@ -32,17 +32,15 @@ class CambodiaContentController extends Controller
             'page_content_id' => 'required|integer|exists:page_contents,id',
         ]);
 
-        // handle image if present
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validated['image_path'] = $imagePath;
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
         }
 
         $content = CambodiaContent::create($validated);
 
         return response()->json([
             'message' => 'CambodiaContent created successfully',
-            'data' => $content
+            'data' => new CambodiaContentResource($content)
         ], 201);
     }
 
@@ -57,7 +55,7 @@ class CambodiaContentController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return response()->json($content);
+        return new CambodiaContentResource($content);
     }
 
     /**
@@ -79,21 +77,18 @@ class CambodiaContentController extends Controller
             'page_content_id' => 'sometimes|required|integer|exists:page_contents,id',
         ]);
 
-        // handle image if present
         if ($request->hasFile('image')) {
-            // delete old image if exists
             if ($content->image_path) {
                 Storage::disk('public')->delete($content->image_path);
             }
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validated['image_path'] = $imagePath;
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
         }
 
         $content->update($validated);
 
         return response()->json([
             'message' => 'CambodiaContent updated successfully',
-            'data' => $content
+            'data' => new CambodiaContentResource($content)
         ]);
     }
 
@@ -108,7 +103,6 @@ class CambodiaContentController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        // delete old image if exists
         if ($content->image_path) {
             Storage::disk('public')->delete($content->image_path);
         }
