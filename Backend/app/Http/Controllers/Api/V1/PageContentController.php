@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageContent\StorePageContentRequest;
+use App\Http\Resources\PageContentResource;
 use App\Models\PageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,18 +15,16 @@ class PageContentController extends Controller
     public function index()
     {
         $pageContents = PageContent::all();
-        return response()->json($pageContents);
+        return response()->json([
+            'message' => 'ProgramDetail retrieved successfully',
+            'pageContent' => PageContentResource::collection($pageContents)
+        ]);
     }
 
     // POST /api/v1/page-contents
-    public function store(Request $request)
+    public function store(StorePageContentRequest $request)
     {
-        $validated = $request->validate([
-            'type' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -53,7 +53,10 @@ class PageContentController extends Controller
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-        return response()->json($pageContent);
+        return response()->json([
+            'message' => 'ProgramDetail retrieved successfully',
+            'pageContent' => PageContentResource::collection($pageContent)
+        ]);
     }
 
     // PUT or PATCH /api/v1/page-contents/{id}
@@ -65,12 +68,7 @@ class PageContentController extends Controller
             return response()->json(['message' => 'Item not found'], 404);
         }
 
-        $validated = $request->validate([
-            'type' => 'sometimes|required|string|max:255',
-            'title' => 'sometimes|required|string|max:255',
-            'content' => 'sometimes|required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($pageContent->image_path) {

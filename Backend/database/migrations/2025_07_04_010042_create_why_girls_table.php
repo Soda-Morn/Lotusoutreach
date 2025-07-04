@@ -11,25 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('why_girls', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('logo_path')->nullable();
-            $table->text('description')->nullable();
-
-            $table->foreignId('program_id')
-                ->constrained('programs')
-                ->onDelete('cascade');
+            $table->string('page');
+            $table->string('title');
+            $table->text('content');
+            $table->string('image_path')->nullable();
+            $table->unsignedBigInteger('page_content_id')->nullable();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('why_girls');
     }
 };

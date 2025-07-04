@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('program_details', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->string('logo_path')->nullable();
             $table->text('description')->nullable();
 
             $table->foreignId('program_id')
@@ -22,12 +24,11 @@ return new class extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('program_details');
+        Schema::dropIfExists('partners');
     }
 };
