@@ -1,9 +1,10 @@
 <!-- components/Card.vue -->
 <template>
-  <div :class="['rounded-lg shadow-lg overflow-hidden mt-8', cardClass]"> <!-- Added mt-8 for spacing -->
+  <div :class="['rounded-lg shadow-lg overflow-hidden mt-8 bg-white', cardClass]">
     <div class="p-6">
+      <img v-if="image" :src="image" alt="Card image" class="w-full h-48 object-cover rounded-t-lg mb-4">
       <h3 class="text-xl font-semibold mb-4">{{ title }}</h3>
-      <p class="mb-4 line-clamp-4">{{ truncatedContent }}</p>
+      <p class="mb-4 line-clamp-4 text-black">{{ truncatedContent }}</p>
       <button @click="openModal"
         :class="['px-4 py-2 rounded-lg font-medium hover:scale-105 transition-transform', buttonClass]">
         {{ buttonText }}
@@ -16,10 +17,10 @@
     </div>
 
     <Modal v-if="showModal" :isOpen="showModal" :title="title" @close="closeModal">
-      <div class="prose max-w-none pt-4"> <!-- Added pt-4 for spacing -->
-        <h2 class="text-2xl font-bold text-blue-600 mb-4">{{ title }}</h2> <!-- Added title in content -->
+      <div class="prose max-w-none pt-4">
+        <h2 class="text-2xl font-bold text-blue-600 mb-4">{{ title }}</h2>
+        <img v-if="image" :src="image" alt="Card image" class="w-full h-48 object-cover rounded-t-lg mb-4">
         <p class="text-gray-700 mb-4">{{ content }}</p>
-
       </div>
     </Modal>
   </div>
@@ -38,6 +39,7 @@ export default {
     buttonText: String,
     cardClass: String,
     buttonClass: String,
+    image: String,
     keyImpacts: {
       type: Array,
       default: () => []
