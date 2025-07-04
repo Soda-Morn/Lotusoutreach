@@ -5,12 +5,14 @@
       <h2 class="text-2xl font-bold text-center mb-6">Our Focus Areas</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card title="Education and Training"
+          image="https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/Row-of-girls-watching-grad-ceremony-300x163.png"
           content="Girls’ education is a transformative force. Educated women experience wide-ranging benefits. They have healthier children, are at less risk of experiencing domestic violence and marrying young, have fewer children, higher incomes, and more respect in making household decisions. These advantages combined can help tp lift households, communities, and nations out of poverty. Moreover, and at the cornerstone of our approach to social development, educated women are more likely to become active and influential members of their communities.
             The education of women is an international development priority. UNESCO estimates “130 million girls between the age of 6 and 17 are out of school and 15 million girls of primary-school age—half of them in sub-Saharan Africa— will never enter a classroom.”
             In the poverty-stricken areas of India and Cambodia where we work, women face significant barriers to education. Often they are up against having to travel long distances to school, restrictive gender narratives, violence, and trafficking and/or migration.
             We combine advocacy efforts with the provision of access to education, university level scholarships, and assistance to ensure young Indian and Cambodian women finish locally unprecedented levels of education and/or skill training. We provide seminars and mentoring that emphasize skills and development that prepare young women to be catalysts of profound shifts in their communities."
           buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
         <Card title="Creating Gender Equality"
+          image="https://images.globalgiving.org/pfil/4655/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
           content="	
             Where there is poverty, there are opportunities for exploitation. Women and girls are much more vulnerable than men and boys  in low income countries where gender discrimination impacts all levels of social, economic and political life. We recognize gender discrimination and work toward gender equality in the communities we are active. Notably, in 2014, our LEARN (now Blossom Bus) program received national recognition in India by the Chief Minister of the state for “contributing to the education of 1 million students in Haryana.”. In 2016, Harvard University South Asia Institute and Tata Trust recognized our program out of thousands of others in India for reducing gender discrimination.
             Gender theory recognizes a discrimination concept known as “womens’ triple burden”. Women work the fields, look after home and care for children, and shoulder the burden of maintaining family and social networks – relationships that are extremely important to societies living on the poverty line. Cultural norms among those living in poverty create barriers to education for girls, impose early marriages, and reinforce little to no wages for work done.
@@ -19,32 +21,36 @@
             As women and girls gain confidence, self-esteem, and initiative, they inspire the change in their sisters, friends and families. This creates a trickle-down effect; cultural norms shift and communities are transformed."
           buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
         <Card title="Care and Protection"
+          image="https://images.globalgiving.org/pfil/10626/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
           content="	
             Our care initiatives address gaps in the provision of basic needs in places where the conditions for exploitation are devastating. These initiatives work together with our education and training projects to cultivate empowerment and protection for those who need it most. Providing care and protection nourishes wellbeing among beneficiaries and supports educational and learning outcomes.
             According to the United Nations, while human trafficking victims can be people of both genders, over 70% of those victims are women and girls. Moreover, 54% of all trafficking victims in 2014 were said to be trafficked for the purpose of sexual exploitation. Armed with this knowledge, we cannot stand idly by. We must do something.
             Because trafficking is inextricably linked to poverty around the world, all of our programs are preventative in nature. In the areas of Cambodia where we work, young women without education migrate by the tens of thousands from the rural countryside to cities looking for work to help support their families. Without options, the conditions for exploitation are tenfold. In India, reducing the devastating impacts of malnutrition is a worldwide priority.
             Providing care in vulnerable communities transforms lives and our impact is multiplied through the capacity and vision of the young women and girls we support."
           buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
-        <Card title="Anti-trafficking, Health and Water Services" content="Lotus Outreach anti-trafficking, health and water service programs are directly serving 17,000 women and children in 2019.
+        <Card title="Care and Protection"
+          image="https://images.globalgiving.org/pfil/10626/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
+          content="	
+            Lotus Outreach anti-trafficking, health and water service programs are directly serving 17,000 women and children in 2019.
             Education, literacy and advocacy play an important role in protecting girls from exploitation. As the voices of women strengthen, they are spurred to demand equality and look out for one another. In this way, education and training addresses exploitation before it can occur. For those who are survivors of violence, we have projects that provide trauma therapy, social services, and economic empowerment.
             Our work in anti-trafficking, health and water very directly improve wellbeing and educational outcomes. Our well program provides clean water and health education to communities in dire need while supporting school attendance for children who might otherwise be walking long distances for potable water while their parents earn wages. Instead, health and education are supported by the nearby wells we provide. Our rural health program is directly empowering local health workers to educate their communities.
-            We are proud to support the conditions for our beneficiaries to thrive." buttonText="Learn more"
-          cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
+We are proud to support the conditions for our beneficiaries to thrive."
+          buttonText="Learn more" cardClass="bg-blue-600 text-white" buttonClass="bg-blue-600 text-white" />
       </div>
       <div class="mt-12 text-center">
         <h2 class="text-2xl font-bold mb-4">How do we empower women and children in crisis?</h2>
         <div class="flex justify-center space-x-4 mb-4">
           <button @click="activeSection = 'multi-dimensional'"
-            :class="{ 'bg-blue-600 text-white': activeSection === 'multi-dimensional', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'multi-dimensional' }"
+            :class="{ 'bg-pink-600 text-white': activeSection === 'multi-dimensional', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'multi-dimensional' }"
             class="px-4 py-2 rounded-lg shadow-md">Multi-dimensional</button>
           <button @click="activeSection = 'local'"
-            :class="{ 'bg-blue-600 text-white': activeSection === 'local', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'local' }"
+            :class="{ 'bg-pink-600 text-white': activeSection === 'local', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'local' }"
             class="px-4 py-2 rounded-lg shadow-md">Local</button>
           <button @click="activeSection = 'engaged'"
-            :class="{ 'bg-blue-600 text-white': activeSection === 'engaged', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'engaged' }"
+            :class="{ 'bg-pink-600 text-white': activeSection === 'engaged', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'engaged' }"
             class="px-4 py-2 rounded-lg shadow-md">Engaged</button>
           <button @click="activeSection = 'innovative'"
-            :class="{ 'bg-blue-600 text-white': activeSection === 'innovative', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'innovative' }"
+            :class="{ 'bg-pink-600 text-white': activeSection === 'innovative', 'bg-gray-200 text-gray-700 hover:bg-gray-300': activeSection !== 'innovative' }"
             class="px-4 py-2 rounded-lg shadow-md">Innovative</button>
         </div>
         <div v-if="activeSection === 'multi-dimensional'" class="bg-gray-50 p-4 rounded-lg shadow-md mt-4">
