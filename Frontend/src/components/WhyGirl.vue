@@ -8,9 +8,10 @@
         <div class="text-center text-white max-w-2xl px-4">
           <h2 class="text-4xl font-bold mb-4">Why Girls?</h2>
           <p class="text-xl mb-6">For at risk women and girls our help can change everything</p>
-          <button class="px-8 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 font-semibold transition">
+          <router-link to="/donate"
+            class="px-8 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 font-semibold transition inline-block">
             Give Now
-          </button>
+          </router-link>
         </div>
       </div>
     </div>
