@@ -13,7 +13,7 @@ class PageContent extends Model
         'type',
         'title',
         'content',
-        'image_path'
+        'image_path',
     ];
 
     // Relationships

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\V1\DonationController;
+use App\Http\Controllers\Api\V1\AboutContentController;
+use App\Http\Controllers\Api\V1\CambodiaContentController;
+use App\Http\Controllers\Api\V1\NewContentController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\PartnerController;
 use App\Http\Controllers\Api\V1\ProgramController;
@@ -33,5 +36,10 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('partners', PartnerController::class);
     Route::apiResource('programdetail', ProgramDetailController::class);
     Route::apiResource('donation', DonationController::class);
+    Route::apiResource('aboutcontents',AboutContentController::class);
+    Route::apiResource('cambodia-contents', CambodiaContentController::class);
+    Route::apiResource('newcontents', NewContentController::class);
+
 
 });
+
