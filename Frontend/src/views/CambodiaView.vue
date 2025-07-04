@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-gray-50 flex flex-col">
     <!-- Full Screen Slideshow -->
     <section class="relative h-screen w-full overflow-hidden">
       <!-- Slides Container -->

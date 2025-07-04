@@ -65,14 +65,14 @@
                             <!-- Testimonial -->
                             <div class="bg-pink-50 p-6 rounded-lg border border-pink-100">
                                 <div class="flex items-start">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=60"
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j7lKHDEg_t6ceZAYs9DEh7OPeiARfEGmFA&s"
                                         alt="Donor testimonial"
                                         class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-pink-200">
                                     <div>
                                         <p class="text-gray-700 italic mb-2">"Seeing the direct impact of my donation
-                                            has been incredibly rewarding. This organization makes every dollar count."
+                                            has been advantageous. This organization makes every dollar count."
                                         </p>
-                                        <p class="text-sm font-medium text-gray-700">- Sarah Johnson</p>
+                                        <p class="text-sm font-medium text-gray-700">- MOU JIN</p>
                                         <p class="text-xs text-gray-500">Monthly Donor Since 2020</p>
                                     </div>
                                 </div>
@@ -395,7 +395,6 @@
         <div>
             <img src="@/img/paypal.png" alt="PayPal Logo" class="mx-auto mb-12 w-80 h-auto rounded-2xl shadow-lg">
         </div>
-
         <!-- Footer -->
         <div class="bg-pink-100 py-4 text-center text-gray-600 text-sm">
             <p class="flex items-center justify-center">
