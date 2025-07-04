@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\ProgramDetail;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePageContentRequest extends FormRequest
+class UpdateProgramDetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,8 @@ class StorePageContentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'program_id' => 'sometimes|required|exists:programs,id',
+            'description' => 'sometimes|required|string',
         ];
     }
 }

@@ -16,6 +16,17 @@ class ProgramDetail extends Model
     {
         return $this->hasMany(Donation::class);
     }
-    protected $fillable = ['program_id', 'detail_content'];
-    
+    public function getCreateDateAttribute($value)
+    {
+        return $this->created_at ? $this->created_at->format('D, d M Y') : null;
+    }
+
+    public function getUpdateDateAttribute($value)
+    {
+        return $this->updated_at ? $this->updated_at->format('D, d M Y') : null;
+    }
+
+    protected $appends = ['create_date', 'update_date'];
+
+    protected $fillable = ['program_id', 'description'];
 }

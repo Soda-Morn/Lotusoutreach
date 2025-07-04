@@ -1,33 +1,30 @@
 <?php
 
+
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProgramRequest\StoreProgramRequest;
+use App\Http\Requests\ProgramRequest\UpdateProgramRequest;
+use App\Http\Resources\ProgramResource;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProgramController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $program = Program::all();
-        return response()->json($program);
+        $programs = Program::all();
+        return response()->json([
+            'message' => 'Program retrieved successfully',
+            'program' => ProgramResource::collection($programs)       
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreProgramRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         $imagePath = null;
         if ($request->hasFile('image')) {
@@ -37,6 +34,7 @@ class ProgramController extends Controller
         $program = Program::create([
             'title' => $validated['title'],
             'description' => $validated['description'],
+            'why_girls_id' => $validated['why_girls_id'] ?? null,
             'image_path' => $imagePath,
         ]);
 
@@ -47,24 +45,21 @@ class ProgramController extends Controller
         ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        $program = Program::find($id);
+        $programs = Program::find($id);
 
-        if (!$program) {
+        if (!$programs) {
             return response()->json(['message' => 'Program not found'], 404);
         }
 
-        return response()->json($program);
+        return response()->json([
+            'message' => 'Program retrieved successfully',
+            'program' => ProgramResource::collection($programs)       
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateProgramRequest $request, string $id)
     {
         $program = Program::find($id);
 
@@ -72,17 +67,13 @@ class ProgramController extends Controller
             return response()->json(['message' => 'Program not found'], 404);
         }
 
-        $validated = $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'description' => 'sometimes|required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        $validated = $request->validated();
 
         if ($request->hasFile('image')) {
             if ($program->image_path) {
                 Storage::disk('public')->delete($program->image_path);
             }
-            $program->image_path = $request->file('image')->store('images', 'public');
+            $validated['image_path'] = $request->file('image')->store('images', 'public');
         }
 
         $program->update($validated);
@@ -94,9 +85,6 @@ class ProgramController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $program = Program::find($id);

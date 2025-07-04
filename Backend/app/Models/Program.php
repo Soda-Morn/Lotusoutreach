@@ -8,15 +8,40 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     use HasFactory;
-    function whyGirl(){
-        return $this->belongsTo(WhyGirl::class);
+
+    public function whyGirl()
+    {
+        return $this->belongsTo(WhyGirl::class, 'why_girls_id');
     }
-    function programDetail(){
+
+    public function programDetail()
+    {
         return $this->hasMany(ProgramDetail::class);
     }
-    function partners(){
+
+    public function partners()
+    {
         return $this->hasMany(Partner::class);  
     }
-    protected $fillable = ['why_girl_id', 'title', 'description', 'image_path'];
+    
+    public function getCreateDateAttribute($value)
+    {
+       return $this->created_at ? $this->created_at->format('D, d M Y') : null;
+    }
 
+    public function getUpdateDateAttribute($value)
+    {
+        return $this->updated_at ? $this->updated_at->format('D, d M Y') : null;
+    }
+
+    // Add this accessor for image URL
+    public function getImageUrlAttribute()
+    {
+        return $this->image_path ? asset('storage/' . $this->image_path) : null;
+    }
+
+    // Add this to automatically append image_url to JSON
+    protected $appends = ['image_url', 'create_date', 'update_date'];
+
+    protected $fillable = ['title', 'description', 'image_path', 'why_girls_id'];
 }
