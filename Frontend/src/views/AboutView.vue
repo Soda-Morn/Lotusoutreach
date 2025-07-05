@@ -151,6 +151,48 @@
             <div class="text-gray-600 font-medium">{{ stat.label }}</div>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+
+        <!-- Recent Achievements -->
+        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Recent Achievements</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Scholarship Expansion</h4>
+                  <p class="text-gray-600 text-sm">Reached 1,500 girls in Cambodia with GATE program</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Water Project Launch</h4>
+                  <p class="text-gray-600 text-sm">Installed 10 wells serving 5,000 people</p>
+                </div>
+              </div>  
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Training Program</h4>
+                  <p class="text-gray-600 text-sm">Trained 300 women in IT skills in Vietnam</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Health Initiative</h4>
+                  <p class="text-gray-600 text-sm">Provided care to 2,000 families in rural areas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+>>>>>>> 02a7a4f5e608c8d0b23419fb1643fb7ad29f9ebf
       </div>
     </section>
 
