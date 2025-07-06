@@ -23,7 +23,7 @@
         </li>
         <li>
           <RouterLink to="/cambodia" :class="{ 'text-pink-600': isActive('/cambodia') }" class="hover:text-pink-600 transition-colors">
-            Cambodia
+            Program
           </RouterLink>
         </li>
         <li>
