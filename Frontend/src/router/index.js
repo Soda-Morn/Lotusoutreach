@@ -7,6 +7,7 @@ import DonateView from '@/views/DonateView.vue'
 import ContactView from '@/views/ContactView.vue'
 
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -28,6 +29,7 @@ const router = createRouter({
       name: 'cambodia',
       component: CambodiaView,
     },
+   
     {
       path: '/news',
       name: 'news',
@@ -43,6 +45,7 @@ const router = createRouter({
       name: 'contact',
       component: ContactView,
     },
+  
   ],
 })
 
