@@ -28,21 +28,8 @@
         </div>
       </div>
 
-      <!-- Navigation Arrows -->
-      <button @click="prevSlide"
-              class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-4 rounded-full
-                     transition-all duration-300 z-10 transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button @click="nextSlide"
-              class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-4 rounded-full
-                     transition-all duration-300 z-10 transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+
+      
 
       <!-- Indicators -->
       <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-4 z-10">
@@ -150,28 +137,28 @@ export default {
       slideInterval: null,
       slides: [
         {
-          image: '/img/cam1.png',
+          image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/Row-of-girls-watching-grad-ceremony-768x417.png',
           alt: 'Cambodia program 1',
           title: 'Education is Her Power',
           description: 'Empowering girls through education and care programs',
           buttonText: 'Discover Our Programs'
         },
         {
-          image: '/img/cam2.png',
+          image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2025/02/three-girls-banner-.jpg',
           alt: 'Cambodia program 2',
           title: 'Education',
           description: 'Building pathways to education for young women',
           buttonText: 'Learn About Our Programs'
         },
         {
-          image: '/img/cam3.png',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2023/02/2LO-3-1.jpg',
           alt: 'Cambodia program 3',
           title: 'Empowerment',
           description: 'Leadership training and mentorship for young women',
           buttonText: 'Explore More'
         },
         {
-          image: '/img/cam4.png',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2020/02/IMG_9377-1024x768.jpg',
           alt: 'Cambodia program 4',
           title: 'Future Leaders',
           description: 'Inspiring the next generation of female leaders',
@@ -187,19 +174,19 @@ export default {
         },
         {
           title: 'GATE',
-          image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2020/02/Alumni-Gathering-Group-Photo-2.jpg',
           icon: 'fas fa-book-open',
           description: 'Providing education scholarships and rice support for at-risk girls and their families living in dire poverty.'
         },
         {
           title: 'CATALYST',
-          image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1171&q=80',
+          image: 'https://scontent.fpnh19-1.fna.fbcdn.net/v/t39.30808-6/486021460_651365147830151_8884197849751306824_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=106&ccb=1-7&_nc_sid=75d36f&_nc_ohc=UlLeOYiLjkkQ7kNvwF2U974&_nc_oc=Adl7IRlBBzu7B1Mg7ItT0QlGY-QiHOx83cLFI9yGE3fyQfcwHcvice71U6t0sM8Ff2w&_nc_zt=23&_nc_ht=scontent.fpnh19-1.fna&_nc_gid=UJ3MOSogSfCDfJlQVmiuHg&oh=00_AfTAzuTDriCDXUCXd6JdEd3JtNeY-YdMnz0kArhTmvthZg&oe=686FDD96',
           icon: 'fas fa-user-graduate',
           description: 'Providing university scholarships, mentoring, and leadership training for at-risk female youth in Cambodia.'
         },
         {
           title: 'PNC/V',
-          image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+          image: 'https://www.passerellesnumeriques.org/wp-content/uploads/2024/06/Country-banner1.png',
           icon: 'fas fa-laptop-code',
           description: 'Providing high-quality IT education in a holistic residential environment for at-risk female youth in Cambodia and Vietnam.'
         }
@@ -207,25 +194,25 @@ export default {
       communityPrograms: [
         {
           title: 'Getting Well',
-          image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1176&q=80',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2023/02/IMG_2945-1024x768.jpg',
           icon: 'fas fa-water',
           description: 'Constructing water wells to serve entire villages in drought-prone regions of rural Cambodia.'
         },
         {
           title: 'Water In Schools (WINS)',
-          image: 'https://images.unsplash.com/photo-1550828484-55f0abc43e03?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2018/12/people_at_public_water_pump.jpg',
           icon: 'fas fa-tint',
           description: 'Installing water filtration systems in schools to provide clean drinking water and improve wellbeing for children in rural Cambodia.'
         },
         {
           title: 'Rice 4 Education (R4E)',
-          image: 'https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1292&q=80',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2019/02/16596368001_a6e8e5f163_o-1024x685.jpg',
           icon: 'fas fa-utensils',
           description: 'Providing rice support to villagers to help them support their daughters’ education in rural Cambodia.'
         },
         {
           title: 'CTC',
-          image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
+          image: 'https://lotusoutreach.org/wp-content/uploads/2018/12/loi-new.png',
           icon: 'fas fa-hands-helping',
           description: 'Providing trauma therapy and assistance to survivors of trafficking and sexual and domestic violence in a women’s shelter in rural Cambodia.'
         }

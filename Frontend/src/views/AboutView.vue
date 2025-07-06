@@ -324,12 +324,12 @@ const teamMembers = ref<TeamMember[]>([
 
 const partnerLogos = ref<Partner[]>([
   {
-    img: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...', // Truncated for brevity
+    img: 'https://media.licdn.com/dms/image/v2/C4D0BAQHLK2qt2V_7WQ/company-logo_200_200/company-logo_200_200/0/1631351034062?e=2147483647&v=beta&t=Uzxqw27c1hoNE3J0zKF90uwk69dJKAv7EHPUvl1DDBI', // Truncated for brevity
     url: 'https://www.passerellesnumeriques.org/what-we-do/cambodia/',
     info: 'Passerelles Numériques',
   },
   {
-    img: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...', // Truncated for brevity
+    img: 'http://cwcc.org.kh/wp-content/uploads/2024/07/cropped-logo-4.png', // Truncated for brevity
     url: 'http://cwcc.org.kh/',
     info: 'CWCC',
   },
