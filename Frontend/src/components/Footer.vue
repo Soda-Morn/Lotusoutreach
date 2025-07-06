@@ -5,11 +5,14 @@
         <!-- Logo and Description -->
         <div class="space-y-4">
           <div class="flex items-center space-x-3">
-            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
-              <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-              </svg>
-            </div>
+            <div class="flex items-center space-x-3">
+        <img
+          src="../img/logo.png"
+          alt="Lotus Outreach Logo"
+          class="w-12 h-12 object-contain"
+        />
+       
+      </div>
             <div>
               <h4 class="text-2xl font-bold text-pink-600">Lotus Outreach</h4>
               <p class="text-sm text-gray-600">Empowering Cambodia Together</p>
@@ -172,18 +175,18 @@
           
           <!-- Newsletter Signup -->
           <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-            <h5 class="font-semibold text-gray-800 mb-2">Stay Updated</h5>
-            <div class="flex">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-              >
-              <button class="px-4 py-2 bg-pink-600 text-white text-sm font-medium rounded-r-md hover:bg-pink-700 transition-colors">
-                Subscribe
-              </button>
-            </div>
-          </div>
+  <h5 class="font-semibold text-gray-800 mb-2">Stay Updated</h5>
+  <div class="flex">
+    <input 
+      type="email" 
+      placeholder="Your email" 
+      class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+    >
+    <button class="px-4 py-1 bg-pink-600 text-white text-sm font-medium rounded-r-md hover:bg-pink-700 transition-colors">
+      Submit
+    </button>
+  </div>
+</div>
         </div>
       </div>
 

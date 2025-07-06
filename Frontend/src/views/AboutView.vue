@@ -43,9 +43,10 @@
       <div class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start">
         <!-- Image & Badge -->
         <div class="relative mr-0 md:mr-8 mb-12 md:mb-0">
-          <div class="w-72 h-72 rounded-full border-8 border-blue-500 overflow-hidden mx-auto md:mx-0">
-            <img src="https://lotusoutreach.org/wp-content/uploads/2019/08/header.jpg" alt="Proseth Solutions Event" class="w-full h-full object-cover" />
-          </div>
+          <div class="w-[400px] h-[400px] rounded-full border-[12px] border-blue-500 overflow-hidden mx-auto">
+  <img src="https://lotusoutreach.org/wp-content/uploads/2019/08/header.jpg" alt="Large Profile" class="w-full h-full object-cover">
+</div>
+
           <div class="absolute -top-4 -left-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg text-center">
             <p class="text-2xl font-bold">23</p>
             <p class="text-sm">Years of</p>
@@ -59,7 +60,7 @@
 
         <!-- Text -->
         <div class="flex-1 text-center md:text-left">
-          <h1 class="text-4xl font-bold text-gray-800 mb-4">Lotus Outreach</h1>
+          <h1 class="text-4xl font-bold text-gray-800 mb-4">History</h1>
           <h2 class="text-2xl font-semibold text-gray-600 mb-6">| Donate For Girls Around The World!</h2>
           <p class="text-gray-700 mb-4">
             Lotus Outreach’s work in Cambodia began with a powerful moment when founder Khyentse Norbu met a young, partially blind girl at a safe house. Touched by her strength, he pledged to support her education—an experience that reshaped our mission.
@@ -130,78 +131,40 @@
     </section>
 
     <!-- Section: Our Impact -->
-    <section class="relative py-24 px-4 sm:px-6 lg:px-8">
-      <div class="relative max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600 mb-6">Our Impact</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full mb-8"></div>
-          <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">Together, we're creating measurable change in communities around the world. Here's the impact we've made so far.</p>
-        </div>
+    <section  id="partners">
+  <div class="container mx-auto px-4 py-12">
+  <h2 class="text-4xl  text-blue-700 md:text-6xl font-extrabold text-center mb-16 glow-effect" data-aos="fade-up">
+      Our Inspired Team
+    </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div
-            v-for="(stat, index) in stats"
-            :key="index"
-            class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-md text-center"
-          >
-            <div :class="['w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-4', colorMap[stat.color]]">
-              <component :is="stat.icon" class="w-6 h-6 text-white" />
-            </div>
-            <div class="text-2xl font-bold text-gray-800 mb-2">{{ stat.number }}</div>
-            <div class="text-gray-600 font-medium">{{ stat.label }}</div>
-          </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"> <!-- Adjusted to lg:grid-cols-4 for balance -->
+      <div
+        v-for="(member, index) in teamMembers"
+        :key="member.name"
+        class="text-center transition-all duration-500  hover:-translate-y-2"
+        data-aos="zoom-in"
+        :data-aos-delay="100 * (index + 1)"
+      >
+        <div class="relative w-48 h-48 mx-auto overflow-hidden rounded-full border-4 border-blue-500">
+          <img
+            :src="member.image"
+            :alt="member.name"
+            class="w-full h-full object-cover rounded-full transition-transform duration-300 hover:scale-110"
+          />
+          <div class="absolute inset-0 rounded-full bg-indigo-500 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
         </div>
-<<<<<<< HEAD
-=======
-
-        <!-- Recent Achievements -->
-        <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
-          <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Recent Achievements</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Scholarship Expansion</h4>
-                  <p class="text-gray-600 text-sm">Reached 1,500 girls in Cambodia with GATE program</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Water Project Launch</h4>
-                  <p class="text-gray-600 text-sm">Installed 10 wells serving 5,000 people</p>
-                </div>
-              </div>  
-            </div>
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Training Program</h4>
-                  <p class="text-gray-600 text-sm">Trained 300 women in IT skills in Vietnam</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                <div>
-                  <h4 class="font-semibold text-gray-800">Health Initiative</h4>
-                  <p class="text-gray-600 text-sm">Provided care to 2,000 families in rural areas</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
->>>>>>> 02a7a4f5e608c8d0b23419fb1643fb7ad29f9ebf
+        <p class="mt-8 text-2xl font-bold text-blue-500">{{ member.name }}</p>
+        <p class=" text-black-500 text-lg">{{ member.position }}</p>
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
     <!-- Section: Partners Slider -->
     <section class="bg-white py-16" id="partners">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <!-- Section Title -->
-      <h2 class="text-3xl sm:text-4xl font-bold text-green-700 mb-10 flex items-center">
-        <span class="w-10 h-1 bg-green-500 mr-3 rounded-full"></span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-blue-700 mb-10 flex items-center">
+        
         Our Value Partners
       </h2>
 
@@ -290,19 +253,33 @@ onBeforeUnmount(() => {
   clearInterval(interval)
 })
 
-const stats = [
-  { number: '25,000+', label: 'Lives Impacted', icon: Users, color: 'green' },
-  { number: '15,000+', label: 'Children Educated', icon: BookOpen, color: 'blue' },
-  { number: '5,000+', label: 'Families Supported', icon: Home, color: 'purple' },
-  { number: '85%', label: 'Success Rate', icon: TrendingUp, color: 'orange' },
+const teamMembers = [
+  {
+    name: 'Glenn Fawcett ',
+    position: 'Executive Director',
+    image: 'https://lotusoutreach.org/wp-content/uploads/2020/02/IMG_9668-1024x768.jpg',
+  },
+  {
+    name: ' Raksmey Var ',
+    position: 'Country Representative, Cambodia',
+    image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/Raksmey-for-web-site-.jpg',
+  },
+  {
+    name: 'Pisey Chea',
+    position: 'LOCAM Project Officer',
+    image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2018/06/Untitled-design-2.jpg',
+  },
+  {
+    name: 'Borika',
+    position: 'Accountant, Cambodia',
+    image: 'https://lotusoutreach.org/wp-content/uploads/2022/08/borika.jpeg',
+  },
+  
 ]
 
-const colorMap = {
-  green: 'bg-green-500',
-  blue: 'bg-blue-500',
-  purple: 'bg-purple-500',
-  orange: 'bg-orange-500'
-}
+onMounted(() => {
+  AOS.init({ duration: 1000, once: true })
+})
 
 const partnerLogos = [
  {
@@ -345,11 +322,7 @@ const partnerLogos = [
     url: "https://www.thegardenofpeace.org/",
     
   },
-  {
-    img: "https://landportal.org/sites/default/files/2023-05/NSVK.jpghttps://www.nsvk.co.in/contact-us/",
-    url: "https://www.thegardenofpeace.org/",
-    
-  },
+
   {
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD0I4XK5CYJ88Qxs0rid0x8xBd9yu8cesDag&s",
     url: "https://www.primerospasos.org/",
