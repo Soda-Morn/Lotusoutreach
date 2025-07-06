@@ -360,7 +360,7 @@
                   <h4 class="font-semibold text-gray-800">Water Project Launch</h4>
                   <p class="text-gray-600 text-sm">Installed 10 wells serving 5,000 people</p>
                 </div>
-              </div>
+              </div>  
             </div>
             <div class="space-y-4">
               <div class="flex items-start space-x-3">
