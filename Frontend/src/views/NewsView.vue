@@ -4,11 +4,8 @@
     <div class="relative min-h-screen bg-gray-100 overflow-hidden">
       <!-- Background Image -->
       <div class="absolute inset-0 bg-black/30">
-        <img 
-          src="https://lotusoutreachaustralia.org.au/wp-content/uploads/2020/03/Bondi-BH-Class-Donation-Poster.jpg" 
-          alt="Lotus Outreach activities"
-          class="w-full h-full object-cover"
-        >
+        <img src="https://lotusoutreachaustralia.org.au/wp-content/uploads/2020/03/Bondi-BH-Class-Donation-Poster.jpg"
+          alt="Lotus Outreach activities" class="w-full h-full object-cover">
       </div>
 
       <!-- Content Overlay -->
@@ -24,13 +21,16 @@
             </span>
           </h1>
           <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join us in creating lasting change through education, sports, and community development initiatives worldwide.
+            Join us in creating lasting change through education, sports, and community development initiatives
+            worldwide.
           </p>
           <div class="flex flex-wrap justify-center gap-4">
-            <button class="px-6 py-3 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <button
+              class="px-6 py-3 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Our Programs
             </button>
-            <button class="px-6 py-3 border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1">
+            <button
+              class="px-6 py-3 border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1">
               Donate Now
             </button>
           </div>
@@ -43,32 +43,26 @@
       <!-- Header with Search -->
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Latest Updates</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Stay informed about our initiatives and impact stories</p>
-        
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Stay informed about our initiatives and impact stories
+        </p>
+
         <!-- Search Bar -->
         <div class="max-w-md mx-auto relative">
           <div class="relative">
-            <input
-              v-model="searchQuery"
-              type="text"
-              placeholder="Search news..."
+            <input v-model="searchQuery" type="text" placeholder="Search news..."
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
-              @input="handleSearch"
-            >
-            <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              @input="handleSearch">
+            <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
           </div>
-          
+
           <!-- Category Filter -->
           <div class="flex flex-wrap justify-center gap-2 mt-4">
-            <button
-              v-for="category in categories"
-              :key="category.value"
-              @click="toggleCategory(category.value)"
-              class="px-3 py-1 text-sm rounded-full transition-colors"
-              :class="getCategoryButtonClass(category.value)"
-            >
+            <button v-for="category in categories" :key="category.value" @click="toggleCategory(category.value)"
+              class="px-3 py-1 text-sm rounded-full transition-colors" :class="getCategoryButtonClass(category.value)">
               {{ category.label }}
             </button>
           </div>
@@ -78,14 +72,13 @@
       <!-- No Results Message -->
       <div v-if="filteredNewsItems.length === 0" class="text-center py-12">
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <h3 class="mt-2 text-lg font-medium text-gray-900">No news found</h3>
         <p class="mt-1 text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
-        <button 
-          @click="resetFilters"
-          class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-        >
+        <button @click="resetFilters"
+          class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
           Reset filters
         </button>
       </div>
@@ -93,27 +86,19 @@
       <!-- News Feed Grid -->
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- News Item Component with Image -->
-        <article 
-          v-for="(item, index) in filteredNewsItems.slice(0, visibleItems)" 
-          :key="index"
-          class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col"
-        >
+        <article v-for="(item, index) in filteredNewsItems.slice(0, visibleItems)" :key="index"
+          class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
           <!-- Image Section -->
           <div class="h-48 overflow-hidden">
-            <img 
-              :src="item.image" 
-              :alt="item.title"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            >
+            <img :src="item.image" :alt="item.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          
+
           <div class="p-6 md:p-8 flex-grow">
             <!-- Category Badge -->
             <div class="flex items-center mb-4">
-              <span 
-                class="inline-block px-3 py-1 text-xs font-semibold rounded-full"
-                :class="getCategoryBadgeClass(item.category)"
-              >
+              <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                :class="getCategoryBadgeClass(item.category)">
                 {{ getCategoryLabel(item.category) }}
               </span>
               <span class="ml-3 text-sm text-gray-500">{{ formatDate(item.date) }}</span>
@@ -135,10 +120,9 @@
 
           <!-- Read More Button -->
           <div class="px-6 pb-6 md:px-8">
-            <button 
+            <button
               class="w-full px-4 py-2 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition-colors flex items-center justify-center"
-              @click="expandItem(index)"
-            >
+              @click="expandItem(index)">
               Read more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -150,49 +134,38 @@
 
       <!-- Load More Button -->
       <div v-if="filteredNewsItems.length > visibleItems" class="mt-12 text-center">
-        <button 
-          @click="loadMore"
-          class="px-6 py-3 bg-white border border-gray-300 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-colors"
-        >
+        <button @click="loadMore"
+          class="px-6 py-3 bg-white border border-gray-300 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-colors">
           Load More Updates
         </button>
       </div>
     </div>
 
     <!-- Expanded Content Modal -->
-    <div 
-      v-if="expandedIndex !== null"
+    <div v-if="expandedIndex !== null"
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      @click.self="expandedIndex = null"
-    >
+      @click.self="expandedIndex = null">
       <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <!-- Image in Modal -->
         <div class="h-64 overflow-hidden">
-          <img 
-            :src="filteredNewsItems[expandedIndex].image" 
-            :alt="filteredNewsItems[expandedIndex].title"
-            class="w-full h-full object-cover"
-          >
+          <img :src="filteredNewsItems[expandedIndex].image" :alt="filteredNewsItems[expandedIndex].title"
+            class="w-full h-full object-cover">
         </div>
-        
+
         <div class="p-6">
           <div class="flex justify-between items-start mb-4">
             <div>
-              <span 
-                class="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2"
-                :class="getCategoryBadgeClass(filteredNewsItems[expandedIndex].category)"
-              >
+              <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2"
+                :class="getCategoryBadgeClass(filteredNewsItems[expandedIndex].category)">
                 {{ getCategoryLabel(filteredNewsItems[expandedIndex].category) }}
               </span>
               <h2 class="text-2xl font-bold text-gray-900">{{ filteredNewsItems[expandedIndex].title }}</h2>
               <p class="text-sm text-gray-500 mt-1">
-                {{ formatDate(filteredNewsItems[expandedIndex].date) }} • By {{ filteredNewsItems[expandedIndex].author }}
+                {{ formatDate(filteredNewsItems[expandedIndex].date) }} • By {{ filteredNewsItems[expandedIndex].author
+                }}
               </p>
             </div>
-            <button 
-              @click="expandedIndex = null"
-              class="text-gray-400 hover:text-gray-500"
-            >
+            <button @click="expandedIndex = null" class="text-gray-400 hover:text-gray-500">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
@@ -202,10 +175,8 @@
             <p class="whitespace-pre-line">{{ filteredNewsItems[expandedIndex].content }}</p>
           </div>
           <div class="mt-6">
-            <button 
-              @click="expandedIndex = null"
-              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-            >
+            <button @click="expandedIndex = null"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
               Close
             </button>
           </div>
@@ -217,6 +188,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+
 
 const expandedIndex = ref(null);
 const visibleItems = ref(6);
@@ -288,24 +260,24 @@ const filteredNewsItems = computed(() => {
 
   return newsItems.filter(item => {
     // Check category filter first (if any categories are selected)
-    const matchesCategory = !hasActiveCategories || 
+    const matchesCategory = !hasActiveCategories ||
       activeCategories.value.includes(item.category);
 
     // Check search query (if any)
     let matchesSearch = false;
     if (hasSearchQuery) {
       // Check if query exactly matches a category name
-      const matchedCategory = categories.find(cat => 
+      const matchedCategory = categories.find(cat =>
         cat.label.toLowerCase() === query
       );
-      
+
       if (matchedCategory) {
         // If searching for a category, only match items of that exact category
         matchesSearch = item.category === matchedCategory.value;
       } else {
         // For non-category searches, search in title, content, and author
-        matchesSearch = 
-          item.title.toLowerCase().includes(query) || 
+        matchesSearch =
+          item.title.toLowerCase().includes(query) ||
           item.content.toLowerCase().includes(query) ||
           item.author.toLowerCase().includes(query);
       }
@@ -339,7 +311,7 @@ const getCategoryBadgeClass = (category) => {
 
 const expandItem = (index) => {
   expandedIndex.value = index;
-  document.body.style.overflow = 'hidden';
+  document.body.style = 'hidden';
 };
 
 const loadMore = () => {
