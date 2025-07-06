@@ -11,15 +11,15 @@
           <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
             <div class="text-center px-6 text-white max-w-5xl animate-slide-up">
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight uppercase drop-shadow-lg text-blue-600">
+              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-popiesgit  mb-6 tracking-tight uppercase drop-shadow-lg text-blue-600">
                 {{ slide.title }}
               </h1>
               <div class="w-32 h-1 bg-blue-600 mx-auto mb-8 rounded-full"></div>
               <p class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-gray-100 mb-10">
                 {{ slide.description }}
               </p>
-              <button class="bg-amber-400 text-gray-900 px-8 py-3 rounded-full font-semibold text-lg
-                            hover:bg-amber-300 transition-all duration-300 shadow-lg hover:shadow-xl
+              <button class="bg-pink-500 text-gray-900 px-8 py-3 rounded-full font-semibold text-lg
+                            hover:bg-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl
                             transform hover:-translate-y-1">
                 {{ slide.buttonText }}
               </button>
@@ -51,7 +51,7 @@
                         transform transition-transform duration-500 hover:scale-110">
               <i class="fas fa-graduation-cap text-2xl text-white"></i>
             </div>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif tracking-tight">
+            <h2 class="text-4xl md:text-5xl font-popies text-gray-900 mb-4 font-serif tracking-tight">
               Education & Training
             </h2>
             <div class="w-32 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
@@ -85,14 +85,14 @@
         <!-- Community Care -->
         <div class="mt-24">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-500 shadow-xl mb-6
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6
                         transform transition-transform duration-500 hover:scale-110">
               <i class="fas fa-hands-helping text-2xl text-white"></i>
             </div>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-serif tracking-tight">
+            <h2 class="text-4xl md:text-5xl font-popies text-gray-900 mb-4 font-serif tracking-tight">
               Community Care
             </h2>
-            <div class="w-32 h-1 bg-teal-500 mx-auto mb-6 rounded-full"></div>
+            <div class="w-32 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
             <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Strengthening Cambodian communities with essential resources and compassionate support
             </p>
@@ -109,14 +109,14 @@
               </div>
               <div class="p-6">
                 <div class="flex items-center mb-4">
-                  <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center mr-4
+                  <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4
                               transform group-hover:scale-110 transition-transform duration-300">
                     <i :class="program.icon" class="text-lg text-white"></i>
                   </div>
                   <h3 class="text-xl font-bold font-serif text-gray-900">{{ program.title }}</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
-                <button class="text-teal-500 font-semibold hover:text-teal-600 transition-colors duration-300">
+                <button class="text-blue-500 font-semibold hover:text-blue-600 transition-colors duration-300">
                   Learn More
                 </button>
               </div>
