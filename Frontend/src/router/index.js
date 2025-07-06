@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import CambodiaView from '@/views/CambodiaView.vue'
 import NewsView from '@/views/NewsView.vue'
 import DonateView from '@/views/DonateView.vue'
+import ContactView from '@/views/ContactView.vue'
 
 
 const router = createRouter({
@@ -37,7 +38,13 @@ const router = createRouter({
       name: 'donate',
       component: DonateView,
     },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: ContactView,
+    },
   ],
 })
 
 export default router
+
