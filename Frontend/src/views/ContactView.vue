@@ -166,7 +166,7 @@
 
     <!-- Call to Action -->
     <section class="py-20 bg-gray-900 text-white relative bg-cover bg-center" style="
-        background-image: url('https://www.google.com/maps/@11.5320622,104.9162743,3a,90y,335.1h,92.92t/data=!3m7!1e1!3m5!1swMw3kMSLNX2ynAD6oHgpWA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.922336726317255%26panoid%3DwMw3kMSLNX2ynAD6oHgpWA%26yaw%3D335.09611215462337!7i13312!8i6656?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D');
+        background-image: url('https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=wMw3kMSLNX2ynAD6oHgpWA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=358.62686&pitch=0&thumbfov=100');
       ">
       <div class="absolute inset-0 bg-black/40 z-0"></div>
       <div class="container mx-auto px-6 relative z-10 text-center">
