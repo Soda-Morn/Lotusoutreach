@@ -4,40 +4,43 @@
     <section class="relative h-screen w-full overflow-hidden">
       <!-- Slides Container -->
       <div class="relative h-full w-full">
-        <div v-for="(slide, index) in slides" :key="index"
-             v-show="currentSlide === index"
-             class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-             :class="{ 'opacity-100': currentSlide === index, 'opacity-0': currentSlide !== index }">
-          <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          v-show="currentSlide === index"
+          class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          :class="{ 'opacity-100': currentSlide === index, 'opacity-0': currentSlide !== index }"
+        >
+          <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center"
+          >
             <div class="text-center px-6 text-white max-w-5xl animate-slide-up">
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-popiesgit  mb-6 tracking-tight uppercase drop-shadow-lg text-blue-600">
-                {{ slide.title }}
+              <h1
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 tracking-wide uppercase"
+              >
+                <span class="text-gray-200">{{ slide.titlePart1 }}</span>
+                <span class="text-pink-400">{{ slide.titlePart2 }}</span>
               </h1>
-              <div class="w-32 h-1 bg-blue-600 mx-auto mb-8 rounded-full"></div>
+              <div class="w-32 h-1 bg-gradient-to-r from-gray-200 to-pink-400 mx-auto mb-8 rounded-full"></div>
               <p class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-gray-100 mb-10">
                 {{ slide.description }}
               </p>
-              <button class="bg-pink-500 text-gray-900 px-8 py-3 rounded-full font-semibold text-lg
-                            hover:bg-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl
-                            transform hover:-translate-y-1">
-                {{ slide.buttonText }}
-              </button>
             </div>
           </div>
         </div>
       </div>
 
-
-      
-
       <!-- Indicators -->
       <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-4 z-10">
-        <button v-for="(slide, index) in slides" :key="index" @click="goToSlide(index)"
-                class="w-3 h-3 rounded-full transition-all duration-300"
-                :class="currentSlide === index ? 'bg-blue-600 w-8' : 'bg-white/50 hover:bg-white/80'"
-                :aria-label="`Go to slide ${index + 1}`">
-        </button>
+        <button
+          v-for="(slide, index) in slides"
+          :key="index"
+          @click="goToSlide(index)"
+          class="w-3 h-3 rounded-full transition-all duration-300"
+          :class="currentSlide === index ? 'bg-blue-600 w-8' : 'bg-white/50 hover:bg-white/80'"
+          :aria-label="`Go to slide ${index + 1}`"
+        ></button>
       </div>
     </section>
 
@@ -47,34 +50,39 @@
         <!-- Education and Training -->
         <div class="mb-24">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 shadow-xl mb-6
-                        transform transition-transform duration-500 hover:scale-110">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110"
+            >
               <i class="fas fa-graduation-cap text-2xl text-white"></i>
             </div>
-            <h2 class="text-4xl md:text-5xl font-popies text-gray-900 mb-4 font-serif tracking-tight">
+            <h2
+              class="text-4xl md:text-5xl font-poppins font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 mb-4 tracking-wide animate-pulse-text"
+            >
               Education & Training
             </h2>
-            <div class="w-32 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+            <div class="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-500 mx-auto mb-6 rounded-full"></div>
             <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Empowering Cambodian women through transformative education and professional development initiatives
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div v-for="(program, index) in educationPrograms" :key="index"
-                 class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500
-                        hover:shadow-2xl hover:-translate-y-2">
+            <div
+              v-for="(program, index) in educationPrograms"
+              :key="index"
+              class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
               <div class="h-56 overflow-hidden">
-                <img :src="program.image" :alt="program.title"
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img :src="program.image" :alt="program.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
               <div class="p-6">
                 <div class="flex items-center mb-4">
-                  <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4
-                              transform group-hover:scale-110 transition-transform duration-300">
+                  <div
+                    class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4 transform group-hover:scale-110 transition-transform duration-300"
+                  >
                     <i :class="program.icon" class="text-lg text-white"></i>
                   </div>
-                  <h3 class="text-xl font-bold font-serif text-gray-900">{{ program.title }}</h3>
+                  <h3 class="text-xl font-bold font-poppins text-gray-900">{{ program.title }}</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed">{{ program.description }}</p>
               </div>
@@ -85,35 +93,40 @@
         <!-- Community Care -->
         <div class="mt-24">
           <div class="text-center mb-16">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6
-                        transform transition-transform duration-500 hover:scale-110">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110"
+            >
               <i class="fas fa-hands-helping text-2xl text-white"></i>
             </div>
-            <h2 class="text-4xl md:text-5xl font-popies text-gray-900 mb-4 font-serif tracking-tight">
+            <h2
+              class="text-4xl md:text-5xl font-poppins font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-400 mb-4 tracking-wide animate-pulse-text"
+            >
               Community Care
             </h2>
-            <div class="w-32 h-1 bg-blue-500 mx-auto mb-6 rounded-full"></div>
+            <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-400 mx-auto mb-6 rounded-full"></div>
             <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Strengthening Cambodian communities with essential resources and compassionate support
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div v-for="(program, index) in communityPrograms" :key="index"
-                 class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500
-                        hover:shadow-2xl hover:-translate-y-2">
+            <div
+              v-for="(program, index) in communityPrograms"
+              :key="index"
+              class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+            >
               <div class="relative h-64 overflow-hidden">
-                <img :src="program.image" :alt="program.title"
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <img :src="program.image" :alt="program.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div class="p-6">
                 <div class="flex items-center mb-4">
-                  <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4
-                              transform group-hover:scale-110 transition-transform duration-300">
+                  <div
+                    class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4 transform group-hover:scale-110 transition-transform duration-300"
+                  >
                     <i :class="program.icon" class="text-lg text-white"></i>
                   </div>
-                  <h3 class="text-xl font-bold font-serif text-gray-900">{{ program.title }}</h3>
+                  <h3 class="text-xl font-bold font-poppins text-gray-900">{{ program.title }}</h3>
                 </div>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
                 <button class="text-blue-500 font-semibold hover:text-blue-600 transition-colors duration-300">
@@ -139,30 +152,30 @@ export default {
         {
           image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/Row-of-girls-watching-grad-ceremony-768x417.png',
           alt: 'Cambodia program 1',
-          title: 'Education is Her Power',
-          description: 'Empowering girls through education and care programs',
-          buttonText: 'Discover Our Programs'
+          titlePart1: 'Education',
+          titlePart2: 'Power',
+          description: 'Empowering girls through education and care programs'
         },
         {
           image: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2025/02/three-girls-banner-.jpg',
           alt: 'Cambodia program 2',
-          title: 'Education',
-          description: 'Building pathways to education for young women',
-          buttonText: 'Learn About Our Programs'
+          titlePart1: 'Learning',
+          titlePart2: 'Pathways',
+          description: 'Building pathways to education for young women'
         },
         {
           image: 'https://lotusoutreach.org/wp-content/uploads/2023/02/2LO-3-1.jpg',
           alt: 'Cambodia program 3',
-          title: 'Empowerment',
-          description: 'Leadership training and mentorship for young women',
-          buttonText: 'Explore More'
+          titlePart1: 'Leadership',
+          titlePart2: 'Growth',
+          description: 'Leadership training and mentorship for young women'
         },
         {
           image: 'https://lotusoutreach.org/wp-content/uploads/2020/02/IMG_9377-1024x768.jpg',
           alt: 'Cambodia program 4',
-          title: 'Future Leaders',
-          description: 'Inspiring the next generation of female leaders',
-          buttonText: 'Join Our Mission'
+          titlePart1: 'Future',
+          titlePart2: 'Leaders',
+          description: 'Inspiring the next generation of female leaders'
         }
       ],
       educationPrograms: [
@@ -220,32 +233,32 @@ export default {
     }
   },
   mounted() {
-    this.startSlideShow();
+    this.startSlideShow()
   },
   beforeUnmount() {
-    this.stopSlideShow();
+    this.stopSlideShow()
   },
   methods: {
     startSlideShow() {
       this.slideInterval = setInterval(() => {
-        this.nextSlide();
-      }, 6000);
+        this.nextSlide()
+      }, 6000)
     },
     stopSlideShow() {
       if (this.slideInterval) {
-        clearInterval(this.slideInterval);
+        clearInterval(this.slideInterval)
       }
     },
     nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length
     },
     prevSlide() {
-      this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+      this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length
     },
     goToSlide(index) {
-      this.currentSlide = index;
-      this.stopSlideShow();
-      this.startSlideShow();
+      this.currentSlide = index
+      this.stopSlideShow()
+      this.startSlideShow()
     }
   }
 }
@@ -253,6 +266,7 @@ export default {
 
 <style scoped>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 @keyframes slideUp {
   from {
@@ -265,11 +279,31 @@ export default {
   }
 }
 
+@keyframes pulseText {
+  0% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(147, 51, 234, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+}
+
 .animate-slide-up {
   animation: slideUp 0.8s ease-out forwards;
 }
 
+.animate-pulse-text {
+  animation: pulseText 3s ease-in-out infinite;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
 }
 </style>
