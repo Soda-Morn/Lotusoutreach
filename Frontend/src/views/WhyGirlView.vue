@@ -300,7 +300,7 @@
       @click="closeModal">
       <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" @click.stop>
         <div class="relative">
-          <img :src="selectedCard.image" :alt="selectedCard.title" class="w-full h-64 object-cover rounded-t-2xl" />
+          <img :src="selectedCard.image" :alt="selectedCard.title" class="w-full h-65 object-cover rounded-t-2xl" />
           <button @click="closeModal"
             class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
