@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
   withCredentials: true, // Important if using Sanctum
   headers: {
     "Content-Type": "application/json",
