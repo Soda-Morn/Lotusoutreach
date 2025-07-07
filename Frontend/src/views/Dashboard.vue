@@ -14,25 +14,13 @@
               <span class="bg-blue-600/80 text-xs px-2.5 py-1 rounded-full group-hover:bg-blue-500 transition duration-300">New</span>
             </a>
           </li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">🛒</span><span class="font-medium">Ecommerce</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📊</span><span class="font-medium">Analytics</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">👥</span><span class="font-medium">CRM</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📅</span><span class="font-medium">Calendar</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💬</span><span class="font-medium">Chat</span></a></li>
-          <li>
-            <a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]">
-              <span class="mr-4 text-xl">📧</span>
-              <span class="flex-1 font-medium">Email</span>
-              <span class="bg-blue-600/80 text-xs px-2.5 py-1 rounded-full transition duration-300">3</span>
-            </a>
-          </li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📂</span><span class="font-medium">File Manager</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💬</span><span class="font-medium">Forum</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💵</span><span class="font-medium">Invoice</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📸</span><span class="font-medium">Photos</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💲</span><span class="font-medium">Pricing</span></a></li>
-
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📋</span><span class="font-medium">Todo</span></a></li>
+          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">🛒</span><span class="font-medium">WhyGril</span></a></li>
+          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📊</span><span class="font-medium">About Us</span></a></li>
+          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">👥</span><span class="font-medium">Program</span></a></li>
+          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📅</span><span class="font-medium">News</span></a></li>
+          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💬</span><span class="font-medium">Donate</span></a></li>
+          
+          
         </ul>
       </nav>
       <div class="p-4 border-t border-gray-700">

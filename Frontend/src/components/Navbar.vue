@@ -41,15 +41,11 @@
             Contact
           </RouterLink>
         </li>
-        <li>
-          <RouterLink to="/dashboard" :class="{ 'text-pink-600': isActive('/dashboard') }" class="hover:text-pink-600 transition-colors">
-            Dashboard
-          </RouterLink>
-        </li>
+       
         <li v-if="!isAuthenticated">
           <RouterLink
-            to="/login"
-            :class="{ 'text-pink-600': isActive('/login') }"
+            to="/dashboard"
+            :class="{ 'text-pink-600': isActive('/dashboard') }"
             class="px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700 font-semibold shadow transition"
           >
             Login
