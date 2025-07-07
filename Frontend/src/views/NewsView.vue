@@ -3,11 +3,11 @@
     <!-- Hero Banner Component -->
     <div class="relative min-h-screen bg-gray-100 overflow-hidden">
       <!-- Background Image -->
-      <div class="absolute inset-0 bg-black/30">
+      <div class="absolute inset-0 overflow-hidden">
         <img src="https://lotusoutreachaustralia.org.au/wp-content/uploads/2020/03/Bondi-BH-Class-Donation-Poster.jpg"
-          alt="Lotus Outreach activities" class="w-full h-full object-cover">
+          alt="Lotus Outreach activities" class="w-full h-full object-cover blur-sm">
+        <div class="absolute  bg-black/10"></div> <!-- Dark overlay -->
       </div>
-
       <!-- Content Overlay -->
       <div class="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
@@ -16,20 +16,20 @@
               Empowering Communities
             </span>
             <br>
-            <span class="inline-block transition-all duration-300 hover:text-yellow-300">
+            <span class="inline-block transition-all duration-300 text-pink-400">
               Through Sustainable Action
             </span>
           </h1>
-          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p class="text-lg md:text-xl text-white/100 mb-8 max-w-2xl mx-auto">
             Join us in creating lasting change through education, sports, and community development initiatives
             worldwide.
           </p>
           <div class="flex flex-wrap justify-center gap-4">
-            <button
-              class="px-6 py-3 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <button @click="navigateTo('/cambodia')"
+              class="px-6 py-3 bg-pink-500 text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Our Programs
             </button>
-            <button
+            <button @click="navigateTo('/donate')"
               class="px-6 py-3 border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1">
               Donate Now
             </button>
@@ -188,6 +188,19 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router'
+
+const mobileMenuOpen = ref(false)
+const route = useRoute()
+const router = useRouter()
+
+const isActive = (path) => {
+  return route.path === path
+}
+
+const navigateTo = (path) => {
+  router.push(path)
+}
 
 
 const expandedIndex = ref(null);
