@@ -41,7 +41,7 @@
       <!-- Centered Hero Card -->
       <div class="absolute inset-0 flex items-center justify-center px-4 z-20">
         <div class="p-10 max-w-2xl text-center">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-100 mb-6">See Our Programs</h1>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-100 mb-6">See Our About</h1>
           <p class="text-xl text-gray-100 mb-8 leading-relaxed">
             Learn about our solutions in education, training, and care that empower vulnerable communities worldwide.
           </p>
