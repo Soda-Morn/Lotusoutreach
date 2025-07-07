@@ -4,14 +4,14 @@
     <section
       class="relative h-[80vh] bg-cover bg-center flex items-center overflow-hidden bg-gradient-to-br from-indigo-900/90 via-purple-900/90 to-pink-900/90">
       <div class="absolute inset-0 bg-black/80 mix-blend-multiply"></div>
-      <img src="https://lotusoutreach.org/wp-content/uploads/2018/12/Girls-Access-to-Education-1.jpg"
-        alt="Cambodian girls in a classroom" class="absolute inset-0 w-full h-full object-cover opacity-70" />
+      <img src="../img/cam3.png" alt="Cambodian girls in a classroom"
+        class="absolute inset-0 w-full h-full object-cover opacity-70" />
       <div class="container mx-auto px-6 relative z-10 text-center">
-        <div class="max-w-3xl mx-auto backdrop-blur-sm bg-white/5 p-8 rounded-xl border border-white/10">
+        <div>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Connect with <span class="text-pink-400">Us</span>
           </h1>
-          <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
+          <p class="text-lg sm:text-xl text-white mb-8 leading-relaxed">
             Reach out to join our mission of empowering Cambodian girls and
             transforming rural communities.
           </p>
@@ -97,7 +97,7 @@
                   </div>
                   <div>
                     <h4 class="font-semibold">Email Us</h4>
-                    <p class="text-blue-100">contact@example.org</p>
+                    <p class="text-blue-100">info@lotusoutreach.org</p>
                   </div>
                 </div>
 
@@ -110,7 +110,7 @@
                   </div>
                   <div>
                     <h4 class="font-semibold">Call Us</h4>
-                    <p class="text-blue-100">+855 23 456 789</p>
+                    <p class="text-blue-100">+855 888 831 9990</p>
                   </div>
                 </div>
 
@@ -125,8 +125,8 @@
                   </div>
                   <div>
                     <h4 class="font-semibold">Visit Us</h4>
-                    <p class="text-blue-100">123 Street, Phnom Penh, Cambodia</p>
-                  </div>
+                    <p class="text-blue-100"></p>
+                  </div> 26a Street 492, Phnom Penh, Cambodia
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@
 
     <!-- Map Section -->
     <section class="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
-      <div class="container mx-auto px-6">
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Our Location
@@ -147,7 +147,7 @@
             to empower communities across rural provinces.
           </p>
         </div>
-        <div class="max-w-full mx-auto">
+        <div class="max-w-[1400px] mx-auto px-8"> <!-- Matching your form/card container exactly -->
           <div class="relative rounded-2xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.123456!2d104.9141!3d11.5449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a8e9e6e9b7b1b%3A0x4e8f6a5b6b6b6b6b!2sPhnom%20Penh%2C%20Cambodia!5e0!3m2!1sen!2sus!4v1697051234567!5m2!1sen!2sus"
@@ -157,7 +157,7 @@
               <h3 class="text-xl font-bold text-blue-600">
                 Lotus Outreach Cambodia
               </h3>
-              <p class="text-gray-700">123 Street 123, Phnom Penh, Cambodia</p>
+              <p class="text-gray-700">26a Street 492, Phnom Penh, Cambodia</p>
             </div>
           </div>
         </div>
@@ -165,19 +165,25 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-20 bg-gray-900 text-white relative bg-cover bg-center" style="
-        background-image: url('https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=wMw3kMSLNX2ynAD6oHgpWA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=358.62686&pitch=0&thumbfov=100');
-      ">
-      <div class="absolute inset-0 bg-black/40 z-0"></div>
+    <section class="relative h-[60vh] bg-cover bg-center flex items-center overflow-hidden">
+      <!-- Background image with overlay -->
+      <img src="../img/contact.png" alt="Cambodian girls in a classroom"
+        class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/90"></div>
+      <div class="absolute inset-0 bg-black/50 mix-blend-multiply"></div>
+
+      <!-- Content -->
       <div class="container mx-auto px-6 relative z-10 text-center">
         <div class="max-w-3xl mx-auto">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Join Our Mission</h2>
-          <p class="text-lg mb-8">
-            Your support can transform lives in Cambodia. Connect with us to
-            learn how you can make a difference.
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Join Our <span class="text-pink-400">Mission</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
+            Your support can transform lives in Cambodia. Reach out to join our mission of empowering Cambodian girls
+            and transforming rural communities.
           </p>
           <router-link to="/donate"
-            class="inline-block px-8 py-4 bg-pink-600 text-white font-semibold rounded-full hover:bg-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            class="inline-block px-8 py-4 bg-pink-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
             aria-label="Support our mission in Cambodia">
             Support Cambodia
           </router-link>
