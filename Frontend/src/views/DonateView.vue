@@ -22,9 +22,6 @@
     </div>
   </div>
 </header>
-
-
-
     <!-- Impact Section -->
     <section class="container mx-auto px-4 py-10 max-w-7xl">
       <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Our Impact Together</h2>
@@ -35,9 +32,6 @@
         </div>
       </div>
     </section>
-
- 
-
     <!-- Donation Form Section -->
     <section class="container mx-auto px-4 py-10 max-w-7xl">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">

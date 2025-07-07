@@ -3,7 +3,7 @@
     <div class="max-w-[86rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
       <div class="flex items-center space-x-3">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgLeIH5PtQCty0ZtaLV8aYaUzaTVQpVQHp0A&s"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcQgLeIH5PtQCty0ZtaLV8aYaUzaTVQpVQHp0A&s"
           alt="Lotus Outreach Logo"
           class="w-12 h-12 object-contain"
         />
@@ -36,14 +36,17 @@
             Donate
           </RouterLink>
         </li>
-       
         <li>
           <RouterLink to="/contact" :class="{ 'text-pink-600': isActive('/contact') }" class="hover:text-pink-600 transition-colors">
             Contact
           </RouterLink>
         </li>
-       
         <li>
+          <RouterLink to="/dashboard" :class="{ 'text-pink-600': isActive('/dashboard') }" class="hover:text-pink-600 transition-colors">
+            Dashboard
+          </RouterLink>
+        </li>
+        <li v-if="!isAuthenticated">
           <RouterLink
             to="/login"
             :class="{ 'text-pink-600': isActive('/login') }"
@@ -51,6 +54,11 @@
           >
             Login
           </RouterLink>
+        </li>
+        <li v-if="isAuthenticated">
+          <button @click="logout" class="px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700 font-semibold shadow transition">
+            Logout
+          </button>
         </li>
       </ul>
 
@@ -81,13 +89,23 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-const mobileMenuOpen = ref(false)
-const route = useRoute()
+const mobileMenuOpen = ref(false);
+const route = useRoute();
+const router = useRouter();
 
 const isActive = (path) => {
-  return route.path === path
-}
+  return route.path === path;
+};
+
+const isAuthenticated = computed(() => {
+  return localStorage.getItem('isAuthenticated') === 'true';
+});
+
+const logout = () => {
+  localStorage.removeItem('isAuthenticated');
+  router.push('/login');
+};
 </script>
