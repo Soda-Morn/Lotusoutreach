@@ -76,7 +76,7 @@
           </div>
 
           <!-- Info Card Section - Increased width -->
-          <div class="bg-blue-600 text-white p-12 rounded-xl shadow-md">
+          <div class="bg-blue-500 text-white p-12 rounded-xl shadow-md">
             <div class="h-full flex flex-col justify-center">
               <div class="mb-8 text-center">
                 <svg class="w-12 h-12 mx-auto text-white mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="font-semibold">Email Us</h4>
+                    <h4 class="font-semibold">Email Us :</h4>
                     <p class="text-blue-100">info@lotusoutreach.org</p>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="font-semibold">Call Us</h4>
+                    <h4 class="font-semibold">Call Us :</h4>
                     <p class="text-blue-100">+855 888 831 9990</p>
                   </div>
                 </div>
@@ -124,7 +124,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="font-semibold">Visit Us</h4>
+                    <h4 class="font-semibold">Visit Us :</h4>
                     <p class="text-blue-100"></p>
                   </div> 26a Street 492, Phnom Penh, Cambodia
                 </div>
@@ -169,8 +169,8 @@
       <!-- Background image with overlay -->
       <img src="../img/contact.png" alt="Cambodian girls in a classroom"
         class="absolute inset-0 w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/90"></div>
-      <div class="absolute inset-0 bg-black/50 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-400/40"></div>
+      <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
 
       <!-- Content -->
       <div class="container mx-auto px-6 relative z-10 text-center">
