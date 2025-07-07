@@ -7,7 +7,6 @@
         <img src="https://lotusoutreachaustralia.org.au/wp-content/uploads/2020/03/Bondi-BH-Class-Donation-Poster.jpg"
           alt="Lotus Outreach activities" class="w-full h-full object-cover">
       </div>
-
       <!-- Content Overlay -->
       <div class="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
@@ -38,14 +37,13 @@
       </div>
     </div>
 
-    <!-- News Feed Component -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- News Listing View -->
+    <div v-if="currentView === 'listing'" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <!-- Header with Search -->
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Latest Updates</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">Stay informed about our initiatives and impact stories
         </p>
-
         <!-- Search Bar -->
         <div class="max-w-md mx-auto relative">
           <div class="relative">
@@ -58,7 +56,6 @@
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
           </div>
-
           <!-- Category Filter -->
           <div class="flex flex-wrap justify-center gap-2 mt-4">
             <button v-for="category in categories" :key="category.value" @click="toggleCategory(category.value)"
@@ -93,7 +90,6 @@
             <img :src="item.image" :alt="item.title"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-
           <div class="p-6 md:p-8 flex-grow">
             <!-- Category Badge -->
             <div class="flex items-center mb-4">
@@ -103,26 +99,22 @@
               </span>
               <span class="ml-3 text-sm text-gray-500">{{ formatDate(item.date) }}</span>
             </div>
-
             <!-- Title -->
             <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
               {{ item.title }}
             </h3>
-
             <!-- Content Preview -->
             <p class="text-gray-600 mb-4 line-clamp-3">{{ item.content }}</p>
-
             <!-- Author -->
             <div class="mt-auto">
               <span class="text-sm font-medium text-gray-500">By {{ item.author }}</span>
             </div>
           </div>
-
           <!-- Read More Button -->
           <div class="px-6 pb-6 md:px-8">
             <button
               class="w-full px-4 py-2 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition-colors flex items-center justify-center"
-              @click="expandItem(index)">
+              @click="viewArticleDetail(item, index)">
               Read more
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -141,45 +133,94 @@
       </div>
     </div>
 
-    <!-- Expanded Content Modal -->
-    <div v-if="expandedIndex !== null"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      @click.self="expandedIndex = null">
-      <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <!-- Image in Modal -->
-        <div class="h-64 overflow-hidden">
-          <img :src="filteredNewsItems[expandedIndex].image" :alt="filteredNewsItems[expandedIndex].title"
-            class="w-full h-full object-cover">
+    <!-- Article Detail View -->
+    <div v-if="currentView === 'detail'" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Back Button -->
+      <button 
+        @click="backToListing"
+        class="flex items-center space-x-2 text-gray-600 hover:text-gray-800 mb-6 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span>Back to News</span>
+      </button>
+
+      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <!-- Hero Image -->
+        <div class="aspect-video overflow-hidden">
+          <img 
+            :src="selectedArticle.image" 
+            :alt="selectedArticle.title"
+            class="w-full h-full object-cover"
+          >
         </div>
 
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full mb-2"
-                :class="getCategoryBadgeClass(filteredNewsItems[expandedIndex].category)">
-                {{ getCategoryLabel(filteredNewsItems[expandedIndex].category) }}
+        <!-- Article Content -->
+        <div class="p-8">
+          <!-- Article Header -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <span 
+                class="px-3 py-1 text-sm font-medium rounded-full"
+                :class="getCategoryBadgeClass(selectedArticle.category)"
+              >
+                {{ getCategoryLabel(selectedArticle.category) }}
               </span>
-              <h2 class="text-2xl font-bold text-gray-900">{{ filteredNewsItems[expandedIndex].title }}</h2>
-              <p class="text-sm text-gray-500 mt-1">
-                {{ formatDate(filteredNewsItems[expandedIndex].date) }} • By {{ filteredNewsItems[expandedIndex].author
-                }}
-              </p>
+              <span class="text-sm text-gray-500">{{ formatDate(selectedArticle.date) }}</span>
             </div>
-            <button @click="expandedIndex = null" class="text-gray-400 hover:text-gray-500">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {{ selectedArticle.title }}
+            </h1>
+            <div class="flex items-center space-x-4 text-sm text-gray-500 mb-6">
+              <span>By {{ selectedArticle.author }}</span>
+              <span>•</span>
+              <span>{{ calculateReadTime(selectedArticle.content) }} min read</span>
+            </div>
+          </div>
+
+          <!-- Article Body -->
+          <div class="prose prose-lg max-w-none">
+            <div class="text-gray-700 leading-relaxed whitespace-pre-line">{{ selectedArticle.content }}</div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="mt-8 p-6 bg-pink-50 rounded-lg text-center">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Support Our Mission</h3>
+            <p class="text-gray-600 mb-4">
+              Help us continue empowering girls and communities through sports and education.
+            </p>
+            <button class="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 transition-colors font-medium">
+              Check Out 1,000 Coffee Giving
             </button>
           </div>
-          <div class="prose max-w-none text-gray-700">
-            <p class="whitespace-pre-line">{{ filteredNewsItems[expandedIndex].content }}</p>
-          </div>
-          <div class="mt-6">
-            <button @click="expandedIndex = null"
-              class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-              Close
-            </button>
-          </div>
+        </div>
+      </article>
+
+      <!-- Related Articles -->
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Related Stories</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article 
+            v-for="article in relatedArticles" 
+            :key="article.title"
+            class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+            @click="viewArticleDetail(article)"
+          >
+            <div class="flex">
+              <div class="w-24 h-24 flex-shrink-0">
+                <img 
+                  :src="article.image" 
+                  :alt="article.title"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-4 flex-1">
+                <h4 class="font-semibold text-gray-900 mb-1 line-clamp-2">{{ article.title }}</h4>
+                <p class="text-sm text-gray-500">{{ article.author }} • {{ formatDate(article.date) }}</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -189,7 +230,11 @@
 <script setup>
 import { ref, computed } from 'vue';
 
+// View state management
+const currentView = ref('listing'); // 'listing' or 'detail'
+const selectedArticle = ref(null);
 
+// Existing reactive variables
 const expandedIndex = ref(null);
 const visibleItems = ref(6);
 const searchQuery = ref('');
@@ -205,7 +250,7 @@ const categories = [
 const newsItems = [
   {
     title: "Jharkhand Soccer (Football) Tournaments!",
-    content: "We are so excited to share with our community about the 2024 Jharkhand Soccer (Football) Tournaments for girls', annual events hosted and organized by our partner in the state of Jharkhand, Naya Sawera Vikas Kendra (NSVK). The annual tournaments are a part of Lotus Outreach's work in Jharkhand, implementing community projects that nurture and empower women and girls from tribal indigenous areas in the region. We'd especially like to thank our donors who give up coffee monthly through 1000 Coffee and directly support these regional soccer tournaments! The tournaments are an incredible opportunity to not only empower girls through sports and support athletic talent, but also to bring communities together for a joyous occasion that centers girls' joy and confidence. They are truly catalysts of social change.",
+    content: "We are so excited to share with our community about the 2024 Jharkhand Soccer (Football) Tournaments for girls', annual events hosted and organized by our partner in the state of Jharkhand, Naya Sawera Vikas Kendra (NSVK). The annual tournaments are a part of Lotus Outreach's work in Jharkhand, implementing community projects that nurture and empower women and girls from tribal indigenous areas in the region.\n\nWe'd especially like to thank our donors who give up coffee monthly through 1000 Coffee and directly support these regional soccer tournaments! The tournaments are an incredible opportunity to not only empower girls through sports and support athletic talent, but also to bring communities together for a joyous occasion that centers girls' joy and confidence. They are truly catalysts of social change.\n\nThe tournaments are an incredible opportunity to not only empower girls through sports and support athletic talent, but also to bring communities together for a joyous occasion that centers girls' joy and confidence. The tournaments are truly catalysts of social change. The events are a collaborative effort with entire village communities rallying together and police assuming the role of guardians. Villagers go above and beyond to ensure access to clean drinking water for the young athletes.",
     date: "2024-09-14",
     author: "lotusoutreach",
     category: "sports",
@@ -213,7 +258,7 @@ const newsItems = [
   },
   {
     title: "LO Loves Buddha Smiles!",
-    content: "We celebrate more than 12 years of Buddha Smiles and the Guru Krupa Foundation! Buddha Smiles is a project conceived of and operated by our brilliant partner, the Garden of Peace School, founded by Dr. Manivannan. It was when the founder of the Guru Krupa Foundation, Mukund Padmanabhan, connected with the Buddha Smiles project in 2012 that he became an unwavering supporter of Buddha Smiles and Lotus Outreach. Since that time, the Guru Krupa Foundation has provided generous and dedicated support for Lotus Outreach projects, including Buddha Smiles, Blossom Bus, and Lotus Pedals in India (new!). We'd like to take this opportunity to once again thank you, Guru Krupa Foundation.",
+    content: "We celebrate more than 12 years of Buddha Smiles and the Guru Krupa Foundation! Buddha Smiles is a project conceived of and operated by our brilliant partner, the Garden of Peace School, founded by Dr. Manivannan. It was when the founder of the Guru Krupa Foundation, Mukund Padmanabhan, connected with the Buddha Smiles project in 2012 that he became an unwavering supporter of Buddha Smiles and Lotus Outreach.\n\nSince that time, the Guru Krupa Foundation has provided generous and dedicated support for Lotus Outreach projects, including Buddha Smiles, Blossom Bus, and Lotus Pedals in India (new!). We'd like to take this opportunity to once again thank you, Guru Krupa Foundation.\n\nThe program has touched thousands of lives across rural communities, providing quality education and fostering creativity among young learners. Through art, music, and interactive learning methods, Buddha Smiles creates an environment where children can thrive and develop their full potential.",
     date: "2024-08-10",
     author: "Genevieve Waltcher",
     category: "education",
@@ -221,7 +266,7 @@ const newsItems = [
   },
   {
     title: "Spotlight: Jharkhand Project, India",
-    content: "Jharkhand ('The land of forest') is a state in eastern India, carved out in 2000 from what was the southern half of Bihar. It is the 15th largest state by area, and the 14th largest by population. The state is known for its rich deposits of minerals, forest land, various ethnic groups, waterfalls, hills, and holy places. Jharkhand is also known for its vast forest resources which sustain a tapestry of diverse communities, each with a unique cultural heritage. Among these are the 32 scheduled tribes (ST), recognized by the Indian Government as the most socio-economically disadvantaged groups in the country. 8 of the poorest tribal groups, further categorized by the Indian Government as Particularly Vulnerable Tribal Groups (PVTGs) also live here, in Jharkhand.",
+    content: "Jharkhand ('The land of forest') is a state in eastern India, carved out in 2000 from what was the southern half of Bihar. It is the 15th largest state by area, and the 14th largest by population. The state is known for its rich deposits of minerals, forest land, various ethnic groups, waterfalls, hills, and holy places.\n\nJharkhand is also known for its vast forest resources which sustain a tapestry of diverse communities, each with a unique cultural heritage. Among these are the 32 scheduled tribes (ST), recognized by the Indian Government as the most socio-economically disadvantaged groups in the country. 8 of the poorest tribal groups, further categorized by the Indian Government as Particularly Vulnerable Tribal Groups (PVTGs) also live here, in Jharkhand.\n\nOur work in Jharkhand focuses on empowering indigenous communities, particularly women and girls, through education, healthcare, and economic opportunities. The state's tribal population faces unique challenges, including limited access to quality education and healthcare services.",
     date: "2024-05-24",
     author: "lotusoutreach",
     category: "announcement",
@@ -229,7 +274,7 @@ const newsItems = [
   },
   {
     title: "LO UK Hosts Online Auction!",
-    content: "We are thrilled to announce that our LO United Kingdom affiliate is hosting an online auction live from April 17th through May 1, 2024. The auction items available include luxury getaways, celebrated artwork, concert tickets, an internship, couture fashion, and much more. Join us in our efforts to make a tangible difference in the lives of those in need by bidding freely and generously to support the girls, women, and families supported by LO education, training, and care projects. *Note: successful bidders are responsible for all shipping and collection charges (where relevant).",
+    content: "We are thrilled to announce that our LO United Kingdom affiliate is hosting an online auction live from April 17th through May 1, 2024. The auction items available include luxury getaways, celebrated artwork, concert tickets, an internship, couture fashion, and much more.\n\nJoin us in our efforts to make a tangible difference in the lives of those in need by bidding freely and generously to support the girls, women, and families supported by LO education, training, and care projects.\n\n*Note: successful bidders are responsible for all shipping and collection charges (where relevant).",
     date: "2024-04-17",
     author: "lotusoutreach",
     category: "event",
@@ -237,7 +282,7 @@ const newsItems = [
   },
   {
     title: "Happy 2024! Giving Back Project with CATALYST Scholars",
-    content: "Happy 2024! We're delighted to share with you about our recent fifth Giving Back Project, hosted by Lotus Outreach Cambodia. In an effort to express their gratitude for the scholarship support our CATALYST university scholars receive, every year they raise funds themselves to help schools and students in remote areas, such as Mondolkiri, Siem Reap, Pallin, and Takeo. For example, the students we support provide study materials, teach sanitation, color pictures, build water tanks, and lead students in play based learning activities and games to give back to others and realize their own abundant abilities to help create goodness in others lives and the world.",
+    content: "Happy 2024! We're delighted to share with you about our recent fifth Giving Back Project, hosted by Lotus Outreach Cambodia. In an effort to express their gratitude for the scholarship support our CATALYST university scholars receive, every year they raise funds themselves to help schools and students in remote areas, such as Mondolkiri, Siem Reap, Pallin, and Takeo.\n\nFor example, the students we support provide study materials, teach sanitation, color pictures, build water tanks, and lead students in play based learning activities and games to give back to others and realize their own abundant abilities to help create goodness in others lives and the world.",
     date: "2024-02-08",
     author: "lotusoutreach",
     category: "education",
@@ -245,7 +290,7 @@ const newsItems = [
   },
   {
     title: "Guru Krupa Foundation and Lotus Outreach",
-    content: "We are deeply grateful for our long-term foundation partners, such as the Guru Krupa Foundation who has assisted LO in our work ensuring access to education to girls, young women, and children for more than 10 years. We are touched to share with you about this partnership and Guru Krupa's profound generosity and dedication to both our Blossom Bus and Buddha Smiles programs in India.",
+    content: "We are deeply grateful for our long-term foundation partners, such as the Guru Krupa Foundation who has assisted LO in our work ensuring access to education to girls, young women, and children for more than 10 years. We are touched to share with you about this partnership and Guru Krupa's profound generosity and dedication to both our Blossom Bus and Buddha Smiles programs in India.\n\nThis partnership exemplifies the power of collaborative philanthropy and demonstrates how sustained support can create lasting change in communities around the world.",
     date: "2023-11-19",
     author: "lotusoutreach",
     category: "announcement",
@@ -253,29 +298,24 @@ const newsItems = [
   },
 ];
 
+// Computed properties
 const filteredNewsItems = computed(() => {
   const query = searchQuery.value.toLowerCase().trim();
   const hasSearchQuery = query !== '';
   const hasActiveCategories = activeCategories.value.length > 0;
 
   return newsItems.filter(item => {
-    // Check category filter first (if any categories are selected)
     const matchesCategory = !hasActiveCategories ||
       activeCategories.value.includes(item.category);
 
-    // Check search query (if any)
     let matchesSearch = false;
     if (hasSearchQuery) {
-      // Check if query exactly matches a category name
       const matchedCategory = categories.find(cat =>
         cat.label.toLowerCase() === query
       );
-
       if (matchedCategory) {
-        // If searching for a category, only match items of that exact category
         matchesSearch = item.category === matchedCategory.value;
       } else {
-        // For non-category searches, search in title, content, and author
         matchesSearch =
           item.title.toLowerCase().includes(query) ||
           item.content.toLowerCase().includes(query) ||
@@ -286,10 +326,37 @@ const filteredNewsItems = computed(() => {
     }
 
     return matchesCategory && matchesSearch;
-  }).sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date
+  }).sort((a, b) => new Date(b.date) - new Date(a.date));
 });
 
-// The rest of your methods remain exactly the same
+const relatedArticles = computed(() => {
+  if (!selectedArticle.value) return [];
+  return newsItems.filter(article => 
+    article.title !== selectedArticle.value.title &&
+    (article.category === selectedArticle.value.category || Math.random() > 0.5)
+  ).slice(0, 2);
+});
+
+// Methods
+const viewArticleDetail = (article, index = null) => {
+  selectedArticle.value = article;
+  currentView.value = 'detail';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const backToListing = () => {
+  currentView.value = 'listing';
+  selectedArticle.value = null;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const calculateReadTime = (content) => {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+};
+
+// Existing methods
 const getCategoryButtonClass = (category) => {
   return {
     'bg-blue-100 text-blue-800': category === 'sports' && activeCategories.value.includes('sports'),
@@ -311,7 +378,7 @@ const getCategoryBadgeClass = (category) => {
 
 const expandItem = (index) => {
   expandedIndex.value = index;
-  document.body.style = 'hidden';
+  document.body.style.overflow = 'hidden';
 };
 
 const loadMore = () => {
@@ -353,12 +420,21 @@ const getCategoryLabel = (category) => {
   return labels[category] || 'News';
 };
 </script>
+
 <style>
 /* Custom styles */
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -382,6 +458,10 @@ const getCategoryLabel = (category) => {
 
 .object-cover {
   object-fit: cover;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
 }
 
 /* Transition effects */

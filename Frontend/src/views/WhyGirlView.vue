@@ -385,21 +385,21 @@ const focusCards = ref([
   {
     id: 1,
     title: "Education in Cambodia",
-    image: "https://lotusoutreach.org/wp-content/uploads/2018/12/Girls-Access-to-Education-1.jpg",
+    image: "https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/banner-photo-outside-house.jpg",
     summary: "Supporting Cambodian girls through scholarships, school supplies, and educational programs in rural provinces.",
     content: "Our education programs in Cambodia focus on keeping girls in school through comprehensive support including scholarships, uniforms, school supplies, and nutritional assistance. We work directly with families in rural provinces like Siem Reap and Battambang to ensure girls can complete their education despite economic challenges. Our culturally-sensitive approach respects Khmer traditions while promoting gender equality and educational advancement."
   },
   {
     id: 2,
     title: "Healthcare Access",
-    image: "https://images.globalgiving.org/pfil/3885/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2",
+    image: "https://www.globalgiving.org/pfil/69718/pict_large.jpg",
     summary: "Providing essential healthcare services and clean water access to remote Cambodian villages.",
     content: "In Cambodia's remote areas, we provide mobile health clinics, maternal health services, and health education programs. Our teams work with local health workers to deliver culturally appropriate care that respects traditional Khmer healing practices while introducing modern medical knowledge. We also focus on preventive care and health education to build stronger, healthier communities."
   },
   {
     id: 3,
     title: "Anti-Trafficking Protection",
-    image: "https://media.licdn.com/dms/image/v2/C561BAQHovERV7NaR7g/company-background_10000/company-background_10000/0/1615466141859/lotusoutreachinternational_cover?e=2147483647&v=beta&t=E2rwHcaKf0iDwP57SpCCBdOm12F61_c_-Pd5g8VQ8kg",
+    image: "https://www.globalgiving.org/pfil/5863/ph_5863_18888.jpg",
     summary: "Protecting vulnerable Cambodian women and children from trafficking and exploitation.",
     content: "Cambodia faces unique challenges with human trafficking, particularly affecting young women and children. Our anti-trafficking programs include community education, economic empowerment initiatives, and collaboration with local authorities. We work to identify at-risk individuals and provide alternative opportunities through education and skills training, helping families avoid situations that make them vulnerable to trafficking."
   },
