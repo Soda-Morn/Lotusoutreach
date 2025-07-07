@@ -96,7 +96,7 @@
             <div
               class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://lotusoutreach.org/wp-content/uploads/2018/12/Girls-Access-to-Education-1.jpg"
+                <img src="https://www.globalgiving.org/pfil/5863/pict_large.jpg"
                   alt="Cambodian girls in education"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
@@ -117,7 +117,7 @@
               class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div class="aspect-[4/3] overflow-hidden">
                 <img
-                  src="https://media.licdn.com/dms/image/v2/C561BAQHovERV7NaR7g/company-background_10000/company-background_10000/0/1615466141859/lotusoutreachinternational_cover?e=2147483647&v=beta&t=E2rwHcaKf0iDwP57SpCCBdOm12F61_c_-Pd5g8VQ8kg"
+                  src="https://www.globalgiving.org/learn/wp-content/uploads/2022/10/Globalteer.jpg"
                   alt="Cambodian community"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
@@ -268,7 +268,7 @@
     <section class="relative py-20 overflow-hidden">
       <!-- Background Image -->
       <div class="absolute inset-0">
-        <img src="https://lotusoutreach.org/wp-content/uploads/2018/12/Girls-Access-to-Education-1.jpg"
+        <img src="https://images.globalgiving.org/pfil/10626/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
           alt="Cambodia background" class="w-full h-full object-cover" />
         <!-- Dark Overlay -->
         <div class="absolute inset-0 bg-black/60"></div>
@@ -382,7 +382,7 @@ const focusCards = ref([
   {
     id: 4,
     title: "Rural Development",
-    image: "https://lotusoutreach.org/wp-content/uploads/2018/12/people_at_public_water_pump.jpg",
+    image: "https://scontent.fpnh19-1.fna.fbcdn.net/v/t51.75761-15/505445926_18524186137029150_7471771288516002595_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=zY-_H-isCVgQ7kNvwGOdVwd&_nc_oc=Adlgei7otIaKhrUw50m0jPSer7yDq19YiTpM1ZfGlx_PGqO5z8GceNsJZswZ38Q3oow&_nc_zt=23&_nc_ht=scontent.fpnh19-1.fna&_nc_gid=_Vzp13xqU32Kaav9TnVFXw&oh=00_AfQ0qFMwEJO5G4bx5Y5L_1oK2pU9lbRamEDygVvPdpHwHw&oe=6870F4D9",
     summary: "Building sustainable infrastructure and economic opportunities in Cambodia's rural communities.",
     content: "Our community development programs in Cambodia focus on building essential infrastructure like water wells, improving agricultural practices, and creating economic opportunities. We work with village leaders and community members to identify priorities and implement sustainable solutions that respect local customs and environmental considerations. Our approach emphasizes community ownership and long-term sustainability."
   }
