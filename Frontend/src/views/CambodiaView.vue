@@ -112,7 +112,7 @@
         <div class="container mx-auto px-4 max-w-7xl">
           <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-poppins font-semibold text-gray-900 mb-2">Success Stories</h2>
-            <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-pink-600 mx-auto mb-4 rounded"></div>
+            <div class="w-20 h-1  from-blue-600 mx-auto mb-4 rounded"></div>
             <p class="text-gray-600 text-base md:text-lg max-w-xl mx-auto">Hear from the women whose lives have been transformed</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -133,24 +133,7 @@
       </section>
 
       <!-- Call to Action Section -->
-      <section class="py-16 bg-gradient-to-r from-blue-600 to-pink-600 text-white">
-        <div class="container mx-auto px-4 max-w-7xl text-center">
-          <h2 class="text-3xl md:text-4xl font-poppins font-semibold mb-4">Join Our Mission</h2>
-          <p class="text-base md:text-lg mb-6 max-w-xl mx-auto opacity-90">
-            Together, we can create lasting change and empower more women and communities across Cambodia.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              class="bg-white text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200">
-              Make a Donation
-            </button>
-            <button
-              class="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-pink-600 transition-colors duration-200">
-              Become a Volunteer
-            </button>
-          </div>
-        </div>
-      </section>
+      
     </div>
 
     <!-- Program Detail Page -->
@@ -300,21 +283,21 @@ export default {
       ],
       testimonials: [
         {
-          name: 'Sophea Chen',
-          program: 'CATALYST Graduate',
-          avatar: '/placeholder.svg?height=64&width=64',
+          name: 'Raksmey Var',
+          program: 'Country Representative, Cambodia',
+          avatar: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2015/07/Raksmey-for-web-site-.jpg',
           quote: 'The CATALYST program gave me the confidence and skills to become a leader in my community. Now I help other young women pursue their dreams.'
         },
         {
-          name: 'Maly Kem',
-          program: 'Lotus Pedals Recipient',
-          avatar: '/placeholder.svg?height=64&width=64',
+          name: 'Pisey Chea',
+          program: 'LOCAM Project Officer',
+          avatar: 'https://lotusoutreachaustralia.org.au/wp-content/uploads/2018/06/Untitled-design-2.jpg',
           quote: 'Having a bicycle changed everything for me. I could attend school regularly and now I am studying to become a teacher.'
         },
         {
-          name: 'Channary Lim',
-          program: 'GATE Scholar',
-          avatar: '/placeholder.svg?height=64&width=64',
+          name: 'Borika',
+          program: 'Accountant, Cambodia',
+          avatar: 'https://lotusoutreach.org/wp-content/uploads/2022/08/borika.jpeg',
           quote: 'The scholarship and rice support meant my family could afford to keep me in school. Education opened doors I never imagined possible.'
         }
       ],
@@ -323,7 +306,7 @@ export default {
           title: 'Lotus Pedals',
           image: 'https://lotusoutreach.org/wp-content/uploads/2023/02/IMG_7191.jpg',
           icon: 'fas fa-bicycle',
-          description: 'Providing durable bicycles to girls in rural Cambodia, enabling them to travel the long distance to school.',
+          description: 'Providing durable bicycles to girls in ruralbr Cambodia, enabling them to travel the long distance to school.',
           fullDescription: 'The Lotus Pedals program addresses one of the most significant barriers to education for girls in rural Cambodia: transportation. Many girls live several kilometers away from their schools, making the daily journey on foot both time-consuming and potentially dangerous. By providing sturdy, reliable bicycles, we enable these young women to attend school regularly, arrive safely, and have more time for their studies and family responsibilities.',
           features: [
             'High-quality, durable bicycles designed for rural terrain',
@@ -555,14 +538,13 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Professional header styling */
+/* Header styling (remains consistent across backgrounds) */
 .header-bg {
   background-attachment: fixed;
   background-position: center 20%;
   min-height: 80vh;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .header-bg {
     min-height: 60vh;
@@ -578,7 +560,37 @@ html {
   }
 }
 
-/* Smooth transitions and hover effects */
+/* Five Full-Page Background Options - Uncomment one to activate */
+
+/* Option 1: Subtle Gradient (Default) */
+.min-h-screen {
+  background: linear-gradient(to bottom, #f3f4f6, #ffffff);
+}
+
+/* Option 2: Soft Blue Gradient */
+ /* .min-h-screen {
+  background: linear-gradient(to bottom, #e6f0fa, #ffffff);
+} */
+
+/* Option 3: Warm Beige Gradient */
+ /* .min-h-screen {
+  background: linear-gradient(to bottom, #f5ece4, #ffffff);
+} */
+
+/* Option 4: Light Gray Pattern */
+ /* .min-h-screen {
+  background: linear-gradient(to bottom, #f7f7f7, #e5e7eb);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+} */
+
+/* Option 5: Minimal White with Overlay */
+ /* .min-h-screen {
+  background: #ffffff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+  background-size: 100% 10px;
+} */
+
 button:hover {
   transform: translateY(-1px);
 }
