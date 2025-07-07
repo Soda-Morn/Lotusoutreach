@@ -1,3 +1,4 @@
+```vue
 <template>
   <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white font-sans">
     <!-- Main Page -->
@@ -11,118 +12,95 @@
             :class="{ 'opacity-100': currentSlide === index, 'opacity-0': currentSlide !== index }">
             <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover" />
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
-              <div class="text-center px-6 text-white max-w-5xl animate-slide-up">
-                <!-- Lotus Outreach Branding -->
-                <div class="mb-8">
-                  <h1 class="text-5xl md:text-7xl font-poppins font-extrabold mb-4 text-pink-400">
-                    Lotus Outreach
-                  </h1>
-                  <div class="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-600 mx-auto mb-6 rounded-full"></div>
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-center justify-center">
+              <div class="text-center px-6 text-white max-w-4xl animate-slide-up">
+                <div class="mb-6">
+                  <h1 class="text-4xl md:text-6xl font-poppins font-extrabold text-pink-500 mb-3">Lotus Outreach</h1>
+                  <div class="w-24 h-1 bg-pink-500 mx-auto rounded"></div>
                 </div>
-
                 <h2
-                  class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 tracking-wide uppercase">
-                  <span class="text-gray-200">{{ slide.titlePart1 }}</span>
-                  <span class="text-pink-400">{{ slide.titlePart2 }}</span>
+                  class="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold mb-4 tracking-tight uppercase">
+                  <span class="text-gray-100">{{ slide.titlePart1 }}</span>
+                  <span class="text-pink-500">{{ slide.titlePart2 }}</span>
                 </h2>
-                <p class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-gray-100 mb-10">
-                  {{ slide.description }}
-                </p>
+                <p class="text-base sm:text-lg md:text-xl font-light text-gray-200 mb-8">{{ slide.description }}</p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Indicators -->
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-4 z-10">
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-10">
           <button v-for="(slide, index) in slides" :key="index" @click="goToSlide(index)"
-            class="w-3 h-3 rounded-full transition-all duration-300"
-            :class="currentSlide === index ? 'bg-pink-500 w-8' : 'bg-white/50 hover:bg-white/80'"
+            class="w-2 h-2 rounded-full transition-all duration-300"
+            :class="currentSlide === index ? 'bg-pink-500 w-6' : 'bg-white/40 hover:bg-white/60'"
             :aria-label="`Go to slide ${index + 1}`"></button>
         </div>
       </section>
 
       <!-- Programs Section -->
-      <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 max-w-7xl">
-          <!-- Education and Training -->
-          <div class="mb-24">
-            <div class="text-center mb-16">
-              <div
-                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
-                <i class="fas fa-graduation-cap text-2xl text-white"></i>
-              </div>
-              <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-blue-600 mb-4 tracking-wide">
-                Education in Cambodia
-              </h2>
-              <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mb-6 rounded-full"></div>
-              <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                Empowering Cambodian women through transformative education and professional development initiatives
-              </p>
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+          <div class="mb-16 text-center">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 shadow-md mb-4">
+              <i class="fas fa-graduation-cap text-xl text-white"></i>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div v-for="(program, index) in educationPrograms" :key="index"
-                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-blue-100">
-                <div class="h-56 overflow-hidden relative">
-                  <img :src="program.image" :alt="program.title"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div class="absolute top-4 left-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                      <i :class="program.icon" class="text-lg text-white"></i>
-                    </div>
+            <h2 class="text-3xl md:text-4xl font-poppins font-semibold text-gray-900 mb-2">Education in Cambodia</h2>
+            <div class="w-20 h-1 bg-blue-600 mx-auto mb-4 rounded"></div>
+            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Empowering Cambodian women through transformative education and professional development initiatives
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div v-for="(program, index) in educationPrograms" :key="index"
+              class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div class="h-48 overflow-hidden relative">
+                <img :src="program.image" :alt="program.title"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute top-3 left-3">
+                  <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                    <i :class="program.icon" class="text-sm text-white"></i>
                   </div>
                 </div>
-                <div class="p-6">
-                  <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ program.title }}</h3>
-                  <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
-                  <button @click="showProgramDetail(program, 'education')"
-                    class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
-                    Learn More
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                  </button>
-                </div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-lg font-poppins font-medium text-gray-900 mb-2">{{ program.title }}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">{{ program.description }}</p>
+                <button @click="showProgramDetail(program, 'education')"
+                  class="text-blue-600 font-medium hover:text-blue-700 transition-colors duration-200 text-sm">
+                  Learn More <i class="fas fa-arrow-right ml-1"></i>
+                </button>
               </div>
             </div>
           </div>
-
-          <!-- Community Care -->
-          <div class="mt-24">
-            <div class="text-center mb-16">
-              <div
-                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pink-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
-                <i class="fas fa-hands-helping text-2xl text-white"></i>
-              </div>
-              <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-pink-600 mb-4 tracking-wide">
-                Community Care
-              </h2>
-              <div class="w-32 h-1 bg-gradient-to-r from-pink-500 to-pink-600 mx-auto mb-6 rounded-full"></div>
-              <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                Strengthening Cambodian communities with essential resources and compassionate support
-              </p>
+          <div class="mt-16 text-center">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-pink-600 shadow-md mb-4">
+              <i class="fas fa-hands-helping text-xl text-white"></i>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div v-for="(program, index) in communityPrograms" :key="index"
-                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-pink-100">
-                <div class="relative h-64 overflow-hidden">
-                  <img :src="program.image" :alt="program.title"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div class="absolute top-4 left-4">
-                    <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center">
-                      <i :class="program.icon" class="text-lg text-white"></i>
-                    </div>
+            <h2 class="text-3xl md:text-4xl font-poppins font-semibold text-gray-900 mb-2">Community Care</h2>
+            <div class="w-20 h-1 bg-pink-600 mx-auto mb-4 rounded"></div>
+            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Strengthening Cambodian communities with essential resources and compassionate support
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div v-for="(program, index) in communityPrograms" :key="index"
+              class="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div class="h-48 overflow-hidden relative">
+                <img :src="program.image" :alt="program.title"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute top-3 left-3">
+                  <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center">
+                    <i :class="program.icon" class="text-sm text-white"></i>
                   </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 </div>
-                <div class="p-6">
-                  <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ program.title }}</h3>
-                  <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
-                  <button @click="showProgramDetail(program, 'community')"
-                    class="inline-flex items-center text-pink-600 font-semibold hover:text-pink-700 transition-colors duration-300">
-                    Learn More
-                    <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                  </button>
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              <div class="p-5">
+                <h3 class="text-lg font-poppins font-medium text-gray-900 mb-2">{{ program.title }}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">{{ program.description }}</p>
+                <button @click="showProgramDetail(program, 'community')"
+                  class="text-pink-600 font-medium hover:text-pink-700 transition-colors duration-200 text-sm">
+                  Learn More <i class="fas fa-arrow-right ml-1"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -130,44 +108,44 @@
       </section>
 
       <!-- Testimonials Section -->
-      <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div class="container mx-auto px-6 max-w-7xl">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-4">Success Stories</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto mb-6 rounded-full"></div>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from the women whose lives have been transformed</p>
+      <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-7xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-poppins font-semibold text-gray-900 mb-2">Success Stories</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-pink-600 mx-auto mb-4 rounded"></div>
+            <p class="text-gray-600 text-base md:text-lg max-w-xl mx-auto">Hear from the women whose lives have been transformed</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div v-for="(testimonial, index) in testimonials" :key="index"
-              class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div class="flex items-center mb-6">
+              class="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-4">
                 <img :src="testimonial.avatar" :alt="testimonial.name"
-                  class="w-16 h-16 rounded-full object-cover mr-4" />
+                  class="w-14 h-14 rounded-full object-cover mr-4" />
                 <div>
-                  <h4 class="font-bold text-gray-900">{{ testimonial.name }}</h4>
-                  <p class="text-blue-600 text-sm font-medium">{{ testimonial.program }}</p>
+                  <h4 class="font-medium text-gray-900">{{ testimonial.name }}</h4>
+                  <p class="text-blue-600 text-xs font-medium">{{ testimonial.program }}</p>
                 </div>
               </div>
-              <p class="text-gray-700 leading-relaxed italic">"{{ testimonial.quote }}"</p>
+              <p class="text-gray-700 text-sm leading-relaxed italic">"{{ testimonial.quote }}"</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Call to Action Section -->
-      <section class="py-20 bg-gradient-to-r from-blue-600 to-pink-600 text-white">
-        <div class="container mx-auto px-6 max-w-7xl text-center">
-          <h2 class="text-4xl md:text-5xl font-poppins font-bold mb-6">Join Our Mission</h2>
-          <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+      <section class="py-16 bg-gradient-to-r from-blue-600 to-pink-600 text-white">
+        <div class="container mx-auto px-4 max-w-7xl text-center">
+          <h2 class="text-3xl md:text-4xl font-poppins font-semibold mb-4">Join Our Mission</h2>
+          <p class="text-base md:text-lg mb-6 max-w-xl mx-auto opacity-90">
             Together, we can create lasting change and empower more women and communities across Cambodia.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+              class="bg-white text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200">
               Make a Donation
             </button>
             <button
-              class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
+              class="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-pink-600 transition-colors duration-200">
               Become a Volunteer
             </button>
           </div>
@@ -177,108 +155,92 @@
 
     <!-- Program Detail Page -->
     <div v-if="currentView === 'detail'" class="min-h-screen">
-      <!-- Header with Back Button -->
-      <div class="bg-gradient-to-r from-blue-600 to-pink-600 text-white py-8">
-        <div class="container mx-auto px-6 max-w-7xl">
+      <div
+        class="relative bg-cover bg-center bg-no-repeat text-white py-20 header-bg"
+        :style="{ backgroundImage: `url(${selectedProgram.image})` }">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
           <button @click="goBack"
-            class="flex items-center text-white hover:text-gray-200 transition-colors duration-300 mb-6">
-            <i class="fas fa-arrow-left mr-2"></i>
-            Back to Programs
+            class="flex items-center text-white hover:text-gray-300 transition-colors duration-200 mb-6">
+            <i class="fas fa-arrow-left mr-2"></i> Back to Programs
           </button>
           <div class="flex items-center">
-            <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mr-6">
-              <i :class="selectedProgram.icon" class="text-3xl text-white"></i>
+            <div class="w-16 h-16 rounded-full bg-blue-200/20 flex items-center justify-center mr-6">
+              <i :class="selectedProgram.icon" class="text-2xl text-white"></i>
             </div>
             <div>
-              <h1 class="text-4xl md:text-6xl font-poppins font-bold mb-2">{{ selectedProgram.title }}</h1>
-              <p class="text-xl text-white/80">{{ selectedProgram.description }}</p>
+              <h1 class="text-3xl md:text-5xl font-poppins font-semibold mb-2">{{ selectedProgram.title }}</h1>
+              <p class="text-base md:text-lg text-white/90">{{ selectedProgram.description }}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Program Detail Content -->
-      <div class="py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-7xl">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <!-- Main Content -->
-            <div class="lg:col-span-2 space-y-12">
-              <!-- About Section -->
+      <div class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
               <div>
-                <h2 class="text-3xl font-poppins font-bold text-gray-900 mb-6">About This Program</h2>
-                <p class="text-lg text-gray-700 leading-relaxed">{{ selectedProgram.fullDescription }}</p>
+                <h2 class="text-2xl font-poppins font-semibold text-gray-900 mb-4">About This Program</h2>
+                <p class="text-gray-700 text-base leading-relaxed">{{ selectedProgram.fullDescription }}</p>
               </div>
-
-              <!-- Key Features -->
               <div>
-                <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Key Features</h3>
+                <h3 class="text-xl font-poppins font-semibold text-gray-900 mb-4">Key Features</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div v-for="(feature, index) in selectedProgram.features" :key="index"
-                    class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-pink-50 rounded-xl">
-                    <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
-                    <span class="text-gray-700">{{ feature }}</span>
+                    class="flex items-start p-3 bg-gray-50 rounded-md">
+                    <i class="fas fa-check-circle text-blue-600 mr-2 mt-1"></i>
+                    <span class="text-gray-700 text-sm">{{ feature }}</span>
                   </div>
                 </div>
               </div>
-
-              <!-- Image Gallery -->
               <div v-if="selectedProgram.gallery">
-                <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Gallery</h3>
+                <h3 class="text-xl font-poppins font-semibold text-gray-900 mb-4">Gallery</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                   <div v-for="(img, index) in selectedProgram.gallery" :key="index"
-                    class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                     <img :src="img" :alt="`${selectedProgram.title} ${index + 1}`"
                       class="w-full h-32 object-cover hover:scale-105 transition-transform duration-300" />
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Sidebar -->
             <div class="space-y-8">
-              <!-- Impact Stats -->
-              <div v-if="selectedProgram.stats" class="bg-gradient-to-br from-blue-50 to-pink-50 rounded-2xl p-8">
-                <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Our Impact</h3>
-                <div class="space-y-6">
+              <div v-if="selectedProgram.stats" class="bg-gray-50 rounded-lg p-6">
+                <h3 class="text-xl font-poppins font-semibold text-gray-900 mb-4">Our Impact</h3>
+                <div class="space-y-4">
                   <div v-for="(stat, index) in selectedProgram.stats" :key="index" class="text-center">
-                    <div
-                      class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent mb-1">
-                      {{ stat.number }}</div>
-                    <div class="text-gray-600 font-medium">{{ stat.label }}</div>
+                    <div class="text-xl font-bold text-blue-600 mb-1">{{ stat.number }}</div>
+                    <div class="text-gray-600 text-sm">{{ stat.label }}</div>
                   </div>
                 </div>
               </div>
-
-              <!-- Call to Action -->
-              <div class="bg-gradient-to-r from-blue-600 to-pink-600 rounded-2xl p-8 text-white">
-                <h3 class="text-2xl font-poppins font-bold mb-4">Support This Program</h3>
-                <p class="mb-6 opacity-90">Your contribution can make a direct impact on this program.</p>
+              <div class="bg-gradient-to-r from-blue-600 to-pink-600 rounded-lg p-6 text-white">
+                <h3 class="text-xl font-poppins font-semibold mb-3">Support This Program</h3>
+                <p class="text-sm mb-4 opacity-90">Your contribution can make a direct impact on this program.</p>
                 <div class="space-y-3">
                   <button
-                    class="w-full bg-white text-blue-600 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                    class="w-full bg-white text-blue-600 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200">
                     Donate Now
                   </button>
                   <button
-                    class="w-full border-2 border-white text-white py-3 rounded-xl font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
+                    class="w-full border-2 border-white text-white py-2 rounded-md font-medium hover:bg-white hover:text-pink-600 transition-colors duration-200">
                     Learn More
                   </button>
                 </div>
               </div>
-
-              <!-- Contact Info -->
-              <div class="bg-gray-50 rounded-2xl p-8">
-                <h3 class="text-xl font-poppins font-bold text-gray-900 mb-4">Get in Touch</h3>
-                <div class="space-y-3 text-gray-600">
+              <div class="bg-gray-50 rounded-lg p-6">
+                <h3 class="text-lg font-poppins font-semibold text-gray-900 mb-4">Get in Touch</h3>
+                <div class="space-y-3 text-gray-600 text-sm">
                   <div class="flex items-center">
-                    <i class="fas fa-envelope mr-3 text-blue-600"></i>
+                    <i class="fas fa-envelope mr-2 text-blue-600"></i>
                     <span>info@lotusoutreach.org</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-phone mr-3 text-pink-600"></i>
+                    <i class="fas fa-phone mr-2 text-pink-600"></i>
                     <span>+855 23 123 456</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-map-marker-alt mr-3 text-blue-600"></i>
+                    <i class="fas fa-map-marker-alt mr-2 text-blue-600"></i>
                     <span>Phnom Penh, Cambodia</span>
                   </div>
                 </div>
@@ -568,14 +530,13 @@ export default {
 
 <style scoped>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -583,32 +544,47 @@ export default {
 }
 
 .animate-slide-up {
-  animation: slideUp 0.8s ease-out forwards;
+  animation: slideUp 0.6s ease-out forwards;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.font-poppins {
+.font-sans {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Professional header styling */
+.header-bg {
+  background-attachment: fixed;
+  background-position: center 20%;
+  min-height: 80vh;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-bg {
+    min-height: 60vh;
+  }
+  h1 {
+    font-size: 2rem !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  .text-base {
+    font-size: 0.875rem;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #ec4899);
-  border-radius: 4px;
+/* Smooth transitions and hover effects */
+button:hover {
+  transform: translateY(-1px);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #db2777);
+.group:hover .transition-transform {
+  transform: scale(1.05);
 }
 </style>
+```

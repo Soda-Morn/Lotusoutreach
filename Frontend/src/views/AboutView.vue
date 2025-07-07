@@ -63,7 +63,7 @@
         <div class="relative mr-0 md:mr-8 mb-12 md:mb-0">
           <div class="w-[400px] h-[400px] rounded-full border-[12px] border-blue-500 overflow-hidden mx-auto">
             <img
-              src="https://lotusoutreach.org/wp-content/uploads/2019/08/header.jpg"
+              src="https://lotusoutreach.org/wp-content/uploads/2020/02/IMG_9475.jpg"
               alt="Lotus Outreach profile image"
               class="w-full h-full object-cover"
             />
