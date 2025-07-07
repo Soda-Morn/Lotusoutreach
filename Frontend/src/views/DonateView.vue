@@ -1,25 +1,28 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-pink-50 to-white flex flex-col overflow-hidden">
    <!-- Header Section -->
-<header class="relative w-full flex-shrink-0">
+<header class="relative w-full flex-shrink-0 overflow-hidden">
 
-  <img src="@/img/cam1.png" alt="Cambodia program 1" class="w-full h-[28rem] object-cover md:h-[36rem] lg:h-[30rem] xl:h-[30rem] 2xl:h-[38rem]">
-  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
+  <img src="@/img/cam1.png" alt="Cambodia program 1"
+       class="w-full h-[28rem] object-cover md:h-[36rem] lg:h-[36rem] xl:h-[36rem] 2xl:h-[40rem] ">
+
+ 
+  <div class="absolute inset-0 bg-black/30 backdrop-brightness-75 flex items-center justify-center">
     <div class="text-center text-white px-4 animate-fade-in">
       <h1 class="text-4xl font-extrabold md:text-8xl lg:text-9xl xl:text-[5rem] drop-shadow-lg">
         DONATE
       </h1>
       <div class="mt-6">
         <h3 class="text-4xl font-semibold md:text-5xl">Your Generosity Changes Lives</h3>
-        <p class="text-pink-100 text-lg mt-3 md:text-xl">Every contribution directly supports our mission to create positive change.</p>
+        <p class="text-pink-100 text-lg mt-3 md:text-xl">
+          Every contribution directly supports our mission to create positive change.
+        </p>
       </div>
-      <button @click="handleDonate"
-              class="mt-8 px-10 py-4 bg-gradient-to-r from-pink-600 to-pink-800 text-white rounded-2xl text-lg font-semibold hover:from-pink-700 hover:to-pink-900 transition-all duration-300 shadow-xl transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-pink-400">
-        Donate Now
-      </button>
+ 
     </div>
   </div>
 </header>
+
 
 
     <!-- Impact Section -->
@@ -66,7 +69,7 @@
                 </div>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 mb-5">$</span>
+                    <span class="text-gray-500 mb-4 ml-4">$</span>
                   </div>
                   <input
                     v-model.number="form.amount"
