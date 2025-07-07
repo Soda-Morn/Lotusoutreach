@@ -38,10 +38,11 @@
       </div>
 
       <!-- Slide Indicators -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         <button v-for="(image, index) in heroImages" :key="index" @click="currentSlide = index"
-          class="w-3 h-3 rounded-full transition-all duration-300"
-          :class="currentSlide === index ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'"></button>
+          class="w-2 h-2 rounded-full transition-all duration-300"
+          :class="currentSlide === index ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'">
+        </button>
       </div>
     </section>
 
@@ -96,8 +97,7 @@
             <div
               class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div class="aspect-[4/3] overflow-hidden">
-                <img src="https://www.globalgiving.org/pfil/5863/pict_large.jpg"
-                  alt="Cambodian girls in education"
+                <img src="https://www.globalgiving.org/pfil/5863/pict_large.jpg" alt="Cambodian girls in education"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -116,8 +116,7 @@
             <div
               class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
               <div class="aspect-[4/3] overflow-hidden">
-                <img
-                  src="https://www.globalgiving.org/learn/wp-content/uploads/2022/10/Globalteer.jpg"
+                <img src="https://www.globalgiving.org/learn/wp-content/uploads/2022/10/Globalteer.jpg"
                   alt="Cambodian community"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
@@ -268,7 +267,8 @@
     <section class="relative py-20 overflow-hidden">
       <!-- Background Image -->
       <div class="absolute inset-0">
-        <img src="https://images.globalgiving.org/pfil/10626/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
+        <img
+          src="https://images.globalgiving.org/pfil/10626/pict_original.jpg?w=460&h=306&auto=compress,enhance&fit=crop&crop=faces,center&format=auto&dpr=2"
           alt="Cambodia background" class="w-full h-full object-cover" />
         <!-- Dark Overlay -->
         <div class="absolute inset-0 bg-black/60"></div>
