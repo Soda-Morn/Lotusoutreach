@@ -6,17 +6,12 @@
       <section class="relative h-screen w-full overflow-hidden">
         <!-- Slides Container -->
         <div class="relative h-full w-full">
-          <div
-            v-for="(slide, index) in slides"
-            :key="index"
-            v-show="currentSlide === index"
+          <div v-for="(slide, index) in slides" :key="index" v-show="currentSlide === index"
             class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-            :class="{ 'opacity-100': currentSlide === index, 'opacity-0': currentSlide !== index }"
-          >
+            :class="{ 'opacity-100': currentSlide === index, 'opacity-0': currentSlide !== index }">
             <img :src="slide.image" :alt="slide.alt" class="w-full h-full object-cover" />
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center"
-            >
+              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-center justify-center">
               <div class="text-center px-6 text-white max-w-5xl animate-slide-up">
                 <!-- Lotus Outreach Branding -->
                 <div class="mb-8">
@@ -25,61 +20,26 @@
                   </h1>
                   <div class="w-32 h-1 bg-gradient-to-r from-pink-400 to-pink-600 mx-auto mb-6 rounded-full"></div>
                 </div>
-                
-                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 tracking-wide uppercase">
+
+                <h2
+                  class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 tracking-wide uppercase">
                   <span class="text-gray-200">{{ slide.titlePart1 }}</span>
-                  <span class="text-blue-400">{{ slide.titlePart2 }}</span>
+                  <span class="text-pink-400">{{ slide.titlePart2 }}</span>
                 </h2>
                 <p class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-gray-100 mb-10">
                   {{ slide.description }}
                 </p>
-                
-                <!-- Call to Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                    Explore Programs
-                  </button>
-                  <button class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                    Support Us
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <!-- Indicators -->
         <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-4 z-10">
-          <button
-            v-for="(slide, index) in slides"
-            :key="index"
-            @click="goToSlide(index)"
+          <button v-for="(slide, index) in slides" :key="index" @click="goToSlide(index)"
             class="w-3 h-3 rounded-full transition-all duration-300"
             :class="currentSlide === index ? 'bg-pink-500 w-8' : 'bg-white/50 hover:bg-white/80'"
-            :aria-label="`Go to slide ${index + 1}`"
-          ></button>
-        </div>
-      </section>
-
-      <!-- Impact Stats Section -->
-      <section class="py-20 bg-gradient-to-br from-blue-50 to-pink-50">
-        <div class="container mx-auto px-6 max-w-7xl">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-4">Our Impact</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto mb-6 rounded-full"></div>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Making a measurable difference in the lives of Cambodian women and communities</p>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div v-for="(stat, index) in impactStats" :key="index" class="text-center group">
-              <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i :class="stat.icon" class="text-2xl text-white"></i>
-                </div>
-                <div class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{{ stat.number }}</div>
-                <div class="text-gray-600 font-medium">{{ stat.label }}</div>
-              </div>
-            </div>
-          </div>
+            :aria-label="`Go to slide ${index + 1}`"></button>
         </div>
       </section>
 
@@ -89,7 +49,8 @@
           <!-- Education and Training -->
           <div class="mb-24">
             <div class="text-center mb-16">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
+              <div
+                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
                 <i class="fas fa-graduation-cap text-2xl text-white"></i>
               </div>
               <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-blue-600 mb-4 tracking-wide">
@@ -101,13 +62,11 @@
               </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div
-                v-for="(program, index) in educationPrograms"
-                :key="index"
-                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-blue-100"
-              >
+              <div v-for="(program, index) in educationPrograms" :key="index"
+                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-blue-100">
                 <div class="h-56 overflow-hidden relative">
-                  <img :src="program.image" :alt="program.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img :src="program.image" :alt="program.title"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div class="absolute top-4 left-4">
                     <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
                       <i :class="program.icon" class="text-lg text-white"></i>
@@ -117,10 +76,8 @@
                 <div class="p-6">
                   <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ program.title }}</h3>
                   <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
-                  <button 
-                    @click="showProgramDetail(program, 'education')"
-                    class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300"
-                  >
+                  <button @click="showProgramDetail(program, 'education')"
+                    class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
                     Learn More
                     <i class="fas fa-arrow-right ml-2 text-sm"></i>
                   </button>
@@ -132,7 +89,8 @@
           <!-- Community Care -->
           <div class="mt-24">
             <div class="text-center mb-16">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pink-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
+              <div
+                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pink-500 shadow-xl mb-6 transform transition-transform duration-500 hover:scale-110">
                 <i class="fas fa-hands-helping text-2xl text-white"></i>
               </div>
               <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-pink-600 mb-4 tracking-wide">
@@ -144,13 +102,11 @@
               </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div
-                v-for="(program, index) in communityPrograms"
-                :key="index"
-                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-pink-100"
-              >
+              <div v-for="(program, index) in communityPrograms" :key="index"
+                class="group bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-pink-100">
                 <div class="relative h-64 overflow-hidden">
-                  <img :src="program.image" :alt="program.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img :src="program.image" :alt="program.title"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div class="absolute top-4 left-4">
                     <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center">
                       <i :class="program.icon" class="text-lg text-white"></i>
@@ -161,10 +117,8 @@
                 <div class="p-6">
                   <h3 class="text-xl font-bold font-poppins text-gray-900 mb-3">{{ program.title }}</h3>
                   <p class="text-gray-600 text-sm leading-relaxed mb-4">{{ program.description }}</p>
-                  <button 
-                    @click="showProgramDetail(program, 'community')"
-                    class="inline-flex items-center text-pink-600 font-semibold hover:text-pink-700 transition-colors duration-300"
-                  >
+                  <button @click="showProgramDetail(program, 'community')"
+                    class="inline-flex items-center text-pink-600 font-semibold hover:text-pink-700 transition-colors duration-300">
                     Learn More
                     <i class="fas fa-arrow-right ml-2 text-sm"></i>
                   </button>
@@ -184,9 +138,11 @@
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">Hear from the women whose lives have been transformed</p>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div v-for="(testimonial, index) in testimonials" :key="index" class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div v-for="(testimonial, index) in testimonials" :key="index"
+              class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div class="flex items-center mb-6">
-                <img :src="testimonial.avatar" :alt="testimonial.name" class="w-16 h-16 rounded-full object-cover mr-4" />
+                <img :src="testimonial.avatar" :alt="testimonial.name"
+                  class="w-16 h-16 rounded-full object-cover mr-4" />
                 <div>
                   <h4 class="font-bold text-gray-900">{{ testimonial.name }}</h4>
                   <p class="text-blue-600 text-sm font-medium">{{ testimonial.program }}</p>
@@ -206,10 +162,12 @@
             Together, we can create lasting change and empower more women and communities across Cambodia.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            <button
+              class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
               Make a Donation
             </button>
-            <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
+            <button
+              class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
               Become a Volunteer
             </button>
           </div>
@@ -222,10 +180,8 @@
       <!-- Header with Back Button -->
       <div class="bg-gradient-to-r from-blue-600 to-pink-600 text-white py-8">
         <div class="container mx-auto px-6 max-w-7xl">
-          <button 
-            @click="goBack"
-            class="flex items-center text-white hover:text-gray-200 transition-colors duration-300 mb-6"
-          >
+          <button @click="goBack"
+            class="flex items-center text-white hover:text-gray-200 transition-colors duration-300 mb-6">
             <i class="fas fa-arrow-left mr-2"></i>
             Back to Programs
           </button>
@@ -257,7 +213,8 @@
               <div>
                 <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Key Features</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div v-for="(feature, index) in selectedProgram.features" :key="index" class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-pink-50 rounded-xl">
+                  <div v-for="(feature, index) in selectedProgram.features" :key="index"
+                    class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-pink-50 rounded-xl">
                     <i class="fas fa-check-circle text-blue-600 mr-3 mt-1 flex-shrink-0"></i>
                     <span class="text-gray-700">{{ feature }}</span>
                   </div>
@@ -268,8 +225,10 @@
               <div v-if="selectedProgram.gallery">
                 <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Gallery</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  <div v-for="(img, index) in selectedProgram.gallery" :key="index" class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img :src="img" :alt="`${selectedProgram.title} ${index + 1}`" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-300" />
+                  <div v-for="(img, index) in selectedProgram.gallery" :key="index"
+                    class="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img :src="img" :alt="`${selectedProgram.title} ${index + 1}`"
+                      class="w-full h-32 object-cover hover:scale-105 transition-transform duration-300" />
                   </div>
                 </div>
               </div>
@@ -282,7 +241,9 @@
                 <h3 class="text-2xl font-poppins font-bold text-gray-900 mb-6">Our Impact</h3>
                 <div class="space-y-6">
                   <div v-for="(stat, index) in selectedProgram.stats" :key="index" class="text-center">
-                    <div class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent mb-1">{{ stat.number }}</div>
+                    <div
+                      class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-pink-600 bg-clip-text text-transparent mb-1">
+                      {{ stat.number }}</div>
                     <div class="text-gray-600 font-medium">{{ stat.label }}</div>
                   </div>
                 </div>
@@ -293,10 +254,12 @@
                 <h3 class="text-2xl font-poppins font-bold mb-4">Support This Program</h3>
                 <p class="mb-6 opacity-90">Your contribution can make a direct impact on this program.</p>
                 <div class="space-y-3">
-                  <button class="w-full bg-white text-blue-600 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                  <button
+                    class="w-full bg-white text-blue-600 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
                     Donate Now
                   </button>
-                  <button class="w-full border-2 border-white text-white py-3 rounded-xl font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
+                  <button
+                    class="w-full border-2 border-white text-white py-3 rounded-xl font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
                     Learn More
                   </button>
                 </div>
@@ -612,6 +575,7 @@ export default {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
