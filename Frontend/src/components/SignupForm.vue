@@ -95,9 +95,17 @@ export default {
     const errorMessage = ref('');
     const router = useRouter();
 
+    // Utility function to get users
+    const getUsers = () => {
+      const users = localStorage.getItem('users');
+      return users ? JSON.parse(users) : [];
+    };
+
+    // Signup
     const handleSignup = () => {
       errors.value = { email: '', password: '', confirmPassword: '' };
       errorMessage.value = '';
+      successMessage.value = '';
 
       if (!email.value) {
         errors.value.email = 'Email is required';
@@ -112,24 +120,39 @@ export default {
         return;
       }
 
+      const users = getUsers();
+      const existingUser = users.find(user => user.email === email.value);
+
+      if (existingUser) {
+        errorMessage.value = 'Email already registered. Please login.';
+        return;
+      }
+
       loading.value = true;
       setTimeout(() => {
+        users.push({ email: email.value, password: password.value });
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('isAuthenticated', 'true');
+
         loading.value = false;
         successMessage.value = 'Signup successful!';
-        localStorage.setItem('isAuthenticated', 'true');
         email.value = '';
         password.value = '';
         confirmPassword.value = '';
+
         router.push('/actual-dashboard');
+
         setTimeout(() => {
           successMessage.value = '';
         }, 3000);
       }, 1000);
     };
 
+    // Login
     const handleLogin = () => {
       errors.value = { email: '', password: '', confirmPassword: '' };
       errorMessage.value = '';
+      successMessage.value = '';
 
       if (!email.value) {
         errors.value.email = 'Email is required';
@@ -140,19 +163,27 @@ export default {
         return;
       }
 
+      const users = getUsers();
+      const matchedUser = users.find(
+        user => user.email === email.value && user.password === password.value
+      );
+
       loading.value = true;
       setTimeout(() => {
-        loading.value = false;
-        if (localStorage.getItem('isAuthenticated') === 'true') {
+        if (matchedUser) {
+          localStorage.setItem('isAuthenticated', 'true');
+          loading.value = false;
           successMessage.value = 'Login successful!';
           email.value = '';
           password.value = '';
           router.push('/actual-dashboard');
+
           setTimeout(() => {
             successMessage.value = '';
           }, 3000);
         } else {
-          errorMessage.value = 'Invalid credentials. Please sign up first.';
+          loading.value = false;
+          errorMessage.value = 'Invalid credentials. Please try again.';
           setTimeout(() => {
             errorMessage.value = '';
           }, 3000);
@@ -177,6 +208,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 @keyframes fadeIn {

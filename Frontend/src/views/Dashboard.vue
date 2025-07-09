@@ -1,36 +1,38 @@
 <template>
   <div class="flex h-screen overflow-hidden">
     <!-- Sidebar -->
-    <div class="w-64 h-full bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col transition-all duration-300">
+    <div class="w-64 bg-gradient-to-b from-gray-900 to-gray-800 text-white flex flex-col transition-all duration-300">
       <div class="p-6 border-b border-gray-700">
         <h2 class="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse-slow">Mimity Admin</h2>
       </div>
       <nav class="flex-1 mt-6 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
         <ul>
-          <li>
-            <a href="#" class="group flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]">
-              <span class="mr-4 text-xl">🏠</span>
-              <span class="flex-1 font-medium">Dashboard</span>
-              <span class="bg-blue-600/80 text-xs px-2.5 py-1 rounded-full group-hover:bg-blue-500 transition duration-300">New</span>
-            </a>
+          <li v-for="item in menuItems" :key="item.label">
+            <button
+              @click="selectedPage = item.page"
+              :class="{ 'bg-gray-700 text-white font-semibold': selectedPage === item.page }"
+              class="group flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02] w-full text-left"
+            >
+              <span class="mr-4 text-xl">{{ item.icon }}</span>
+              <span class="flex-1 font-medium">{{ item.label }}</span>
+              <span v-if="item.new" class="bg-blue-600/80 text-xs px-2.5 py-1 rounded-full group-hover:bg-blue-500 transition duration-300">New</span>
+            </button>
           </li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">🛒</span><span class="font-medium">WhyGril</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📊</span><span class="font-medium">About Us</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">👥</span><span class="font-medium">Program</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">📅</span><span class="font-medium">News</span></a></li>
-          <li><a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]"><span class="mr-4 text-xl">💬</span><span class="font-medium">Donate</span></a></li>
-          
-          
         </ul>
       </nav>
       <div class="p-4 border-t border-gray-700">
-        <a href="#" class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02]">
-          <span class="mr-4 text-xl">⚙️</span><span class="font-medium">Settings</span>
-        </a>
+        <button
+          @click="selectedPage = 'Settings'"
+          :class="{ 'bg-gray-700 text-white font-semibold': selectedPage === 'Settings' }"
+          class="flex items-center py-2.5 px-6 text-gray-200 hover:bg-gray-700/50 rounded-xl transition-all duration-300 ease-out transform hover:scale-[1.02] w-full text-left"
+        >
+          <span class="mr-4 text-xl">⚙️</span>
+          <span class="font-medium">Settings</span>
+        </button>
       </div>
     </div>
 
-    <!-- Navbar and Main Content -->
+   <!-- Navbar and Main Content -->
     <div class="flex-1 flex flex-col">
       <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-4 flex items-center justify-between shadow-lg">
         <div class="flex items-center space-x-4">
@@ -69,17 +71,138 @@
           </div>
         </div>
       </div>
-      <div class="flex-1 bg-gray-50 p-6 overflow-y-auto">
-        <!-- Main content goes here -->
+      <!-- Content Area -->
+      <div class="flex-1 bg-gray-100 p-6 overflow-y-auto">
+        <!-- Dashboard Page -->
+        <div v-if="selectedPage === 'Dashboard'" class="space-y-10">
+          <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gray-800">Factory Dashboard</h1>
+            <select class="bg-white p-2 rounded-lg border border-gray-300 text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option>Select period</option>
+              <option>Last 7 Days</option>
+              <option>Last 30 Days</option>
+              <option>This Month</option>
+            </select>
+          </div>
+          <p class="text-sm text-gray-500">* Dashboard for factory performance metrics and analytics</p>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl border-l-4 border-green-500">
+              <p class="text-gray-600 text-sm font-medium">Production Units</p>
+              <div class="flex items-baseline justify-between mt-2">
+                <p class="text-2xl font-bold text-gray-900">2,340</p>
+                <span class="text-green-500 text-sm font-semibold">↑ 12%</span>
+              </div>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl border-l-4 border-red-500">
+              <p class="text-gray-600 text-sm font-medium">Total Costs</p>
+              <div class="flex items-baseline justify-between mt-2">
+                <p class="text-2xl font-bold text-red-600">$71K</p>
+                <span class="text-red-500 text-sm font-semibold">▼ 6%</span>
+              </div>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl border-l-4 border-blue-500">
+              <p class="text-gray-600 text-sm font-medium">Factory Value</p>
+              <p class="text-2xl font-bold text-gray-900 mt-2">$14.5M</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl border-l-4 border-green-500">
+              <p class="text-gray-600 text-sm font-medium">New Workers</p>
+              <div class="flex items-baseline justify-between mt-2">
+                <p class="text-2xl font-bold text-green-600">34</p>
+                <span class="text-green-500 text-sm font-semibold">+ 4 hires</span>
+              </div>
+            </div>
+          </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Smaller Bar Chart -->
+  <div class="bg-white p-4 rounded-xl shadow h-[250px]">
+    <Bar
+      :data="productionData"
+      :options="productionOptions"
+      :height="200"
+      :width="400"
+    />
+  </div>
+
+  <!-- Smaller Pie Chart -->
+  <div class="bg-white p-4 rounded-xl shadow h-[250px]">  
+      <Pie :data="revenueData" :options="revenueOptions" />
+  </div>
+</div>
+
+        </div>
+
+        <!-- Other Pages -->
+        <div v-else>
+          <h1 class="text-3xl font-bold text-gray-800">Welcome to {{ selectedPage }}</h1>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'AdminLayout'
+<script setup>
+import { ref } from 'vue'
+import { Bar, Pie } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  ArcElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, ArcElement, CategoryScale, LinearScale)
+
+const selectedPage = ref('Dashboard')
+
+const productionData = {
+  labels: ['Jul 01', 'Jul 03', 'Jul 05', 'Jul 07', 'Jul 08'],
+  datasets: [{
+    label: 'Units Produced',
+    data: [1200, 1500, 900, 1800, 1400],
+    backgroundColor: '#3B82F6',
+    borderRadius: 5
+  }]
 }
+
+const productionOptions = {
+  responsive: true,
+  plugins: { legend: { display: false } },
+  scales: { y: { beginAtZero: true } }
+}
+
+const  revenueData = {
+  labels: ['Chrome', 'Firefox', 'Safari'],
+  datasets: [{
+    label: 'Browser Usage',
+    data: [55, 25, 20],
+    backgroundColor: ['#3B82F6', '#F59E0B', '#10B981']
+  }]
+}
+
+const revenueOptions = {
+  responsive: true,
+  plugins: { legend: { display: true } }
+}
+
+const menuItems = [
+  { label: 'Dashboard', icon: '🏠', page: 'Dashboard', new: true },
+  { label: 'WhyGril', icon: '🛒', page: 'WhyGril' },
+  { label: 'AboutContent', icon: '📊', page: 'AboutContent' },
+  { label: 'Program', icon: '👥', page: 'Program' },
+  { label: 'News', icon: '📅', page: 'News' },
+  { label: 'Cambodia', icon: '🌏', page: 'Cambodia' },
+  { label: 'PageContent', icon: '📄', page: 'PageContent' },
+  { label: 'ProgramDetail', icon: '📝', page: 'ProgramDetail' },
+  { label: 'Partner', icon: '🤝', page: 'Partner' },
+  { label: 'Donate', icon: '💰', page: 'Donate' }
+]
 </script>
 
 <style>
