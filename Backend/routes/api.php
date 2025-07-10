@@ -31,15 +31,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // API Routes for PageContent
 Route::prefix('v1')->group(function () {
-    Route::apiResource('pagecontents', PageContentController::class);  
-    Route::apiResource('whygirl', WhyGirlController::class);  
-    Route::apiResource('program', ProgramController::class);
-    Route::apiResource('partners', PartnerController::class);
-    Route::apiResource('programdetail', ProgramDetailController::class);
-    Route::apiResource('donation', DonationController::class);
-    Route::apiResource('aboutcontents',AboutContentController::class);
-    Route::apiResource('cambodiacontents', CambodiaContentController::class);
-    Route::apiResource('newcontents', NewContentController::class);
 
 
 });
