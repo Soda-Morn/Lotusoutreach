@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\HeroImageController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // API Routes for PageContent
 Route::prefix('v1')->group(function () {
     Route::apiResource('page-contents', PageContentController::class);
+    Route::apiResource('heroImage', HeroImageController::class);
 });
 

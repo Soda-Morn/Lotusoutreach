@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Missions extends Model
 {
@@ -13,7 +13,6 @@ class Missions extends Model
 
     public function cards()
     {
-        return $this->hasMany(Mission_Cards::class);
+        return $this->hasMany(Missions::class);
     }
 }
-

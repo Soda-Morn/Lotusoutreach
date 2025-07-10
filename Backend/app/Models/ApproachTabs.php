@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Approach_Tabs extends Model
+class ApproachTabs extends Model
 {
     use HasFactory;
 
@@ -13,6 +13,6 @@ class Approach_Tabs extends Model
 
     public function approach()
     {
-        return $this->belongsTo(Approaches::class);
+        return $this->belongsTo(Approaches::class); // Make sure this model exists
     }
 }

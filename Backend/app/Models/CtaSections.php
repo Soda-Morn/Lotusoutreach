@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class cta_sections extends Model
+class CtaSections extends Model
 {
     use HasFactory;
 
     protected $fillable = ['quote', 'button_text', 'image_src', 'image_alt'];
 }
-

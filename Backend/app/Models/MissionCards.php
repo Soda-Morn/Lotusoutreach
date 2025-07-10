@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Mission_Cards extends Model
+class MissionCards extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
+    
+     protected $fillable = [
         'mission_id', 'title', 'subtitle', 'title_class', 'image', 'alt', 'description'
     ];
 
@@ -18,4 +18,3 @@ class Mission_Cards extends Model
         return $this->belongsTo(Missions::class);
     }
 }
-
