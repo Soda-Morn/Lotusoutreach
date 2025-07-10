@@ -8,6 +8,7 @@ import DonateView from '@/views/DonateView.vue';
 import ContactView from '@/views/ContactView.vue';
 import SignupForm from '@/components/SignupForm.vue';
 import Dashboard from '@/views/Dashboard.vue';
+import AdminWhyGirl from '@/views/AdminWhyGirl.vue';
 
 const routes = [
   {
@@ -52,6 +53,12 @@ const routes = [
     name: 'contact',
     component: ContactView,
   },
+  {
+    path: '/adminwhygirl',
+    name: 'adminwhygirl',
+    component:AdminWhyGirl,
+  },
+ 
 ];
 
 const router = createRouter({
