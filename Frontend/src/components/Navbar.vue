@@ -3,7 +3,7 @@
     <div class="max-w-[86rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
       <div class="flex items-center space-x-3">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn9GcQgLeIH5PtQCty0ZtaLV8aYaUzaTVQpVQHp0A&s"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j7lKHDEg_t6ceZAYs9DEh7OPeiARfEGmFA&s"
           alt="Lotus Outreach Logo"
           class="w-12 h-12 object-contain"
         />
@@ -25,6 +25,7 @@
           <RouterLink to="/cambodia" :class="{ 'text-pink-600': isActive('/cambodia') }" class="hover:text-pink-600 transition-colors">
             Program
           </RouterLink>
+          
         </li>
         <li>
           <RouterLink to="/news" :class="{ 'text-pink-600': isActive('/news') }" class="hover:text-pink-600 transition-colors">
