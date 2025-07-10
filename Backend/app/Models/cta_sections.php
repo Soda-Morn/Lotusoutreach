@@ -5,10 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class cta_sections extends Model
+class CtaSection extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['quote', 'button_text', 'image_src', 'image_alt'];
+    protected $table = 'cta_sections'; // Explicit table name declaration
+    
+    protected $fillable = [
+        'quote', 
+        'button_text', 
+        'image_src', 
+        'image_alt'
+    ];
 }
-
