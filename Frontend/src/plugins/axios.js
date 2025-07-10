@@ -9,7 +9,7 @@ const apiInstance = axios.create({
   },
 });
 
-// ✅ Request Interceptor: Add token from localStorage
+// Request Interceptor: Add token from localStorage
 apiInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token"); // Get token
@@ -25,7 +25,7 @@ apiInstance.interceptors.request.use(
   }
 );
 
-// ✅ Response Interceptor: Handle 401 Unauthorized
+// Response Interceptor: Handle 401 Unauthorized
 apiInstance.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -37,5 +37,5 @@ apiInstance.interceptors.response.use(
   }
 );
 
-// ✅ Export axios instance
+// Export axios instance
 export default apiInstance;
