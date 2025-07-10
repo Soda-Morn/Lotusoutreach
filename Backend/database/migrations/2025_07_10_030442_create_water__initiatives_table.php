@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('water_initiatives', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->string('highlight')->nullable();
-            $table->integer('stat_value')->nullable();
-            $table->string('stat_text')->nullable();
-            $table->string('image_src');
-            $table->string('image_alt')->nullable();
-            $table->timestamps();
-        });
+       Schema::create('water_initiatives', function (Blueprint $table) {
+    $table->id();
+    $table->string('title');
+    $table->text('description')->nullable();
+    $table->string('highlight')->nullable();
+    $table->integer('stat_value')->nullable();
+    $table->string('stat_text')->nullable();
+    $table->string('image_src')->nullable();
+    $table->string('image_alt')->nullable();
+    $table->timestamps();
+});
+
     }
 
     /**
