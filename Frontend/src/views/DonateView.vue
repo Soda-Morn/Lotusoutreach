@@ -22,9 +22,6 @@
     </div>
   </div>
 </header>
-
-
-
     <!-- Impact Section -->
     <section class="container mx-auto px-4 py-10 max-w-7xl">
       <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Our Impact Together</h2>
@@ -35,9 +32,6 @@
         </div>
       </div>
     </section>
-
- 
-
     <!-- Donation Form Section -->
     <section class="container mx-auto px-4 py-10 max-w-7xl">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -272,9 +266,6 @@
           </form>
         </div>
       </div>
-
-
-      
     </section>
 
 
@@ -322,32 +313,6 @@ const form = reactive({
 
 // Reactive data
 
-const actionCards = ref([
-  {
-    icon: 'M12 6v6m0 0v6m0-6h6m-6 0H6',
-    title: 'People Helped',
-    description: '1,200+ individuals supported.',
-    // actionText: 'Learn More'
-  },
-  {
-    icon: 'M17 20h5m-5 0a2 2 0 01-2-2V6a2 2 0 012-2h2a2 2 0 012 2v12a2 2 0 01-2 2zm-7 0H5a2 2 0 01-2-2V6a2 2 0 012-2h2a2 2 0 012 2v12a2 2 0 01-2 2z',
-    title: 'Communities Supported',
-    description: '50+ communities reached.',
-    // actionText: 'Learn More'
-  },
-  {
-    icon: 'M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4-2-2.9-2-4z',
-    title: 'Funds to Programs',
-    description: '100% of funds allocated.',
-    // actionText: 'Learn More'
-  },
-  {
-    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'Emergency Support',
-    description: '+013) 456 7890 for assistance.',
-    // actionText: 'Learn More'
-  },
-]);
 const stats = ref([
   { value: '1,200+', label: 'People Helped' },
   { value: '50+', label: 'Communities Supported' },
