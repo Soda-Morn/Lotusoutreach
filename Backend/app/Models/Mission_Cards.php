@@ -9,6 +9,8 @@ class Mission_Cards extends Model
 {
     use HasFactory;
 
+    protected $table = 'mission_cards'; // Explicitly define the table name
+
     protected $fillable = [
         'mission_id', 'title', 'subtitle', 'title_class', 'image', 'alt', 'description'
     ];
@@ -18,4 +20,3 @@ class Mission_Cards extends Model
         return $this->belongsTo(Missions::class);
     }
 }
-

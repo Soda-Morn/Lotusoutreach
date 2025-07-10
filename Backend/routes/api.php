@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Mission_CardController;
+use App\Http\Controllers\Api\V1\MissionCardController;
 use App\Http\Controllers\Api\V1\PageContentController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function ($request) {
     return $request->user();
 });
 
-// API Routes for PageContent
+// API Routes under v1 prefix
 Route::prefix('v1')->group(function () {
+    Route::apiResource('mission-cards', Mission_CardController::class);
     Route::apiResource('page-contents', PageContentController::class);
 });
-
