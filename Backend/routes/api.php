@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\V1\MissionCardController;
 use App\Http\Controllers\Api\V1\MissionsController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\WaterSectionController;
+use App\Http\Controllers\Api\V1\FocusAreaController;
+use App\Http\Controllers\Api\V1\FocusCardController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\MissionCardControllerController;
 use App\Models\MissionCards;
@@ -38,4 +40,3 @@ Route::prefix('v1')->group(function () {
     Route::resource('missioncards', MissionCardController::class);
     Route::resource('missions', MissionsController::class);
 });
-
