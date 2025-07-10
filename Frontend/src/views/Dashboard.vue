@@ -155,7 +155,6 @@
                 <h3 class="text-xl font-semibold mb-4">Create New Entry</h3>
 
                 <form @submit.prevent="createEntry">
-
                   <div class="flex justify-end gap-2">
                     <button type="button" @click="showForm = false"
                       class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
@@ -221,7 +220,6 @@
     </tr>
   </tbody>
 </table>
-
 <div v-if="showForm" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
   <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
     <h3 class="text-xl font-semibold mb-4">{{ isEditing ? 'Edit Entry' : 'Create New Entry' }}</h3>
