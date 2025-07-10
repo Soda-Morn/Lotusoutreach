@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Focus_Cards;
+use App\Models\FocusCards;
 
 class FocusCardController extends Controller
 {
@@ -13,7 +13,7 @@ class FocusCardController extends Controller
      */
     public function index()
     {
-        return response()->json(Focus_Cards::with('focusArea')->get(), 200); // Fixed from focus_Area to focusArea
+        return response()->json(FocusCards::with('focusArea')->get(), 200); // Fixed from focus_Area to focusArea
     }
 
     /**
@@ -29,7 +29,7 @@ class FocusCardController extends Controller
             'content'       => 'nullable|string',
         ]);
 
-        $focusCard = Focus_Cards::create($validated);
+        $focusCard = FocusCards::create($validated);
 
         return response()->json([
             'message' => 'Focus card created successfully.',
@@ -42,7 +42,7 @@ class FocusCardController extends Controller
      */
     public function show(string $id)
     {
-        $focusCard = Focus_Cards::with('focusArea')->findOrFail($id);
+        $focusCard = FocusCards::with('focusArea')->findOrFail($id);
         return response()->json($focusCard);
     }
 
@@ -51,7 +51,7 @@ class FocusCardController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $focusCard = Focus_Cards::findOrFail($id);
+        $focusCard = FocusCards::findOrFail($id);
 
         $validated = $request->validate([
             'focus_area_id' => 'sometimes|exists:focus_areas,id',
@@ -74,7 +74,7 @@ class FocusCardController extends Controller
      */
     public function destroy(string $id)
     {
-        $focusCard = Focus_Cards::findOrFail($id);
+        $focusCard = FocusCards::findOrFail($id);
         $focusCard->delete();
 
         return response()->json([

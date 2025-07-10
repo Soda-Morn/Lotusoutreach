@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Impact_State extends Model
+class ImpactState extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = ['page_content_id', 'key', 'text', 'value', 'suffix', 'color'];
 
     public function pageContent()
@@ -16,4 +16,3 @@ class Impact_State extends Model
         return $this->belongsTo(PageContents::class);
     }
 }
-

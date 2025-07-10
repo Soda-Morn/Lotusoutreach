@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Focus_Areas;
+use App\Models\FocusAreas;
 
 class FocusAreaController extends Controller
 {
@@ -13,7 +13,7 @@ class FocusAreaController extends Controller
      */
     public function index()
     {
-        return response()->json(Focus_Areas::all());
+        return response()->json(FocusAreas::all());
     }
 
     /**
@@ -26,7 +26,7 @@ class FocusAreaController extends Controller
             'description' => 'required|string',
         ]);
 
-        $focusArea = Focus_Areas::create($validated);
+        $focusArea = FocusAreas::create($validated);
 
         return response()->json([
             'message' => 'Focus area created successfully.',
@@ -39,7 +39,7 @@ class FocusAreaController extends Controller
      */
     public function show(string $id)
     {
-        $focusArea = Focus_Areas::findOrFail($id);
+        $focusArea = FocusAreas::findOrFail($id);
         return response()->json($focusArea);
     }
 
@@ -48,7 +48,7 @@ class FocusAreaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $focusArea = Focus_Areas::findOrFail($id);
+        $focusArea = FocusAreas::findOrFail($id);
 
         $validated = $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -68,7 +68,7 @@ class FocusAreaController extends Controller
      */
     public function destroy(string $id)
     {
-        $focusArea = Focus_Areas::findOrFail($id);
+        $focusArea = FocusAreas::findOrFail($id);
         $focusArea->delete();
 
         return response()->json([
