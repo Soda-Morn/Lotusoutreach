@@ -2,20 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Focus_Cards extends Model
+class FocusCards extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+     protected $fillable = [
         'focus_area_id', 'title', 'image', 'summary', 'content'
     ];
 
     public function focusArea()
     {
-        return $this->belongsTo(Focus_Areas::class);
+        return $this->belongsTo(FocusAreas::class);
     }
 }
-

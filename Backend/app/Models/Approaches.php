@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Approaches extends Model
 {
@@ -13,6 +13,6 @@ class Approaches extends Model
 
     public function tabs()
     {
-        return $this->hasMany(Approach_Tabs::class);
+        return $this->hasMany(Approaches::class);
     }
 }

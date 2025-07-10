@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('focus_areas', function (Blueprint $table) {
+        Schema::create('mission_cards', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mission_id')->constrained('missions')->onDelete('cascade');
             $table->string('title');
+            $table->string('title_class')->nullable();
+            $table->string('subtitle')->nullable();
+            $table->string('image');
+            $table->string('alt')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('focus__areas');
+        Schema::dropIfExists('mission_cards');
     }
 };
