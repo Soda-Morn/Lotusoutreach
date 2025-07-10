@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MissionCard extends Model
+class Mission_Cards extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class MissionCard extends Model
 
     public function mission()
     {
-        return $this->belongsTo(Mission::class);
+        return $this->belongsTo(Missions::class);
     }
 }
 

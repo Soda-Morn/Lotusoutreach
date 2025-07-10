@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Mission extends Model
+class Missions extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Mission extends Model
 
     public function cards()
     {
-        return $this->hasMany(MissionCard::class);
+        return $this->hasMany(Mission_Cards::class);
     }
 }
 

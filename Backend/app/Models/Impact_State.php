@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ImpactStat extends Model
+class Impact_State extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class ImpactStat extends Model
 
     public function pageContent()
     {
-        return $this->belongsTo(PageContent::class);
+        return $this->belongsTo(PageContents::class);
     }
 }
 

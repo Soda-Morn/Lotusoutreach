@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class HeroImage extends Model
+class Hero_Images extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class HeroImage extends Model
 
     public function pageContent()
     {
-        return $this->belongsTo(PageContent::class);
+        return $this->belongsTo(PageContents::class);
     }
 }
 
