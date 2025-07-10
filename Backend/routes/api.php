@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\V1\HeroImageController;
+use App\Http\Controllers\Api\V1\MissionCardController;
+use App\Http\Controllers\Api\V1\MissionsController;
 use App\Http\Controllers\Api\V1\PageContentController;
+use App\Http\Controllers\Api\V1\MissionCardControllerController;
+use App\Models\MissionCards;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function ($request) {
 Route::prefix('v1')->group(function () {
     Route::apiResource('page-contents', PageContentController::class);
     Route::apiResource('heroImage', HeroImageController::class);
+    Route::resource('missioncards', MissionCardController::class);
+    Route::resource('missions', MissionsController::class);
 });
 
