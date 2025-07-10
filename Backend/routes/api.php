@@ -1,11 +1,18 @@
 <?php
 
+
+use App\Http\Controllers\Api\V1\ApproachesController;
+use App\Http\Controllers\Api\V1\ApproachTableController;
 use App\Http\Controllers\Api\V1\HeroImageController;
+use App\Http\Controllers\Api\V1\MissionCardController;
+use App\Http\Controllers\Api\V1\MissionsController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\WaterSectionController;
-use App\Http\Controllers\Api\V1\CtaSectionController;
-use App\Models\CtaSection;
+use App\Http\Controllers\Api\V1\FocusAreaController;
+use App\Http\Controllers\Api\V1\FocusCardController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\MissionCardControllerController;
+use App\Models\MissionCards;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +26,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function ($request) {
     return $request->user();
 });
 
-// API Routes for PageContent
+// API Routes under v1 prefix
 Route::prefix('v1')->group(function () {
     Route::apiResource('page-contents', PageContentController::class);
+    Route::apiResource('approachtables',ApproachTableController::class);
     Route::apiResource('heroImage', HeroImageController::class);
-    Route::apiResource('cta_sections', CtaSectionController::class);
-
+    Route::apiResource('approachtable',ApproachTableController::class);
+    Route::apiResource('approaches', ApproachesController::class);
+    Route::resource('missioncards', MissionCardController::class);
+    Route::resource('missions', MissionsController::class);
 });
-
