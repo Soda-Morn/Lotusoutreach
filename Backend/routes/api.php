@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\V1\HeroImageController;
 use App\Http\Controllers\Api\V1\PageContentController;
 use App\Http\Controllers\Api\V1\WaterSectionController;
+use App\Http\Controllers\Api\V1\CtaSectionController;
+use App\Models\CtaSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::apiResource('page-contents', PageContentController::class);
     Route::apiResource('heroImage', HeroImageController::class);
+    Route::apiResource('cta_sections', CtaSectionController::class);
+
 });
 
