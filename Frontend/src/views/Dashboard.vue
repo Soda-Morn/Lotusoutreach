@@ -66,8 +66,6 @@
           </button>
           <div class="relative group">
             <div
-            
-
               class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-semibold shadow-md hover:shadow-lg transition duration-200">
               JD
             </div>
@@ -168,83 +166,65 @@
 
           </div>
           <div class="overflow-x-auto">
- <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
-  <thead class="bg-gray-300 text-gray-900 text-xs uppercase font-semibold">
-    <tr>
-      <th class="px-3 py-4 text-left">Page</th>
-      <th class="px-3 py-2 text-left">Title</th>
-      <th class="px-3 py-2 text-left">Content</th>
-      <th class="px-3 py-2 text-left">Image</th>
-      <th class="px-3 py-2 text-left">Content ID</th>
-      <th class="px-3 py-2 text-left">Actions</th>
-    </tr>
-  </thead>
-  <tbody class="divide-y divide-gray-200 text-gray-700">
-    <tr v-for="item in whygrilData" :key="item.id" class="hover:bg-gray-50">
-      <td class="px-3 py-2">{{ item.page }}</td>
-      <td class="px-3 py-2 truncate">{{ item.title }}</td>
-      <td class="px-3 py-2 truncate max-w-[180px]">{{ item.content }}</td>
-      <td class="px-3 py-2">
-        <img :src="item.image" class="h-8 w-8 object-cover rounded-full border border-gray-300" />
-      </td>
-      <td class="px-3 py-2">{{ item.page_content_id }}</td>
-      <td class="px-3 py-2 flex gap-2">
-        <button
-          @click="openForm(item)"
-          class="text-blue-600 hover:text-blue-800 transition"
-          title="Edit"
-        >
-          ✏️
-        </button>
-        <button
-          @click="deleteItem(item.id)"
-          class="text-red-600 hover:text-red-800 transition"
-          title="Delete"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m2 0a1 1 0 001-1V5a1 1 0 00-1-1h-3.5l-1-1h-3l-1 1H7a1 1 0 00-1 1v1a1 1 0 001 1h10z"
-            />
-          </svg>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div v-if="showForm" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-  <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
-    <h3 class="text-xl font-semibold mb-4">{{ isEditing ? 'Edit Entry' : 'Create New Entry' }}</h3>
-
-
-    <form @submit.prevent="createOrUpdateEntry">
-      <input v-model="newItem.page" placeholder="Page" class="w-full border p-2 mb-3 rounded" required />
-      <input v-model="newItem.title" placeholder="Title" class="w-full border p-2 mb-3 rounded" required />
-      <textarea v-model="newItem.content" placeholder="Content" class="w-full border p-2 mb-3 rounded" required></textarea>
-      <input v-model="newItem.page_content_id " placeholder="page_contenta-id" class="w-full border p-2 mb-3 rounded" required />
-    <input type="file" @change="handleImageUpload" accept="image/*" class="w-full border px-3 py-2 rounded" required />
-<img v-if="newItem.image" :src="newItem.image" alt="Preview" class="h-20 mt-2 rounded" />
-
-
-      <div class="flex justify-end gap-2">
-        <button type="button" @click="showForm = false" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
-        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-          {{ isEditing ? 'Update' : 'Create' }}
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
+            <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
+              <thead class="bg-gray-300 text-gray-900 text-xs uppercase font-semibold">
+                <tr>
+                  <th class="px-3 py-4 text-left">Page</th>
+                  <th class="px-3 py-2 text-left">Title</th>
+                  <th class="px-3 py-2 text-left">Content</th>
+                  <th class="px-3 py-2 text-left">Image</th>
+                  <th class="px-3 py-2 text-left">Content ID</th>
+                  <th class="px-3 py-2 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 text-gray-700">
+                <tr v-for="item in whygrilData" :key="item.id" class="hover:bg-gray-50">
+                  <td class="px-3 py-2">{{ item.page }}</td>
+                  <td class="px-3 py-2 truncate">{{ item.title }}</td>
+                  <td class="px-3 py-2 truncate max-w-[180px]">{{ item.content }}</td>
+                  <td class="px-3 py-2">
+                    <img :src="item.image" class="h-8 w-8 object-cover rounded-full border border-gray-300" />
+                  </td>
+                  <td class="px-3 py-2">{{ item.page_content_id }}</td>
+                  <td class="px-3 py-2 flex gap-2">
+                    <button @click="openForm(item)" class="text-blue-600 hover:text-blue-800 transition" title="Edit">
+                      ✏️
+                    </button>
+                    <button @click="deleteItem(item.id)" class="text-red-600 hover:text-red-800 transition"
+                      title="Delete">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m2 0a1 1 0 001-1V5a1 1 0 00-1-1h-3.5l-1-1h-3l-1 1H7a1 1 0 00-1 1v1a1 1 0 001 1h10z" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div v-if="showForm" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+              <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-xl">
+                <h3 class="text-xl font-semibold mb-4">{{ isEditing ? 'Edit Entry' : 'Create New Entry' }}</h3>
+                <form @submit.prevent="createOrUpdateEntry">
+                  <input v-model="newItem.page" placeholder="Page" class="w-full border p-2 mb-3 rounded" required />
+                  <input v-model="newItem.title" placeholder="Title" class="w-full border p-2 mb-3 rounded" required />
+                  <textarea v-model="newItem.content" placeholder="Content" class="w-full border p-2 mb-3 rounded"
+                    required></textarea>
+                  <input v-model="newItem.page_content_id" placeholder="page_contenta-id"
+                    class="w-full border p-2 mb-3 rounded" required />
+                  <input type="file" @change="handleImageUpload" accept="image/*"
+                    class="w-full border px-3 py-2 rounded" required />
+                  <img v-if="newItem.image" :src="newItem.image" alt="Preview" class="h-20 mt-2 rounded" />
+                  <div class="flex justify-end gap-2">
+                    <button type="button" @click="showForm = false"
+                      class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                      {{ isEditing ? 'Update' : 'Create' }}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -282,8 +262,6 @@ const selectedPage = ref(localStorage.getItem('selectedPage') || 'Dashboard')
 watch(selectedPage, (newPage) => {
   localStorage.setItem('selectedPage', newPage)
 })
-
-
 const menuItems = [
   { label: 'Dashboard', icon: '🏠', page: 'Dashboard', new: true },
   { label: 'WhyGril', icon: '🛒', page: 'WhyGril' },
@@ -306,8 +284,6 @@ const productionData = {
     borderRadius: 5
   }]
 }
-
-
 const productionOptions = {
   responsive: true,
   plugins: { legend: { display: false } },
@@ -384,9 +360,6 @@ const LOCAL_KEY = 'whygrilData'
 // const showForm = ref(false)
 const isEditing = ref(false)
 const editId = ref(null)
-
-
-
 // Load from localStorage
 onMounted(() => {
   const stored = localStorage.getItem(LOCAL_KEY)
@@ -484,4 +457,3 @@ function resetForm() {
   background: #1f2937;
 }
 </style>
-
