@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('focus_cards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('focus_area_id')->constrained()->onDelete('cascade');
+            $table->foreignId('focus_area_id')->constrained('focus_areas')->onDelete('cascade');
             $table->string('title');
             $table->string('image');
             $table->text('summary')->nullable();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('focus__cards');
+        Schema::dropIfExists('focus_cards');
     }
 };

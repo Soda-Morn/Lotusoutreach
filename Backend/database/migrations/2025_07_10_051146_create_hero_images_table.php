@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('hero_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_content_id')->constrained()->onDelete('cascade');
+            $table->foreignId('page_content_id')->constrained('page_contents')->onDelete('cascade');
             $table->string('src');
             $table->string('alt')->nullable();
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hero__images');
+        Schema::dropIfExists('hero_images');
     }
 };

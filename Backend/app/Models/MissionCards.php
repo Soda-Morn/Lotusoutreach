@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Mission_Cards extends Model
+class MissionCards extends Model
 {
     use HasFactory;
-
-    protected $table = 'mission_cards'; // Explicitly define the table name
-
-    protected $fillable = [
+    
+     protected $fillable = [
         'mission_id', 'title', 'subtitle', 'title_class', 'image', 'alt', 'description'
     ];
 
