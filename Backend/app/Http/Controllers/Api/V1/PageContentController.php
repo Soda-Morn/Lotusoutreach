@@ -3,104 +3,98 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PageContent\StorePageContentRequest;
-use App\Http\Resources\PageContentResource;
-use App\Models\PageContent;
+use App\Models\PageContents;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class PageContentController extends Controller
 {
-    // GET /api/v1/page-contents
+    /**
+     * GET /api/v1/page-contents
+     */
     public function index()
     {
-        $pageContents = PageContent::all();
+        $pageContents = PageContents::all();
+
         return response()->json([
-            'message' => 'ProgramDetail retrieved successfully',
-            'pageContent' => PageContentResource::collection($pageContents)
+            'message' => 'Page contents retrieved successfully.',
+            'data' => $pageContents
         ]);
     }
 
-    // POST /api/v1/page-contents
-    public function store(StorePageContentRequest $request)
+    /**
+     * POST /api/v1/page-contents
+     */
+    public function store(Request $request)
     {
-        $validated = $request->validated();
-
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-        }
-
-        $pageContent = PageContent::create([
-            'type' => $validated['type'],
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'image_path' => $imagePath,
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'subtitle' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
         ]);
 
+        $pageContent = PageContents::create($validated);
+
         return response()->json([
-            'message' => 'Item created successfully',
-            'data' => $pageContent,
-            'image' => $imagePath ? asset('storage/' . $imagePath) : null,
+            'message' => 'Page content created successfully.',
+            'data' => $pageContent
         ], 201);
     }
-    // GET /api/v1/page-contents/{id}
-    public function show(string $id)
+
+    /**
+     * GET /api/v1/page-contents/{id}
+     */
+    public function show($id)
     {
-        $pageContent = PageContent::find($id);
+        $pageContent = PageContents::find($id);
 
         if (!$pageContent) {
-            return response()->json(['message' => 'Item not found'], 404);
+            return response()->json(['message' => 'Page content not found.'], 404);
         }
 
         return response()->json([
-            'message' => 'ProgramDetail retrieved successfully',
-            'pageContent' => PageContentResource::collection($pageContent)
+            'message' => 'Page content retrieved successfully.',
+            'data' => $pageContent
         ]);
     }
 
-    // PUT or PATCH /api/v1/page-contents/{id}
-    public function update(Request $request, string $id)
+    /**
+     * PUT or PATCH /api/v1/page-contents/{id}
+     */
+    public function update(Request $request, $id)
     {
-        $pageContent = PageContent::find($id);
+        $pageContent = PageContents::find($id);
 
         if (!$pageContent) {
-            return response()->json(['message' => 'Item not found'], 404);
+            return response()->json(['message' => 'Page content not found.'], 404);
         }
 
-        $validated = $request->validated();
-
-        if ($request->hasFile('image')) {
-            if ($pageContent->image_path) {
-                Storage::disk('public')->delete($pageContent->image_path);
-            }
-            $pageContent->image_path = $request->file('image')->store('images', 'public');
-        }
+        $validated = $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'subtitle' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+        ]);
 
         $pageContent->update($validated);
 
         return response()->json([
-            'message' => 'Item updated successfully',
-            'data' => $pageContent,
-            'image' => $pageContent->image_path ? asset('storage/' . $pageContent->image_path) : null,
+            'message' => 'Page content updated successfully.',
+            'data' => $pageContent
         ]);
     }
 
-    // DELETE /api/v1/page-contents/{id}
-    public function destroy(string $id)
+    /**
+     * DELETE /api/v1/page-contents/{id}
+     */
+    public function destroy($id)
     {
-        $pageContent = PageContent::find($id);
+        $pageContent = PageContents::find($id);
 
         if (!$pageContent) {
-            return response()->json(['message' => 'Item not found'], 404);
-        }
-
-        if ($pageContent->image_path) {
-            Storage::disk('public')->delete($pageContent->image_path);
+            return response()->json(['message' => 'Page content not found.'], 404);
         }
 
         $pageContent->delete();
 
-        return response()->json(['message' => 'Item deleted successfully']);
+        return response()->json(['message' => 'Page content deleted successfully.']);
     }
 }
