@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('focus_cards', function (Blueprint $table) {
+        Schema::create('hero_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('focus_area_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->string('image');
-            $table->text('summary')->nullable();
-            $table->text('content')->nullable();
+            $table->foreignId('page_content_id')->constrained('page_contents')->onDelete('cascade');
+            $table->string('src');
+            $table->string('alt')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('focus__cards');
+        Schema::dropIfExists('hero_images');
     }
 };

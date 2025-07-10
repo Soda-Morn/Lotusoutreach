@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hero_images', function (Blueprint $table) {
+        Schema::create('approach_tabs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_content_id')->constrained()->onDelete('cascade');
-            $table->string('src');
-            $table->string('alt')->nullable();
+            $table->foreignId('approach_id')->constrained('approaches')->onDelete('cascade');
+            $table->string('key');
+            $table->string('title');
+            $table->text('content');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hero__images');
+        Schema::dropIfExists('approach_tabs');
     }
 };

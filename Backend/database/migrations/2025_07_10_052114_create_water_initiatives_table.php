@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mission_cards', function (Blueprint $table) {
+        Schema::create('water_initiatives', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mission_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->string('title_class')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->string('image');
-            $table->string('alt')->nullable();
             $table->text('description')->nullable();
+            $table->string('highlight')->nullable();
+            $table->integer('stat_value')->nullable();
+            $table->string('stat_text')->nullable();
+            $table->string('image_src')->nullable();
+            $table->string('image_alt')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mission__cards');
+        Schema::dropIfExists('water_initiatives');
     }
 };

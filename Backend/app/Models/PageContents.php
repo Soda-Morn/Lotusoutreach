@@ -13,13 +13,13 @@ class PageContents extends Model
 
     public function heroImages()
     {
-        return $this->hasMany(Hero_Images::class);
+        return $this->hasMany(HeroImage::class);
     }
 
-    public function impactStats()
-    {
-        return $this->hasMany(Impact_State::class);
-    }
+    // public function impactStats()
+    // {
+    //     return $this->hasMany(ImpactState::class);
+    // }
 }
 
 
