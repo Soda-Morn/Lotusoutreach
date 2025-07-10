@@ -11,9 +11,10 @@ class Focus_Areas extends Model
 
     protected $fillable = ['title', 'description'];
 
+    protected $table = 'focus_areas';
+
     public function cards()
     {
         return $this->hasMany(Focus_Cards::class);
     }
 }
-

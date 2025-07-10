@@ -4,6 +4,9 @@ use App\Http\Controllers\Api\V1\PageContentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\V1\FocusAreaController;
+use App\Http\Controllers\Api\V1\FocusCardController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,5 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // API Routes for PageContent
 Route::prefix('v1')->group(function () {
     Route::apiResource('page-contents', PageContentController::class);
+    Route::apiResource('focus-areas', FocusAreaController::class);
+    Route::apiResource('focus-cards', FocusCardController::class);
 });
-
