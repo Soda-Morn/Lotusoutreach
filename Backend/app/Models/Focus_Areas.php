@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class FocusArea extends Model
+class Focus_Areas extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class FocusArea extends Model
 
     public function cards()
     {
-        return $this->hasMany(FocusCard::class);
+        return $this->hasMany(Focus_Cards::class);
     }
 }
 
