@@ -15,9 +15,7 @@ backend/storage/framework/sessions/
 backend/storage/framework/views/
 
 # Laravel environment & cache
-backend/.env
-backend/.env.*
-backend/.phpunit.result.cache
+
 
 # Laravel IDE helper (optional)
 backend/_ide_helper.php

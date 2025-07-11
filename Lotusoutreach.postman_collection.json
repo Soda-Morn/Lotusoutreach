@@ -1,0 +1,767 @@
+{
+	"info": {
+		"_postman_id": "c31bdf16-efef-4737-9258-ed5a5b5b7da3",
+		"name": "Lotusoutreach",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43647509",
+		"_collection_link": "https://solinneat.postman.co/workspace/SOLIN-NEAT's-Workspace~cfdbe90d-1e6f-4d3e-81fd-f1b0f94036f1/collection/43647509-c31bdf16-efef-4737-9258-ed5a5b5b7da3?action=share&source=collection_link&creator=43647509"
+	},
+	"item": [
+		{
+			"name": "ApproachTab",
+			"item": [
+				{
+					"name": "GetAllApproach",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateApproach",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/whygirl",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"whygirl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateApproach",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"WhyGirl content created successfully\",\r\n    \"data\": {\r\n        \"page\": \"whyGirl\",\r\n        \"title\": \"When you empower a girl,\\n\\nyou transform a community.\",\r\n        \"content\": \"Our education, training and care projects are changing the lives of over 12,000 women and children in 2020.\",\r\n        \"image_path\": \"images/IsA5d9QxaSi9Xueyi5oCfWqaqRIZdIaMRno7OrlF.jpg\",\r\n        \"page_content_id\": \"5\",\r\n        \"updated_at\": \"2025-07-04T01:21:19.000000Z\",\r\n        \"created_at\": \"2025-07-04T01:21:19.000000Z\",\r\n        \"id\": 1\r\n    },\r\n    \"image_url\": \"http://127.0.0.1:8000/storage/images/IsA5d9QxaSi9Xueyi5oCfWqaqRIZdIaMRno7OrlF.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/whygirl",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"whygirl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteApproach",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/whygirl/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"whygirl",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hero_image",
+			"item": [
+				{
+					"name": "Get_program",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/heroImage",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"heroImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_program",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/heroImage",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"heroImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_program",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Creating Gender Equality\",\r\n        \"description\": \"Where there is poverty, there are opportunities for exploitation. Women and girls are much more vulnerable than men and boys in low income countries where gender discrimination impacts all levels of social, economic and political life. We recognize gender discrimination and work toward gender equality in the communities we are active.\",\r\n        \"image_path\": \"images/oUCeXG0Shp3TlADFuhKMq6muvhOBR3XsLmLfoceX.jpg\",\r\n        \"why_girls_id\": 1,\r\n        \"created_at\": \"2025-07-04T01:38:28.000000Z\",\r\n        \"updated_at\": \"2025-07-04T01:38:28.000000Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/program/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"program",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_program",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PageContent",
+			"item": [
+				{
+					"name": "Get_pageContent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/page_contents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"page_contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_pageContent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "heading",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Why Girls?",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "For at risk women and girls our help can change everything.",
+									"type": "text"
+								},
+								{
+									"key": "image_path",
+									"type": "file",
+									"src": "/C:/Users/Soda.Morn/Downloads/girl_with_a_slate.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/page_contents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"page_contents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_pageContent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_pageContent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/page_contents/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"page_contents",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Approaches",
+			"item": [
+				{
+					"name": "GetAllApproaches",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/programdetail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"programdetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateApproaches",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/programdetail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"programdetail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateApproaches",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteApproaches",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CtaSections",
+			"item": [
+				{
+					"name": "GetAllCtaSection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/donation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"donation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCtaSection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"donation_amount\": 50.00,\r\n  \"recurring\": true,\r\n  \"command\": \"monthly\",\r\n  \"firstName\": \"Jane\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"jane.doe@example.com\",\r\n  \"phone\": \"123456789\",\r\n  \"address\": \"123 Main St\",\r\n  \"city\": \"Phnom Penh\",\r\n  \"state\": \"Phnom Penh\",\r\n  \"postal_code\": \"12000\",\r\n  \"country\": \"Cambodia\",\r\n  \"payment_method\": \"credit_card\",\r\n  \"programdetail_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/donation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"donation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCtaSection",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCtaSection",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FocusAreas",
+			"item": [
+				{
+					"name": "GetAllFouseAreas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cambodiacontents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cambodiacontents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateFouseAreas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"page\": \"Cambodiacambodia\",\r\n        \"title\": \"sdfghjklasdfghjkásdfghjkl;asdfghjklasdfgh;\",\r\n        \"content\": \"dfghjklasdfghjkl;asdfghjklásdfghjkl;\",\r\n        \"image_path\": \"images/tw8c2RtRyE5JeraNqCC7d2TvRLo9bmZIat8JmqC7.jpg\",\r\n        \"page_content_id\": 5\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cambodiacontents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cambodiacontents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFouseAreas",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFouseAreas",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ImpactState",
+			"item": [
+				{
+					"name": "GetAllImpactSatte",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/partners",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"partners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateImpactSate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "PNC",
+									"type": "text"
+								},
+								{
+									"key": "logo_path",
+									"type": "file",
+									"src": "/C:/Users/Soda.Morn/Downloads/images (1).png"
+								},
+								{
+									"key": "description",
+									"value": "corporations, foundations and individuals are vital for providing access to education",
+									"type": "text"
+								},
+								{
+									"key": "program_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/partners",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"partners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateImpactSate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImpactSate",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MissionCards",
+			"item": [
+				{
+					"name": "GetAllMissionCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateMissionCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/aboutcontents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aboutcontents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMissionCard",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeeteMissionCard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Missions",
+			"item": [
+				{
+					"name": "GetMission",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CreateMisson",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMission",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WaterInitiatives",
+			"item": [
+				{
+					"name": "GetAllWaterInitiatives",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CreateWaterInitiatives",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateWaterInitiatives",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteWaterInitiatives",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetUser",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
