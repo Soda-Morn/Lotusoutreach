@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2025 at 01:56 AM
+-- Generation Time: Jul 11, 2025 at 06:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lotusoutreach`
+-- Database: `lotusoutreach_project`
 --
 
 -- --------------------------------------------------------
