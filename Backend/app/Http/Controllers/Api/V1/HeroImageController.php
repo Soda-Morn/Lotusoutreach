@@ -13,10 +13,23 @@ class HeroImageController extends Controller
     {
         $heroImages = HeroImage::all();
 
+        // Map images to include full image URL
+        $heroImagesWithUrl = $heroImages->map(function ($image) {
+            return [
+                'id' => $image->id,
+                'page_content_id' => $image->page_content_id,
+                'src' => $image->src,
+                'alt' => $image->alt,
+                'image_url' => asset('storage/' . $image->src),
+                'created_at' => $image->created_at,
+                'updated_at' => $image->updated_at,
+            ];
+        });
+
         return response()->json([
             'message' => 'Hero images retrieved successfully',
-            'data' => $heroImages,
-            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s')
+            'data' => $heroImagesWithUrl,
+            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s'),
         ]);
     }
 
@@ -24,14 +37,14 @@ class HeroImageController extends Controller
     {
         $data = $request->validate([
             'page_content_id' => 'required|integer|min:1',
-            'src' => 'required|file|image|max:5120', // Accept image uploads up to 5MB
+            'src' => 'required|file|image|max:5120', // max 5MB
             'alt' => 'required|string|max:255',
         ]);
 
-        // Store the uploaded file
+        // Store uploaded image in public disk
         $imagePath = $request->file('src')->store('hero_image', 'public');
 
-        // Create the record with the stored file path
+        // Create new HeroImage record
         $heroImage = HeroImage::create([
             'page_content_id' => $data['page_content_id'],
             'src' => $imagePath,
@@ -42,7 +55,7 @@ class HeroImageController extends Controller
             'message' => 'Hero image created successfully',
             'data' => $heroImage,
             'image_url' => asset('storage/' . $imagePath),
-            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s')
+            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s'),
         ], 201);
     }
 
@@ -52,7 +65,7 @@ class HeroImageController extends Controller
 
         if (!$heroImage) {
             return response()->json([
-                'message' => 'Hero image not found'
+                'message' => 'Hero image not found',
             ], 404);
         }
 
@@ -60,7 +73,7 @@ class HeroImageController extends Controller
             'message' => 'Hero image retrieved successfully',
             'data' => $heroImage,
             'image_url' => asset('storage/' . $heroImage->src),
-            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s')
+            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s'),
         ]);
     }
 
@@ -70,7 +83,7 @@ class HeroImageController extends Controller
 
         if (!$heroImage) {
             return response()->json([
-                'message' => 'Hero image not found'
+                'message' => 'Hero image not found',
             ], 404);
         }
 
@@ -80,11 +93,13 @@ class HeroImageController extends Controller
             'alt' => 'sometimes|string|max:255',
         ]);
 
-        // If a new image is uploaded, delete the old one and store the new one
+        // Handle new image upload if exists
         if ($request->hasFile('src')) {
+            // Delete old image file if exists
             if ($heroImage->src) {
                 Storage::disk('public')->delete($heroImage->src);
             }
+            // Store new image
             $data['src'] = $request->file('src')->store('hero_image', 'public');
         }
 
@@ -94,7 +109,7 @@ class HeroImageController extends Controller
             'message' => 'Hero image updated successfully',
             'data' => $heroImage,
             'image_url' => asset('storage/' . $heroImage->src),
-            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s')
+            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s'),
         ]);
     }
 
@@ -104,10 +119,11 @@ class HeroImageController extends Controller
 
         if (!$heroImage) {
             return response()->json([
-                'message' => 'Hero image not found'
+                'message' => 'Hero image not found',
             ], 404);
         }
 
+        // Delete image file if exists
         if ($heroImage->src) {
             Storage::disk('public')->delete($heroImage->src);
         }
@@ -116,7 +132,7 @@ class HeroImageController extends Controller
 
         return response()->json([
             'message' => 'Hero image deleted successfully',
-            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s')
+            'timestamp' => now()->timezone('Asia/Bangkok')->format('Y-m-d H:i:s'),
         ]);
     }
 }

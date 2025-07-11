@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->get('/user', function ($request) {
 
 // API Routes under v1 prefix
 Route::prefix('v1')->group(function () {
-    Route::apiResource('page-contents', PageContentController::class);
+    Route::apiResource('page_contents', PageContentController::class);
     Route::apiResource('approachtables',ApproachTableController::class);
     Route::apiResource('heroImage', HeroImageController::class);
     Route::apiResource('approachtable',ApproachTableController::class);
